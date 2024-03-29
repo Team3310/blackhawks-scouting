@@ -39,6 +39,9 @@
         <option value="Blue">Blue</option>
       </select>
     </FormGroup>
+    <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="scout-name-input" name="Name">
+      <input type="text" v-model="scoutNameManual">
+    </FormGroup>
   </FormPage>
 </template>
 
@@ -73,6 +76,7 @@ const selectedTeam = $ref(0);
 
 const teamNumberManual = $ref(0);
 const teamColorManual = $ref("Red");
+const scoutNameManual = $ref("");
 
 let teamsLoadStatus = $ref("");
 let matchesLoadStatus = $ref("");
@@ -125,7 +129,7 @@ const teamsList = $computed(() => {
 // The exported team information
 const teamData = $computed(() => {
   if (isTBA) return teamsList[selectedTeam] ? Object.values(teamsList[selectedTeam]).join() : "";
-  else return `${teamColorManual},0,${teamNumberManual},(no name available)`;
+  else return `${teamColorManual},${teamNumberManual},${scoutNameManual}`;
 });
 
 // Add values to export
