@@ -20,7 +20,7 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "Left Starting Zone",
+          "name": "Didn't Leave Starting Zone",
           "type": "checkbox"
         },
         {
@@ -47,20 +47,12 @@
       "name": "Teleop",
       "widgets": [
         {
-          "name": "Scoring",
-          "type": "heading",
-          "colspan": 5,
-          "align": "center"
-        },
-        {
           "name": "SPEAKER:",
           "type": "spinbox"
         },
         {
           "name": "SPEAKER AMPLIFIED:",
-          "type": "spinbox",
-          "row": 3,
-          "col": 3
+          "type": "spinbox"
         },
         {
           "name": "AMP:",
@@ -68,27 +60,28 @@
         },
         {
           "name": "TRAP:",
-          "type": "spinbox",
-          "max": 3,
-          "row": 4,
-          "col": 3
-        },
-        {
-          "type": "spacer",
-          "height": 20
+          "type": "spinbox"
         },
         {
           "name": "PASSES",
           "type": "spinbox"
         },
         {
-          "name": "We Climbin?",
+          "type": "spacer",
+          "height": 20
+        },
+        {
+          "name": "CLIMB:",
           "type": "radio",
           "options": [
             "Didn't Climb",
             "Failed Climb",
-            "Succesfull Climb"
+            "Succesful Climb"
           ]
+        },
+        {
+          "type": "spacer",
+          "height": 20
         },
         {
           "name": "Other Comments",
