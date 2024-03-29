@@ -3,7 +3,7 @@
   "logo": "logo.png",
   "pages": [
     {
-      "name": "Setup",
+      "name": "Autonomous",
       "widgets": [
         {
           "name": "Scouter Name",
@@ -14,17 +14,6 @@
           }
         },
         {
-          "name": "Starting Position",
-          "type": "positions",
-          "file": "field.png",
-          "selectRadius": 10
-        }
-      ]
-    },
-    {
-      "name": "Autonomous",
-      "widgets": [
-        {
           "name": "Left Starting Zone",
           "type": "checkbox"
         },
@@ -33,19 +22,13 @@
           "height": 20
         },
         {
-          "name": "Amp Notes",
+          "name": "SPEAKER: Score",
           "type": "spinbox",
           "prefix": "Auto"
         },
         {
-          "name": "Speaker Notes",
+          "name": "SPEAKER: Miss",
           "type": "spinbox",
-          "prefix": "Auto"
-        },
-        {
-          "name": "Trap Notes",
-          "type": "spinbox",
-          "max": 3,
           "prefix": "Auto"
         }
       ]
@@ -53,22 +36,6 @@
     {
       "name": "Teleop",
       "widgets": [
-        {
-          "name": "Picked Up From",
-          "type": "heading",
-          "colspan": 5,
-          "align": "center"
-        },
-        {
-          "name": "Ground",
-          "type": "spinbox"
-        },
-        {
-          "name": "Source",
-          "type": "spinbox",
-          "row": 2,
-          "col": 3
-        },
         {
           "name": "Scoring",
           "type": "heading",
@@ -115,59 +82,24 @@
       "name": "Endgame",
       "widgets": [
         {
-          "name": "End Location",
-          "type": "radio",
-          "options": [
-            "Onstage and Spotlit",
-            "Onstage",
-            "Parked",
-            "None"
-          ],
-          "default": 3
-        },
-        {
           "name": "Failed Climb",
           "type": "checkbox"
         },
         {
-          "name": "Robot Position",
-          "type": "radio",
-          "options": [
-            "Stage Left",
-            "Stage Right",
-            "Center Stage",
-            "None"
-          ],
-          "default": 3
-        },
-        {
-          "name": "Harmony",
+          "name": "Climb Alone",
           "type": "checkbox"
         },
         {
-          "name": "Trap Note Positions",
-          "type": "multicheckbox",
-          "options": [
-            "Stage Left",
-            "Stage Right",
-            "Center Stage"
-          ]
+          "name": "Climb with Others",
+          "type": "checkbox"
+        },
+        {
+          "name": "Scored in Trap?",
+          "type": "checkbox"
         },
         {
           "name": "Mechanical Failures",
           "type": "text"
-        },
-        {
-          "name": "Stage Positions",
-          "type": "heading",
-          "colspan": 2,
-          "align": "center"
-        },
-        {
-          "type": "picture",
-          "file": "stage.png",
-          "colspan": 2,
-          "height": 250
         }
       ]
     }
