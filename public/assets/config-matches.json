@@ -3,20 +3,6 @@
   "logo": "logo.png",
   "pages": [
     {
-      "name": "Hey, you! You're finally awake.",
-      "widgets": [
-        {
-          "name": "Name",
-          "type": "text",
-          "validation": {
-            "comparison": "greater",
-            "value": 0
-          }
-        }
-      ]
-
-    },
-    {
       "name": "Autonomous",
       "widgets": [
         {

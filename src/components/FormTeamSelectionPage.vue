@@ -39,7 +39,7 @@
         <option value="Blue">Blue</option>
       </select>
     </FormGroup>
-    <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="scout-name-input" name="Name">
+    <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="scout-name-input" name="Scout Name">
       <input type="text" v-model="scoutNameManual">
     </FormGroup>
   </FormPage>
