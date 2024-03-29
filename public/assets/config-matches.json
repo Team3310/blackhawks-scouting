@@ -92,12 +92,37 @@
           "height": 20
         },
         {
-          "name": "DEAD-BOT",
+          "name": "CAUSED ENSEMBLE FOUL",
           "type": "checkbox"
         },
         {
+          "name": "DEAD-BOT",
+          "type": "checkbox"
+        }, 
+        {
           "name": "Other Comments",
           "type": "text"
+        }
+      ]
+    },
+    {
+      "name": "Score",
+      "widgets": [
+        {
+          "name": "Final Score",
+          "type": "number"
+        },
+        {
+          "name": "Penalty Points",
+          "type": "number"
+        },
+        {
+          "name": "Ranking Points",
+          "type": "number"
+        },
+        {
+          "name": "Coopertition Bonus?",
+          "type": "checkbox"
         }
       ]
     }
