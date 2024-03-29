@@ -51,8 +51,20 @@
           "type": "spinbox"
         },
         {
-          "name": "SPEAKER AMPLIFIED:",
+          "name": "AMPLIFIED:",
           "type": "spinbox"
+        },
+        {
+          "name": "MISSED",
+          "type": "spinbox"
+        },
+        {
+          "name": "PASSES",
+          "type": "spinbox"
+        },
+        {
+          "type": "spacer",
+          "height": 20
         },
         {
           "name": "AMP:",
@@ -60,10 +72,6 @@
         },
         {
           "name": "TRAP:",
-          "type": "spinbox"
-        },
-        {
-          "name": "PASSES",
           "type": "spinbox"
         },
         {
@@ -82,6 +90,10 @@
         {
           "type": "spacer",
           "height": 20
+        },
+        {
+          "name": "DEAD-BOT",
+          "type": "checkbox"
         },
         {
           "name": "Other Comments",
