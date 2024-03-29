@@ -3,23 +3,25 @@
   "logo": "logo.png",
   "pages": [
     {
-      "name": "Autonomous",
+      "name": "Hey, you! You're finally awake.",
       "widgets": [
         {
-          "name": "Scouter Name",
+          "name": "Name",
           "type": "text",
           "validation": {
             "comparison": "greater",
             "value": 0
           }
-        },
+        }
+      ]
+
+    },
+    {
+      "name": "Autonomous",
+      "widgets": [
         {
           "name": "Left Starting Zone",
           "type": "checkbox"
-        },
-        {
-          "type": "spacer",
-          "height": 20
         },
         {
           "name": "SPEAKER: Score",
@@ -30,6 +32,14 @@
           "name": "SPEAKER: Miss",
           "type": "spinbox",
           "prefix": "Auto"
+        },
+        {
+          "name": "Penalty?",
+          "type": "checkbox"
+        },
+        {
+          "name": "Auto Comments",
+          "type": "text"
         }
       ]
     },
@@ -43,62 +53,45 @@
           "align": "center"
         },
         {
-          "name": "Speaker Notes",
+          "name": "SPEAKER:",
           "type": "spinbox"
         },
         {
-          "name": "Amplified Speaker Notes",
+          "name": "SPEAKER AMPLIFIED:",
           "type": "spinbox",
-          "row": 4,
+          "row": 3,
           "col": 3
         },
         {
-          "name": "Amp Notes",
+          "name": "AMP:",
           "type": "spinbox"
         },
         {
-          "name": "Trap Notes",
+          "name": "TRAP:",
           "type": "spinbox",
           "max": 3,
-          "row": 5,
+          "row": 4,
           "col": 3
-        },
-        {
-          "name": "Co-op Bonus",
-          "type": "checkbox",
-          "col": 2
         },
         {
           "type": "spacer",
           "height": 20
         },
         {
-          "name": "Assists",
+          "name": "PASSES",
           "type": "spinbox"
-        }
-      ]
-    },
-    {
-      "name": "Endgame",
-      "widgets": [
-        {
-          "name": "Failed Climb",
-          "type": "checkbox"
         },
         {
-          "name": "Climb Alone",
-          "type": "checkbox"
+          "name": "We Climbin?",
+          "type": "radio",
+          "options": [
+            "Didn't Climb",
+            "Failed Climb",
+            "Succesfull Climb"
+          ]
         },
         {
-          "name": "Climb with Others",
-          "type": "checkbox"
-        },
-        {
-          "name": "Scored in Trap?",
-          "type": "checkbox"
-        },
-        {
-          "name": "Mechanical Failures",
+          "name": "Other Comments",
           "type": "text"
         }
       ]
