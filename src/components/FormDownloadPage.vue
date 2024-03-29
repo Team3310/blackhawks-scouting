@@ -25,7 +25,7 @@
       <button id="qr-dialog-close" @click="qrContainer?.close">Close</button>
       <div>
         <input type="checkbox" v-model="excludeHeaders" id="exclude-headers" />
-        <label for="exclude-headers">Exclude headers in code</label>
+        <label for="exclude-headers">Include headers in code</label>
       </div>
       <qrcode-vue :value="qrData" level="M" render-as="svg" :size="350" />
     </div>
@@ -48,7 +48,7 @@ const router = useRouter();
 
 const page = $ref<InstanceType<typeof FormPage>>();
 const qrContainer = $ref<HTMLDialogElement>();
-const qrData = $computed(() => widgets.toCSVString(widgets.getWidgetsAsCSV(), excludeHeaders));
+const qrData = $computed(() => widgets.toCSVString(widgets.getWidgetsAsCSV(), !excludeHeaders));
 const excludeHeaders = $ref(false);
 
 function clearForm() {

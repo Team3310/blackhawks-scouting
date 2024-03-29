@@ -2,8 +2,8 @@
   <FormPage title="Team Selection" ref="page">
     <FormGroup :label-type="LabelType.LabelTag" id="select-type-input" name="Selection Type">
       <select id="select-type-input" v-model.number="selectType">
-        <option value="0">The Blue Alliance</option>
-        <option value="1">Manual</option>
+        <option value="0">Manual</option>
+        <option value="1">The Blue Alliance</option>
       </select>
     </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.LabelTag" id="event-key-input" name="Event Key">
@@ -80,7 +80,7 @@ let matchesLoadStatus = $ref("");
 const teams = $ref<unknown[]>();
 const matches = $ref<unknown[]>();
 
-const isTBA = $computed(() => selectType === 0);
+const isTBA = $computed(() => selectType === 1);
 
 // The match data based on the selected level and number
 const currentMatch = $computed(() => {
