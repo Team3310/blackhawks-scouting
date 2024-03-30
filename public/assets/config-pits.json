@@ -20,24 +20,12 @@
       "name": "Robot",
       "widgets": [
         {
-          "name": "Height",
-          "type": "number"
-        },
-        {
-          "name": "Length",
-          "type": "number"
-        },
-        {
-          "name": "Width",
-          "type": "number"
-        },
-        {
-          "name": "Number of Batteries",
-          "type": "number"
-        },
-        {
           "name": "Weight",
           "type": "number"
+        },
+        {
+          "name": "Fit Under Stage?",
+          "type": "checkbox"
         },
         {
           "name": "Drivetrain",
@@ -59,16 +47,6 @@
             "Cim",
             "Kraken"
           ]
-        },
-        {
-          "name": "Swerve Type",
-          "type": "dropdown",
-          "options": [
-            "No swerve",
-            "Mk 4",
-            "Mk 4i",
-            "Custom"
-          ]
         }
       ]
     },
@@ -76,7 +54,7 @@
       "name": "Match Play",
       "widgets": [
         {
-          "name": "Can Pick Up",
+          "name": "Can Pick Up From:",
           "type": "multicheckbox",
           "options": [
             "Ground",
@@ -84,7 +62,7 @@
           ]
         },
         {
-          "name": "Can Score In",
+          "name": "Can Score In:",
           "type": "multicheckbox",
           "options": [
             "Speaker",
@@ -98,6 +76,15 @@
           "options": [
             "Manual",
             "Auto"
+          ]
+        },
+        {
+          "name": "Can Climb?",
+          "type": "multicheckbox",
+          "options": [
+            "No",
+            "Yes, Solo",
+            "Yes, Harmony"
           ]
         },
         {
@@ -125,10 +112,6 @@
         },
         {
           "name": "Cycle Time Amp",
-          "type": "number"
-        },
-        {
-          "name": "Cycle Time Trap",
           "type": "number"
         },
         {
