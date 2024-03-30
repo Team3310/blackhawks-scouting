@@ -6,7 +6,7 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "Didn't Leave Starting Zone",
+          "name": "NO LEAVE",
           "type": "checkbox"
         },
         {
@@ -37,10 +37,6 @@
           "type": "spinbox"
         },
         {
-          "name": "AMPLIFIED:",
-          "type": "spinbox"
-        },
-        {
           "name": "MISSED",
           "type": "spinbox"
         },
@@ -57,10 +53,6 @@
           "type": "spinbox"
         },
         {
-          "name": "TRAP:",
-          "type": "spinbox"
-        },
-        {
           "type": "spacer",
           "height": 20
         },
@@ -68,10 +60,10 @@
           "name": "CLIMB:",
           "type": "radio",
           "options": [
-            "Can't Climb",
             "Didn't Climb",
             "Failed Climb",
-            "Succesful Climb"
+            "Succesful Climb",
+            "Succesful Climb & Trap"
           ]
         },
         {
@@ -97,15 +89,28 @@
       "widgets": [
         {
           "name": "Final Score",
-          "type": "number"
+          "type": "number",
+          "validation": {
+            "comparison": "greater",
+            "value": -1
+          }
         },
         {
           "name": "Penalty Points",
-          "type": "number"
+          "type": "number",
+          "validation": {
+            "comparison": "greater",
+            "value": -1
+          }
         },
         {
           "name": "Ranking Points",
           "type": "number"
+          ,
+          "validation": {
+            "comparison": "greater",
+            "value": -1
+          }
         },
         {
           "name": "Coopertition Bonus?",
