@@ -10,7 +10,7 @@
           "type": "checkbox"
         },
         {
-          "name": "SPEAKER: Score",
+          "name": "SPEAKER: Made",
           "type": "spinbox",
           "prefix": "Auto"
         },
@@ -68,6 +68,7 @@
           "name": "CLIMB:",
           "type": "radio",
           "options": [
+            "Can't Climb",
             "Didn't Climb",
             "Failed Climb",
             "Succesful Climb"
