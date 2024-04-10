@@ -6,6 +6,12 @@
       "name": "Autonomous",
       "widgets": [
         {
+          "name": "Order of Auto Notes",
+          "type": "positions",
+          "file": "field.png",
+          "allowMultiple": true
+        },
+        {
           "name": "NO LEAVE",
           "type": "checkbox"
         },
