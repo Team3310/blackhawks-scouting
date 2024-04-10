@@ -6,16 +6,16 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "NO LEAVE uh huh",
+          "name": "NO LEAVE",
           "type": "checkbox"
         },
         {
-          "name": "SPEAKER: Made",
+          "name": "AUTO SPEAKER: Made",
           "type": "spinbox",
           "prefix": "Auto"
         },
         {
-          "name": "SPEAKER: Miss",
+          "name": "AUTO SPEAKER: Miss",
           "type": "spinbox",
           "prefix": "Auto"
         },
