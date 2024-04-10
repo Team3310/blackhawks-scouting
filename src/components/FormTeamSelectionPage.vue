@@ -15,8 +15,7 @@
     <FormGroup :label-type="LabelType.LabelTag" id="match-level-input" name="Match Level">
       <select id="match-level-input" v-model.number="matchLevel" :disabled="config.data.forceQualifiers">
         <option value="0">Qualifications</option>
-        <option value="1">Playoffs</option>
-        <option value="2">Finals</option>
+        <option value="1">PreEvent</option>
       </select>
     </FormGroup>
     <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
