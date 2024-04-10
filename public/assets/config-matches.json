@@ -62,9 +62,16 @@
           "options": [
             "Didn't Climb",
             "Failed Climb",
-            "Succesful Climb",
-            "Succesful Climb & Trap"
+            "Succesful Climb"
           ]
+        },
+        {
+          "name": "Harmony?",
+          "type": "checkbox"
+        },
+        {
+          "name": "Trapped",
+          "type": "checkbox"
         },
         {
           "type": "spacer",
@@ -108,8 +115,8 @@
           "type": "number"
           ,
           "validation": {
-            "comparison": "greater",
-            "value": -1
+            "comparison": "inRange",
+            "value": [0, 4]
           }
         },
         {
