@@ -108,6 +108,10 @@
           "type": "checkbox"
         }, 
         {
+          "name": "NOTE STUCK",
+          "type": "checkbox"
+        }, 
+        {
           "name": "Other Comments",
           "type": "text"
         }
