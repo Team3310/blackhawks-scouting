@@ -60,7 +60,7 @@
         },
         {
           "name": "Preferred Pickup Location",
-          "type": "dropdown",
+          "type": "multicheckbox",
           "options": [
             "Ground",
             "Source",
@@ -81,6 +81,19 @@
           ]
         },
         {
+          "name": "Preferred Scoring Location",
+          "type": "multicheckbox",
+          "options": [
+            "Processor",
+            "Net",
+            "L1",
+            "L2",
+            "L3",
+            "L4"
+          ],
+          "defaultOption": true
+        },
+        {
           "name": "Scoring Methods",
           "type": "multicheckbox",
           "options": [
@@ -98,19 +111,7 @@
           ]
         },
         
-        {
-          "name": "Preferred Scoring Location",
-          "type": "dropdown",
-          "options": [
-            "Processor",
-            "Net",
-            "L1",
-            "L2",
-            "L3",
-            "L4"
-          ],
-          "defaultOption": true
-        },
+
         {
           "name": "Comments",
           "type": "textarea",
