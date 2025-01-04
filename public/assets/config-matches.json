@@ -39,19 +39,31 @@
       "name": "Teleop",
       "widgets": [
         {
-          "name": "SPEAKER",
+          "name": "Coral L1",
           "type": "spinbox"
         },
         {
-          "name": "MISSED",
+          "name": "Coral L2",
           "type": "spinbox"
         },
         {
-          "name": "PASSES",
+          "name": "Coral L3",
           "type": "spinbox"
         },
         {
-          "name": "AMP",
+          "name": "Coral L4",
+          "type": "spinbox"
+        },
+        {
+          "name": "Algae Processed",
+          "type": "spinbox"
+        },
+        {
+          "name": "Algae made by player",
+          "type": "spinbox"
+        },
+        {
+          "name": "Algae made by robot",
           "type": "spinbox"
         },
         {
