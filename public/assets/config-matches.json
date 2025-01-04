@@ -85,8 +85,12 @@
           "height": 20
         },
         {
-          "name": "CAUSED ENSEMBLE FOUL",
-          "type": "checkbox"
+          "name": "Commited major foul",
+          "type": "spinbox"
+        },
+        {
+          "name": "Commited minor foul",
+          "type": "spinbox"
         },
         {
           "name": "DEAD-BOT",
