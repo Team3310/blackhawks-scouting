@@ -24,10 +24,6 @@
           "type": "number"
         },
         {
-          "name": "Fit Under Stage?",
-          "type": "checkbox"
-        },
-        {
           "name": "Drivetrain",
           "type": "dropdown",
           "options": [
@@ -58,16 +54,30 @@
           "type": "multicheckbox",
           "options": [
             "Ground",
-            "Source"
+            "Source",
+            "Reef"
           ]
+        },
+        {
+          "name": "Preferred Pickup Location",
+          "type": "dropdown",
+          "options": [
+            "Ground",
+            "Source",
+            "Reef"
+          ],
+          "defaultOption": true
         },
         {
           "name": "Can Score In:",
           "type": "multicheckbox",
           "options": [
-            "Speaker",
-            "Amp",
-            "Trap"
+            "Processor",
+            "Net",
+            "L1",
+            "L2",
+            "L3",
+            "L4"
           ]
         },
         {
@@ -82,37 +92,24 @@
           "name": "Can Climb?",
           "type": "multicheckbox",
           "options": [
-            "No",
-            "Yes, Solo",
-            "Yes, Harmony"
+            "No, Parks",
+            "Yes, Shallow",
+            "Yes, Deep"
           ]
         },
-        {
-          "name": "Preferred Pickup Location",
-          "type": "dropdown",
-          "options": [
-            "Ground",
-            "Source"
-          ],
-          "defaultOption": true
-        },
+        
         {
           "name": "Preferred Scoring Location",
           "type": "dropdown",
           "options": [
-            "Speaker",
-            "Amp",
-            "Trap"
+            "Processor",
+            "Net",
+            "L1",
+            "L2",
+            "L3",
+            "L4"
           ],
           "defaultOption": true
-        },
-        {
-          "name": "Cycle Time Speaker",
-          "type": "number"
-        },
-        {
-          "name": "Cycle Time Amp",
-          "type": "number"
         },
         {
           "name": "Comments",
