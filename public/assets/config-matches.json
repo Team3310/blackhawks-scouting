@@ -16,18 +16,56 @@
           "type": "checkbox"
         },
         {
-          "name": "AUTO SPEAKER: Made",
+          "name": "AUTO Coral L1: Made",
           "type": "spinbox",
           "prefix": "Auto"
         },
         {
-          "name": "AUTO SPEAKER: Miss",
+          "name": "AUTO Coral L2: Made",
           "type": "spinbox",
           "prefix": "Auto"
         },
         {
-          "name": "Penalty?",
-          "type": "checkbox"
+          "name": "AUTO Coral L3: Made",
+          "type": "spinbox",
+          "prefix": "Auto"
+        },
+        {
+          "name": "AUTO Coral L4: Made",
+          "type": "spinbox",
+          "prefix": "Auto"
+        },
+        {
+          "name": "Algae knocked out of holder",
+          "type" : "spinbox",
+          "prefix":"Auto"
+        },
+        {
+          "name": "Algae knocked out of holder",
+          "type" : "spinbox",
+          "prefix":"Auto"
+        },
+        {
+          "name": "Algae Processed",
+          "type": "spinbox"
+        },
+        {
+          "name": "Algae made by player",
+          "type": "spinbox"
+        },
+        {
+          "name": "Algae made by robot",
+          "type": "spinbox"
+        },
+
+        
+        {
+          "name": "Commited major foul",
+          "type": "spinbox"
+        },
+        {
+          "name": "Commited minor foul",
+          "type": "spinbox"
         },
         {
           "name": "Auto Comments",
