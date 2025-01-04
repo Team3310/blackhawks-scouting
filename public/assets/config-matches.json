@@ -71,41 +71,14 @@
           "height": 20
         },
         {
-          "name": "CLIMB:",
+          "name": "PARK:",
           "type": "radio",
           "options": [
-            "Didn't Climb",
-            "Failed Climb",
-            "Succesful Climb"
+            "Shallow Cage",
+            "Deep Cage",
+            "Parked",
+            "No Park"
           ]
-        },
-        {
-          "name": "Harmony",
-          "type": "checkbox"
-        },
-        {
-          "name": "Trapped",
-          "type": "checkbox"
-        },
-        {
-          "type": "spacer",
-          "height": 20
-        },
-        {
-          "name": "PASSER",
-          "type": "checkbox"
-        }, 
-        {
-          "name": "SHOOTER",
-          "type": "checkbox"
-        }, 
-        {
-          "name": "AMPER",
-          "type": "checkbox"
-        }, 
-        {
-          "name": "DEFENDER",
-          "type": "checkbox"
         },
         {
           "type": "spacer",
