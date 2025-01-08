@@ -1,6 +1,6 @@
 <template>
   <label v-for="[i, name] of data.options.entries()" :key="i">
-    <input type="checkbox" v-model="value" :value="i" />{{ name }}<br />
+    <input type="checkbox" v-model="value" :value="name" />{{ name }}<br />
   </label>
 </template>
 
