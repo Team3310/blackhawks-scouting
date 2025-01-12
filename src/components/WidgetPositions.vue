@@ -54,12 +54,11 @@ function draw() {
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
   // Draw a circle around each selected point
-  ctx.lineWidth = 1;
-  ctx.strokeStyle = props.data.selectColor ?? "#ddd";
+  ctx.fillStyle = "white";
   for (const { x, y } of selections) {
-    ctx.beginPath();
-    ctx.arc(x, y, props.data.selectRadius || 5, 0, 2 * Math.PI, false);
-    ctx.stroke();
+    const rectWidth = 30;
+    const rectHeight = 40;
+    ctx.fillRect(x - rectWidth/2, y-rectHeight / 2, rectWidth, rectHeight);
   }
 }
 
@@ -89,13 +88,14 @@ function click(event: MouseEvent) {
 
   const boundingBoxes = [
     [
-      {x1: 96, y1: 16, x2: 148, y2: 45, xplace: 121, yplace: 50},
-      {x1: 166, y1: 16, x2: 217, y2: 45, xplace: 187, yplace: 50},
-      {x1: 329, y1: 16, x2: 381, y2: 45, xplace: 357, yplace: 50},
-      {x1: 462, y1: 16, x2: 517, y2: 45, xplace: 493, yplace: 50},
-      {x1: 633, y1: 16, x2: 682, y2: 45, xplace: 662, yplace: 50},
-      {x1: 709, y1: 16, x2: 747, y2: 45, xplace: 726, yplace: 50}
-    ]
+      {x1: 96, y1: 16, x2: 148, y2: 60, xplace: 121, yplace: 60},
+      {x1: 166, y1: 16, x2: 217, y2: 60, xplace: 187, yplace: 60},
+      {x1: 329, y1: 16, x2: 381, y2: 60, xplace: 357, yplace: 60},
+      {x1: 462, y1: 16, x2: 517, y2: 60, xplace: 493, yplace: 60},
+      {x1: 633, y1: 16, x2: 682, y2: 60, xplace: 662, yplace: 60},
+      {x1: 709, y1: 16, x2: 747, y2: 60, xplace: 726, yplace: 60}
+    ],
+    
 ];
 
 for (let row = 0; row < 6; row++){
@@ -107,6 +107,10 @@ for (let row = 0; row < 6; row++){
   }
 }
 
+
+
+
+   
   selections.push(point);
 }
 </script>
