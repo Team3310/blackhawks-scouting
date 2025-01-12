@@ -1,6 +1,5 @@
 <template>
   <canvas ref="canvas" @click="click">No canvas support</canvas>
-  <button style="margin-left: 6px;" @click="selections.pop">Undo Last</button>
 </template>
 
 <script setup lang="ts">
@@ -78,8 +77,36 @@ function setDimensions(a: DimensionName, b: DimensionName) {
 // Adds a new selection to the array.
 function click(event: MouseEvent) {
   const point = { x: event.offsetX, y: event.offsetY };
-
+  if (!canvas) return;
+  const relativeX = (point.x/canvas.width) * image.width;
+  const relativeY = (point.y/canvas.width) * image.height;
+  console.log(`Relavetive postition: ${relativeX.toFixed(2)}, ${relativeY.toFixed(2)}`);
   if (!props.data.allowMultiple) selections.pop(); // Only allow one value in the array if specified
+
+  const isWithinBoundingBox = (x: number, y: number,box: {x1: number, y1:number, x2: number, y2:number}) => {
+    return (x >= box.x1 && x <= box.x2 && y >= box.y1 && y<= box.y2);
+  };
+
+  const boundingBoxes = [
+    [
+      {x1: 96, y1: 16, x2: 148, y2: 45, xplace: 121, yplace: 50},
+      {x1: 166, y1: 16, x2: 217, y2: 45, xplace: 187, yplace: 50},
+      {x1: 329, y1: 16, x2: 381, y2: 45, xplace: 357, yplace: 50},
+      {x1: 462, y1: 16, x2: 517, y2: 45, xplace: 493, yplace: 50},
+      {x1: 633, y1: 16, x2: 682, y2: 45, xplace: 662, yplace: 50},
+      {x1: 709, y1: 16, x2: 747, y2: 45, xplace: 726, yplace: 50}
+    ]
+];
+
+for (let row = 0; row < 6; row++){
+  for (let col = 0; col < 1; col++) {
+    if (isWithinBoundingBox(relativeX, relativeY, boundingBoxes[col][row])){
+        point.x = boundingBoxes[col][row].xplace;
+        point.y = boundingBoxes[col][row].yplace;
+    }
+  }
+}
+
   selections.push(point);
 }
 </script>
