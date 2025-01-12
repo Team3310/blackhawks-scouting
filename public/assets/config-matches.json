@@ -6,9 +6,24 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "Reef",
+          "name": "",
           "type": "positions",
-          "file": "field.png",
+          "file": "Reef.png",
+          "allowMultiple": true
+        },
+        {
+          "name": "                                        Front of Reef (Facing Barge)",
+          "type": "label",
+          "align": "center"
+        },  
+
+
+
+        
+        {
+          "name": "",
+          "type": "positions",
+          "file": "Reef.png",
           "allowMultiple": true
         },
         {
