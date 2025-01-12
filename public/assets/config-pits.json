@@ -50,13 +50,16 @@
       "name": "Match Play",
       "widgets": [
         {
-          "name": "Can Pick Up From:",
-          "type": "multicheckbox",
-          "options": [
-            "Ground",
-            "Source",
-            "Reef"
-          ]
+          "name": "Reef Algae Pickup",
+          "type": "spinbox"
+        },
+        {
+          "name": "Ground Algae Pickup",
+          "type": "spinbox"
+        },
+        {
+          "name": "Ground Algae Pickup",
+          "type": "spinbox"
         },
         {
           "name": "Preferred Pickup Location",

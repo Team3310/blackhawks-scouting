@@ -6,7 +6,7 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "Order of Auto Notes",
+          "name": "Reef",
           "type": "positions",
           "file": "field.png",
           "allowMultiple": true
