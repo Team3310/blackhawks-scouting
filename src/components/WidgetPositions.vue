@@ -8,7 +8,7 @@ import { useWidgetsStore } from "@/common/stores";
 import { watch } from "vue";
 import { Widget, WidgetPositions } from "@/config";
 
-type Point = {
+interface Point {
   readonly x: number;
   readonly y: number;
 }
@@ -42,6 +42,14 @@ image.addEventListener("load", () => {
 // Redraw the canvas when the selections change
 watch(selections, draw);
 
+let d = true;
+
+const filled = new Array(24);
+
+for (let i = 0; i<filled.length; i++){
+  filled[i]=true;
+}
+
 // Redraws the canvas.
 function draw() {
   if (!canvas) return;
@@ -54,11 +62,19 @@ function draw() {
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
   // Draw a circle around each selected point
-  ctx.fillStyle = "white";
+  
   for (const { x, y } of selections) {
+    for (let i = 0; i<selections.length; i++){
+    if (!(x==selections[i].x1) && !(y == selections.y1)){
+  ctx.fillStyle = "white";
+  
     const rectWidth = 30;
     const rectHeight = 40;
     ctx.fillRect(x - rectWidth/2, y-rectHeight / 2, rectWidth, rectHeight);
+  }
+
+
+}
   }
 }
 
@@ -88,31 +104,38 @@ function click(event: MouseEvent) {
 
   const boundingBoxes = [
     [
-      {x1: 96, y1: 16, x2: 148, y2: 60, xplace: 121, yplace: 60},
-      {x1: 166, y1: 16, x2: 217, y2: 60, xplace: 187, yplace: 60},
-      {x1: 329, y1: 16, x2: 381, y2: 60, xplace: 357, yplace: 60},
-      {x1: 462, y1: 16, x2: 517, y2: 60, xplace: 493, yplace: 60},
-      {x1: 633, y1: 16, x2: 682, y2: 60, xplace: 662, yplace: 60},
-      {x1: 709, y1: 16, x2: 747, y2: 60, xplace: 726, yplace: 60}
-    ],  
+      {x1: 96, y1: 16, x2: 148, y2: 60, xplace: 121, yplace: 60, place: 1},
+      {x1: 166, y1: 16, x2: 217, y2: 60, xplace: 187, yplace: 60, place: 2},
+      {x1: 329, y1: 16, x2: 381, y2: 60, xplace: 357, yplace: 60, place: 3},
+      {x1: 462, y1: 16, x2: 517, y2: 60, xplace: 493, yplace: 60, place: 4},
+      {x1: 633, y1: 16, x2: 682, y2: 60, xplace: 662, yplace: 60, place: 5},
+      {x1: 709, y1: 16, x2: 747, y2: 60, xplace: 726, yplace: 60, place: 6}
+    ],
+    
 ];
 
 for (let row = 0; row < 6; row++){
   for (let col = 0; col < 1; col++) {
     if (isWithinBoundingBox(relativeX, relativeY, boundingBoxes[col][row])){
+      if (filled[boundingBoxes[col][row].place]){
         point.x = boundingBoxes[col][row].xplace;
         point.y = boundingBoxes[col][row].yplace;
+        filled[boundingBoxes[col][row].place]= false;
+      
+        selections.push(point);}
+      else{
+        
+      
+        selections.pop(point);
+      }
     }
   }
 }
 
 
-//console.log(`Selections: ${selections.map(c => `${c.x},${c,y}`).join(" ")}`);
-
 
 
    
-  selections.push(point);
-}
 
+}
 </script>
