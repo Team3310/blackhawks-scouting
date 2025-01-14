@@ -8,7 +8,7 @@ import { useWidgetsStore } from "@/common/stores";
 import { watch } from "vue";
 import { Widget, WidgetPositions } from "@/config";
 
-interface Point {
+type Point = {
   readonly x: number;
   readonly y: number;
 }
@@ -94,8 +94,7 @@ function click(event: MouseEvent) {
       {x1: 462, y1: 16, x2: 517, y2: 60, xplace: 493, yplace: 60},
       {x1: 633, y1: 16, x2: 682, y2: 60, xplace: 662, yplace: 60},
       {x1: 709, y1: 16, x2: 747, y2: 60, xplace: 726, yplace: 60}
-    ],
-    
+    ],  
 ];
 
 for (let row = 0; row < 6; row++){
@@ -108,9 +107,12 @@ for (let row = 0; row < 6; row++){
 }
 
 
+//console.log(`Selections: ${selections.map(c => `${c.x},${c,y}`).join(" ")}`);
+
 
 
    
   selections.push(point);
 }
+
 </script>

@@ -11,10 +11,6 @@
           "file": "Reef.png",
           "allowMultiple": true
         },
-
-
-
-        
         {
           "name": "Back of Reef (Facing Wall)",
           "type": "positions",
