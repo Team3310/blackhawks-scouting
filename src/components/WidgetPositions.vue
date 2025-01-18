@@ -9,8 +9,10 @@ import { watch } from "vue";
 import { Widget, WidgetPositions } from "@/config";
 
 interface Point {
-  readonly x: number;
-  readonly y: number;
+  x: number;
+  y: number;
+  filled: boolean;
+  orient: String;
 }
 
 type DimensionName = "width" | "height";
@@ -20,7 +22,10 @@ const props = defineProps<{
   currentId: string
 }>();
 
-const selections = $ref(new Array<Point>());
+const selections = $ref(new Array<Point>(24));
+for (let count = 0; count<selections.length; count++){
+  selections[count]= {x: 0,y: 0,filled: false, orient: ""};
+}
 const canvas = $ref<HTMLCanvasElement>();
 
 // Scales a coordinate on the canvas between 0 and 1 using the image dimensions.
@@ -40,15 +45,27 @@ image.addEventListener("load", () => {
 });
 
 // Redraw the canvas when the selections change
-watch(selections, draw);
+//watch(selections, draw);
 
-let d = true;
-
-const filled = new Array(24);
+/*const filled = new Array(24);
 
 for (let i = 0; i<filled.length; i++){
   filled[i]=true;
-}
+}*/
+
+const boundingBoxes = [ //x,y positions of each coral node
+    [
+      {x1: 119, y1: 35, x2: 153, y2: 68, xplace: 134, yplace: 47}, //1
+      {x1: 181, y1: 4, x2: 210, y2: 35, xplace: 199, yplace: 16}, //2
+      {x1: 149, y1: 79, x2: 201, y2: 100, xplace: 174, yplace: 100}, //3
+      {x1: 198, y1: 51, x2: 225, y2: 76, xplace: 217, yplace: 75}, //4
+      {x1: 162, y1: 109, x2: 221, y2: 133, xplace: 195, yplace: 137}, //5
+      {x1: 226, y1: 82, x2: 251, y2: 111, xplace: 240, yplace: 115} //6
+    ],
+    
+];
+
+
 
 // Redraws the canvas.
 function draw() {
@@ -62,21 +79,29 @@ function draw() {
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
   // Draw a circle around each selected point
-  
-  for (const { x, y } of selections) {
     for (let i = 0; i<selections.length; i++){
-    if (!(x==selections[i].x1) && !(y == selections.y1)){
-  ctx.fillStyle = "white";
+    const x = selections[i].x;
+    const y = selections[i].y;
+    const f = selections[i].filled;
+    if (f){
+      if (selections[i].orient == "vertical"){
+        console.log("vertical");
+        ctx.rotate(Math.PI / 2);}
+        else{
+            ctx.rotate(0);
+        }
+  ctx.fillStyle = "white"; 
   
     const rectWidth = 30;
-    const rectHeight = 40;
+    const rectHeight = 10;
     ctx.fillRect(x - rectWidth/2, y-rectHeight / 2, rectWidth, rectHeight);
+    console.log("printed");
   }
-
+    }
 
 }
-  }
-}
+  
+
 
 // Sets the dimensions of the canvas based on the image dimensions and configuration data.
 function setDimensions(a: DimensionName, b: DimensionName) {
@@ -91,51 +116,65 @@ function setDimensions(a: DimensionName, b: DimensionName) {
 
 // Adds a new selection to the array.
 function click(event: MouseEvent) {
-  const point = { x: event.offsetX, y: event.offsetY };
+  let point = { x: event.offsetX, y: event.offsetY, f: false};
   if (!canvas) return;
   const relativeX = (point.x/canvas.width) * image.width;
   const relativeY = (point.y/canvas.width) * image.height;
-  console.log(`Relavetive postition: ${relativeX.toFixed(2)}, ${relativeY.toFixed(2)}`);
+  console.log(`Actual Click: ${relativeX.toFixed(2)}, ${relativeY.toFixed(2)}`);
   if (!props.data.allowMultiple) selections.pop(); // Only allow one value in the array if specified
 
-  const isWithinBoundingBox = (x: number, y: number,box: {x1: number, y1:number, x2: number, y2:number}) => {
+  const isWithinBoundingBox = (x: number, y: number,box: {x1: number, y1:number, x2: number, y2:number, xplace: number, yplace: number}) => {
     return (x >= box.x1 && x <= box.x2 && y >= box.y1 && y<= box.y2);
   };
 
-  const boundingBoxes = [
-    [
-      {x1: 96, y1: 16, x2: 148, y2: 60, xplace: 121, yplace: 60, place: 1},
-      {x1: 166, y1: 16, x2: 217, y2: 60, xplace: 187, yplace: 60, place: 2},
-      {x1: 329, y1: 16, x2: 381, y2: 60, xplace: 357, yplace: 60, place: 3},
-      {x1: 462, y1: 16, x2: 517, y2: 60, xplace: 493, yplace: 60, place: 4},
-      {x1: 633, y1: 16, x2: 682, y2: 60, xplace: 662, yplace: 60, place: 5},
-      {x1: 709, y1: 16, x2: 747, y2: 60, xplace: 726, yplace: 60, place: 6}
-    ],
-    
-];
 
-for (let row = 0; row < 6; row++){
+// horizontal indexes: 1: 3,5 2: 1,2 3: 4,6 4: 3,5 5: 1,2 6: 4,6
+// vertical indexes: 1: 1,2,4,6 2: 3,4,5,6 3: 1,2,3,5 4: 1,2,4,6 5: 3,4,5,6 6: 1,2,3,5
+
+let index = -1;
+let orient = "";
+for (let row = 0; row < 6; row++){ //check if click is in one of the bounding boxes
   for (let col = 0; col < 1; col++) {
     if (isWithinBoundingBox(relativeX, relativeY, boundingBoxes[col][row])){
-      if (filled[boundingBoxes[col][row].place]){
-        point.x = boundingBoxes[col][row].xplace;
-        point.y = boundingBoxes[col][row].yplace;
-        filled[boundingBoxes[col][row].place]= false;
+      console.log("col " + col + " row " + row);
+      index = (col*6)+(row);
+      point = { x: (boundingBoxes[col][row]).xplace, y: boundingBoxes[col][row].yplace, f: true };
+      if (col==0){
+        if (row == 2 || row == 4){
+          orient = "horizontal";
+        }
+        else{
+          orient = "vertical";
+        }
       
-        selections.push(point);}
-      else{
-        
-      
-        selections.pop(point);
+
       }
-    }
+      
   }
 }
-
-
-
-
-   
-
 }
+console.log("Index: " + index);
+
+selections[index].orient = orient;
+console.log("Orient: " + orient);
+
+if (!((selections[index]).filled)){
+        console.log("not filled");
+        (selections[index].filled)= true;
+        (selections[index].x)= point.x;
+        (selections[index].y)= point.y;
+        }
+      
+      
+      else{
+        console.log("already filled");
+        (selections[index].filled)= false;
+        (selections[index].x)= point.x;
+        (selections[index].y)= point.y;
+    }
+    console.log("Grid Position :"+ point.x + ", " + point.y);
+    draw();
+   
+  }
+
 </script>

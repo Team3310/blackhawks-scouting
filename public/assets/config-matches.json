@@ -12,12 +12,6 @@
           "allowMultiple": true
         },
         {
-          "name": "Back of Reef (Facing Wall)",
-          "type": "positions",
-          "file": "Reef.png",
-          "allowMultiple": true
-        },
-        {
           "name": "NO LEAVE",
           "type": "checkbox"
         },
