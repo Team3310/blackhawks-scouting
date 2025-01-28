@@ -8,32 +8,12 @@
         {
           "name": "Front of Reef (Facing Barge)",
           "type": "positions",
-          "file": "Reef.png",
+          "file": "reefdrawio2.drawio.png",
           "allowMultiple": true
         },
         {
           "name": "NO LEAVE",
           "type": "checkbox"
-        },
-        {
-          "name": "AUTO Coral L1: Made",
-          "type": "spinbox",
-          "prefix": "Auto"
-        },
-        {
-          "name": "AUTO Coral L2: Made",
-          "type": "spinbox",
-          "prefix": "Auto"
-        },
-        {
-          "name": "AUTO Coral L3: Made",
-          "type": "spinbox",
-          "prefix": "Auto"
-        },
-        {
-          "name": "AUTO Coral L4: Made",
-          "type": "spinbox",
-          "prefix": "Auto"
         },
         {
           "name": "Algae Processed",

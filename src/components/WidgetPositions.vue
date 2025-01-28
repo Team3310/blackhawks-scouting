@@ -22,7 +22,7 @@ const props = defineProps<{
   currentId: string
 }>();
 
-const selections = $ref(new Array<Point>(24));
+const selections = $ref(new Array<Point>(36));
 for (let count = 0; count<selections.length; count++){
   selections[count]= {x: 0,y: 0,filled: false, orient: ""};
 }
@@ -55,13 +55,54 @@ for (let i = 0; i<filled.length; i++){
 
 const boundingBoxes = [ //x,y positions of each coral node
     [
-      {x1: 119, y1: 35, x2: 153, y2: 68, xplace: 134, yplace: 47}, //1
+      {x1: 119, y1: 35, x2: 153, y2: 68, xplace: 130, yplace: 50}, //1
       {x1: 181, y1: 4, x2: 210, y2: 35, xplace: 199, yplace: 16}, //2
       {x1: 149, y1: 79, x2: 201, y2: 100, xplace: 174, yplace: 100}, //3
       {x1: 198, y1: 51, x2: 225, y2: 76, xplace: 217, yplace: 75}, //4
       {x1: 162, y1: 109, x2: 221, y2: 133, xplace: 195, yplace: 137}, //5
-      {x1: 226, y1: 82, x2: 251, y2: 111, xplace: 240, yplace: 115} //6
+      {x1: 221, y1: 83, x2: 252, y2: 106, xplace: 240, yplace: 115} //6
     ],
+    [
+      {x1: 33, y1: 213, x2: 80, y2: 233, xplace: 54, yplace: 264}, //7
+      {x1: 33, y1: 154, x2: 80, y2: 165, xplace: 54, yplace: 190}, //8
+      {x1: 101, y1: 202, x2: 127, y2: 223, xplace: 118, yplace: 253}, //9
+      {x1: 97, y1: 154, x2: 134, y2: 184, xplace: 114, yplace: 200}, //10
+      {x1: 143, y1: 203, x2: 172, y2: 226, xplace: 157, yplace: 254}, //11
+      {x1: 144, y1: 157, x2: 175, y2: 183, xplace: 156, yplace: 201} //12
+    ],
+    [
+      {x1: 181, y1: 345, x2: 213, y2: 380, xplace: 197, yplace: 435}, //13
+      {x1: 116, y1: 311, x2: 156, y2: 351, xplace: 133, yplace: 400}, //14
+      {x1: 210, y1: 291, x2: 222, y2: 338, xplace: 218, yplace: 375}, //15
+      {x1: 148, y1: 283, x2: 189, y2: 308, xplace: 173, yplace: 350}, //16
+      {x1: 227, y1: 271, x2: 254, y2: 306, xplace: 239, yplace: 338}, //17
+      {x1: 169, y1: 251, x2: 210, y2: 278, xplace: 194, yplace: 318}, //18
+    ],
+    [
+      {x1: 381, y1: 322, x2: 441, y2: 345, xplace: 419, yplace: 405}, //19
+      {x1: 324, y1: 345, x2: 374, y2: 379, xplace: 353, yplace: 435}, //20
+      {x1: 354, y1: 285, x2: 397, y2: 308, xplace: 377, yplace: 350}, //21
+      {x1: 316, y1: 305, x2: 348, y2: 329, xplace: 333, yplace: 375}, //22
+      {x1: 334, y1: 257, x2: 373, y2: 278, xplace: 357, yplace: 318}, //23
+      {x1: 291, y1: 274, x2: 329, y2: 297, xplace: 314, yplace: 340}, //24
+    ],
+    [
+      {x1: 458, y1: 140, x2: 510, y2: 173, xplace: 497, yplace: 190}, //19
+      {x1: 466, y1: 204, x2: 514, y2: 232, xplace: 494, yplace: 270}, //20
+      {x1: 421, y1: 157, x2: 445, y2: 182, xplace: 433, yplace: 200}, //21
+      {x1: 421, y1: 202, x2: 449, y2: 226, xplace: 436, yplace: 260}, //22
+      {x1: 380, y1: 153, x2: 405, y2: 180, xplace: 395, yplace: 200}, //23
+      {x1: 377, y1: 199, x2: 410, y2: 226, xplace: 394, yplace: 260}, //24
+    ],
+    [
+      {x1: 337, y1: 0, x2: 369, y2: 36, xplace: 353, yplace: 14}, //19
+      {x1: 386, y1: 30, x2: 428, y2: 65, xplace: 418, yplace: 55}, //20
+      {x1: 317, y1: 47, x2: 346, y2: 78, xplace: 334, yplace: 78}, //21
+      {x1: 362, y1: 70, x2: 394, y2: 98, xplace: 377, yplace: 105}, //22
+      {x1: 297, y1: 76, x2: 325, y2: 107, xplace: 312, yplace: 107}, //23
+      {x1: 337, y1: 101, x2: 373, y2: 127, xplace: 359, yplace: 136}, //24
+    ]
+    
     
 ];
 
@@ -73,29 +114,36 @@ function draw() {
 
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
-
   // Clear the canvas, then draw the image
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-  // Draw a circle around each selected point
+  // Draw a rectangle around each selected point
     for (let i = 0; i<selections.length; i++){
     const x = selections[i].x;
     const y = selections[i].y;
     const f = selections[i].filled;
-    if (f){
-      if (selections[i].orient == "vertical"){
-        console.log("vertical");
-        ctx.rotate(Math.PI / 2);}
-        else{
-            ctx.rotate(0);
-        }
-  ctx.fillStyle = "white"; 
-  
     const rectWidth = 30;
     const rectHeight = 10;
-    ctx.fillRect(x - rectWidth/2, y-rectHeight / 2, rectWidth, rectHeight);
-    console.log("printed");
+    let angle = 0;
+    if (f){
+      if (selections[i].orient == "vertical"){
+        angle = Math.PI / 2; // 90 degrees
+
+        }
+        else if (selections[i].orient == "slight right") {
+    angle = 2*(Math.PI) / 3; // 45 degrees
+}
+    else if (selections[i].orient == "slight left") {
+    angle = 31 * Math.PI / 90; // 62 degrees
+}
+    ctx.save(); // Save the current context state
+    ctx.translate(x, y); // Translate to the rectangle's center
+    ctx.rotate(angle); // Rotate the context by the specified angle
+    ctx.fillStyle = "white";
+    ctx.fillRect(-rectWidth / 2, -rectHeight / 2, rectWidth, rectHeight); // Draw the rectangle
+    ctx.restore();
+
   }
     }
 
@@ -134,26 +182,89 @@ function click(event: MouseEvent) {
 let index = -1;
 let orient = "";
 for (let row = 0; row < 6; row++){ //check if click is in one of the bounding boxes
-  for (let col = 0; col < 1; col++) {
+  for (let col = 0; col < 6; col++) {
     if (isWithinBoundingBox(relativeX, relativeY, boundingBoxes[col][row])){
-      console.log("col " + col + " row " + row);
       index = (col*6)+(row);
       point = { x: (boundingBoxes[col][row]).xplace, y: boundingBoxes[col][row].yplace, f: true };
-      if (col==0){
-        if (row == 2 || row == 4){
-          orient = "horizontal";
-        }
-        else{
-          orient = "vertical";
-        }
       
-
-      }
       
   }
 }
 }
-console.log("Index: " + index);
+        console.log("Index: " + index);
+if (index <= 5){
+        if (index == 2 || index == 4){
+          orient = "horizontal";
+        }
+        else if (index == 0 || index == 1){
+          orient = "slight left";
+        }
+        else if (index == 3 || index == 5){
+          orient = "slight right";
+        } 
+      
+
+      }
+      else if (index <= 11){
+
+        if (index == 6 || index == 7){
+          orient = "horizontal";
+        }
+        else if (index == 9 || index == 11){
+          orient = "slight left";
+        }
+        else if (index == 8 || index == 10){
+          orient = "slight right";
+        } 
+      }
+      else if (index <= 17){
+        if (index == 15 || index == 17){
+          orient = "horizontal";
+        }
+        else if (index == 14 || index == 16){
+          orient = "slight left";
+        }
+        else if (index == 12 || index == 13){
+          orient = "slight right";
+        } 
+      }
+      else if (index <= 23){
+        if (index == 20 || index == 22){
+          orient = "horizontal";
+        }
+        else if (index == 18 || index == 19){
+          orient = "slight left";
+        }
+        else if (index == 21 || index == 23){
+          orient = "slight right";
+        } 
+      }
+      else if (index <= 29){
+        if (index == 24 || index == 25){
+          orient = "horizontal";
+        }
+        else if (index == 27 || index == 29){
+          orient = "slight left";
+        }
+        else if (index == 26 || index == 28){
+          orient = "slight right";
+        } 
+      }
+      else if (index <= 35){
+        if (index == 33 || index == 35){
+          orient = "horizontal";
+        }
+        else if (index == 32 || index == 34){
+          orient = "slight left";
+        }
+        else if (index == 30 || index == 31){
+          orient = "slight right";
+        } 
+      }
+      else{
+        console.log("error1");
+      }
+
 
 selections[index].orient = orient;
 console.log("Orient: " + orient);
@@ -172,8 +283,9 @@ if (!((selections[index]).filled)){
         (selections[index].x)= point.x;
         (selections[index].y)= point.y;
     }
-    console.log("Grid Position :"+ point.x + ", " + point.y);
+  
     draw();
+    console.log("Grid position: " + (selections[index].x) + ", " + (selections[index].y));
    
   }
 
