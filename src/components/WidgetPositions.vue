@@ -107,7 +107,9 @@ const boundingBoxes = [ //x,y positions of each coral node
     ]
 ];
 
-
+//if alliance color = blue back of reef is on the left side and home processor is on bottom, if red back of reef is on the right side and home processor is on the top.
+//Then add a flip button where color flips 
+//add different color images, this is not possible i dont think
 
 // Redraws the canvas.
 function draw() {
@@ -138,13 +140,16 @@ function draw() {
     else if (selections[i].orient == "slight left") {
     angle = 31 * Math.PI / 90; // 62 degrees
 }
+    if (props.data.teamColor === "red"){
+      ctx.scale(-1,1) //flip horizontally
+    }
+
     ctx.save(); // Save the current context state
     ctx.translate(x, y); // Translate to the rectangle's center
     ctx.rotate(angle); // Rotate the context by the specified angle
     ctx.fillStyle = "white";
     ctx.fillRect(-rectWidth / 2, -rectHeight / 2, rectWidth, rectHeight); // Draw the rectangle
     ctx.restore();
-
   }
     }
 

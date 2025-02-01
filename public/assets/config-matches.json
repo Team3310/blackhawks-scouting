@@ -8,10 +8,11 @@
         {
           "name": "Back of Reef (Facing Alliance)",
           "type": "positions",
-          "file": "reefdrawio2.drawio.png",
+          "file": "BlueReef.png",
           "allowMultiple": true
         },
-        {
+        
+        { 
           "name": "Home Team Processor",
           "type": "label"
         },
