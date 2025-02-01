@@ -102,8 +102,6 @@ const boundingBoxes = [ //x,y positions of each coral node
       {x1: 297, y1: 76, x2: 325, y2: 107, xplace: 312, yplace: 107}, //35
       {x1: 337, y1: 101, x2: 373, y2: 127, xplace: 359, yplace: 136}, //36
     ]
-    
-    
 ];
 
 
@@ -181,9 +179,11 @@ function click(event: MouseEvent) {
 
 let index = -1;
 let orient = "";
+let found = false;
 for (let row = 0; row < 6; row++){ //check if click is in one of the bounding boxes
   for (let col = 0; col < 6; col++) {
     if (isWithinBoundingBox(relativeX, relativeY, boundingBoxes[col][row])){
+      found = true;
       index = (col*6)+(row);
       point = { x: (boundingBoxes[col][row]).xplace, y: boundingBoxes[col][row].yplace, f: true };
       
@@ -191,6 +191,7 @@ for (let row = 0; row < 6; row++){ //check if click is in one of the bounding bo
   }
 }
 }
+if (found){
         console.log("Index: " + index);
 if (index <= 5){
         if (index == 2 || index == 4){
@@ -288,5 +289,5 @@ if (!((selections[index]).filled)){
     console.log("Grid position: " + (selections[index].x) + ", " + (selections[index].y));
    
   }
-
+}
 </script>
