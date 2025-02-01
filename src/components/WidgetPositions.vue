@@ -87,20 +87,20 @@ const boundingBoxes = [ //x,y positions of each coral node
       {x1: 291, y1: 274, x2: 329, y2: 297, xplace: 314, yplace: 340}, //24
     ],
     [
-      {x1: 458, y1: 140, x2: 510, y2: 173, xplace: 497, yplace: 190}, //19
-      {x1: 466, y1: 204, x2: 514, y2: 232, xplace: 494, yplace: 270}, //20
-      {x1: 421, y1: 157, x2: 445, y2: 182, xplace: 433, yplace: 200}, //21
-      {x1: 421, y1: 202, x2: 449, y2: 226, xplace: 436, yplace: 260}, //22
-      {x1: 380, y1: 153, x2: 405, y2: 180, xplace: 395, yplace: 200}, //23
-      {x1: 377, y1: 199, x2: 410, y2: 226, xplace: 394, yplace: 260}, //24
+      {x1: 458, y1: 140, x2: 510, y2: 173, xplace: 497, yplace: 190}, //25
+      {x1: 466, y1: 204, x2: 514, y2: 232, xplace: 494, yplace: 270}, //26
+      {x1: 421, y1: 157, x2: 445, y2: 182, xplace: 433, yplace: 200}, //27
+      {x1: 421, y1: 202, x2: 449, y2: 226, xplace: 436, yplace: 260}, //28
+      {x1: 380, y1: 153, x2: 405, y2: 180, xplace: 395, yplace: 200}, //29
+      {x1: 377, y1: 199, x2: 410, y2: 226, xplace: 394, yplace: 260}, //30
     ],
     [
-      {x1: 337, y1: 0, x2: 369, y2: 36, xplace: 353, yplace: 14}, //19
-      {x1: 386, y1: 30, x2: 428, y2: 65, xplace: 418, yplace: 55}, //20
-      {x1: 317, y1: 47, x2: 346, y2: 78, xplace: 334, yplace: 78}, //21
-      {x1: 362, y1: 70, x2: 394, y2: 98, xplace: 377, yplace: 105}, //22
-      {x1: 297, y1: 76, x2: 325, y2: 107, xplace: 312, yplace: 107}, //23
-      {x1: 337, y1: 101, x2: 373, y2: 127, xplace: 359, yplace: 136}, //24
+      {x1: 337, y1: 0, x2: 369, y2: 36, xplace: 353, yplace: 14}, //31
+      {x1: 386, y1: 30, x2: 428, y2: 65, xplace: 418, yplace: 55}, //32
+      {x1: 317, y1: 47, x2: 346, y2: 78, xplace: 334, yplace: 78}, //33
+      {x1: 362, y1: 70, x2: 394, y2: 98, xplace: 377, yplace: 105}, //34
+      {x1: 297, y1: 76, x2: 325, y2: 107, xplace: 312, yplace: 107}, //35
+      {x1: 337, y1: 101, x2: 373, y2: 127, xplace: 359, yplace: 136}, //36
     ]
     
     

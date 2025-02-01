@@ -6,14 +6,55 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "Front of Reef (Facing Barge)",
+          "name": "Back of Reef (Facing Alliance)",
           "type": "positions",
           "file": "reefdrawio2.drawio.png",
           "allowMultiple": true
         },
         {
+          "name": "Home Team Processor",
+          "type": "label"
+        },
+        {
+          "type": "spacer",
+          "height": 20
+        },
+        {
+          "name": "Starting postion:",
+          "type": "radio",
+          "options": [
+            "In front of T6",
+            "In front of T5",
+            "In front of T4"
+          ]
+        },
+        {
           "name": "NO LEAVE",
           "type": "checkbox"
+        },
+        {
+          "name": "Trough 1 (T1) Coral",
+          "type": "spinbox"
+        },
+        {
+          "name": "Trough 2 (T2) Coral",
+          "type": "spinbox"
+        },
+        {
+          "name": "Trough 3 (T3) Coral",
+          "type": "spinbox"
+        },
+        {
+          "name": "Trough 4 (T4) Coral",
+          "type": "spinbox"
+        },
+        {
+          "name": "Trough 5 (T5) Coral",
+          "type": "spinbox"
+        },
+        {
+          "name": "Trough 6 (T6) Coral",
+          "type": "spinbox"
         },
         {
           "name": "Algae Processed",
