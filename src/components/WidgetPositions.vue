@@ -2,6 +2,7 @@
   <div>
     <canvas ref="canvas" @click="click">No canvas support</canvas>
     <button @click="clearAll">Clear All</button>
+    <button @click="toggleVerticalFlip">Flip Vertical</button>
   </div>
 </template>
 
@@ -30,6 +31,9 @@ for (let count = 0; count<selections.length; count++){
   selections[count]= {x: 0,y: 0,filled: false, orient: ""};
 }
 const canvas = $ref<HTMLCanvasElement>();
+
+// Set up a flag to flip vertically.
+let flipVertical = false;
 
 // Scales a coordinate on the canvas between 0 and 1 using the image dimensions.
 const divide = (val: number, dimension: DimensionName) => (val / (get(canvas, dimension) ?? 1)).toFixed(3);
@@ -111,15 +115,29 @@ const boundingBoxes = [ //x,y positions of each coral node
 //Then add a flip button where color flips 
 //add different color images, this is not possible i dont think
 
+
+
 // Redraws the canvas.
 function draw() {
+  
   if (!canvas) return;
 
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
-  // Clear the canvas, then draw the image
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  
+
+    if (flipVertical) {
+    ctx.save();
+    ctx.translate(0, canvas.height);
+    ctx.scale(1, -1);
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    ctx.restore();
+  } else {
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  }
 
   // Draw a rectangle around each selected point
     for (let i = 0; i<selections.length; i++){
@@ -140,9 +158,7 @@ function draw() {
     else if (selections[i].orient == "slight left") {
     angle = 31 * Math.PI / 90; // 62 degrees
 }
-    if (props.data.teamColor === "red"){
-      ctx.scale(-1,1) //flip horizontally
-    }
+
 
     ctx.save(); // Save the current context state
     ctx.translate(x, y); // Translate to the rectangle's center
@@ -177,6 +193,11 @@ function clearAll() {
     selections[i].y = 0;
     selections[i].orient = "";
   }
+  draw();
+}
+
+function toggleVerticalFlip() {
+  flipVertical = !flipVertical;
   draw();
 }
 

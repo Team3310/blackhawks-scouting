@@ -13,11 +13,23 @@
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Teams Loaded">{{ teamsLoadStatus }}</FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Matches Loaded">{{ matchesLoadStatus }}</FormGroup>
     <FormGroup :label-type="LabelType.LabelTag" id="match-level-input" name="Match Level">
-      <select id="match-level-input" v-model.number="matchLevel" :disabled="config.data.forceQualifiers">
-        <option value="0">Qualifications</option>
-        <option value="1">PreEvent</option>
-      </select>
-    </FormGroup>
+  <input 
+    type="radio" 
+    id="match-level-qualifications" 
+    value="0" 
+    v-model.number="matchLevel" 
+    :disabled="config.data.forceQualifiers" 
+  />
+  <label for="match-level-qualifications">Qualifications</label>
+  <input 
+    type="radio" 
+    id="match-level-preevent" 
+    value="1" 
+    v-model.number="matchLevel" 
+    :disabled="config.data.forceQualifiers" 
+  />
+  <label for="match-level-preevent">PreEvent</label>
+</FormGroup>
     <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
       <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" />
     </FormGroup>
@@ -30,7 +42,7 @@
       </select>
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="team-number-input" name="Team Number">
-      <input type="number" v-model="teamNumberManual">
+      <input type="number" v-model="teamNumberManual" />
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="team-color-input" name="Team Color">
       <select id="team-color-input" v-model="teamColorManual">
@@ -39,7 +51,7 @@
       </select>
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="scout-name-input" name="Scout Name">
-      <input type="text" v-model="scoutNameManual">
+      <input type="text" v-model="scoutNameManual" />
     </FormGroup>
   </FormPage>
 </template>
@@ -85,8 +97,23 @@ const matches = $ref<unknown[]>();
 
 const isTBA = $computed(() => selectType === 1);
 
+const widgetData = computed(() => ({
+  ...config.data,
+  teamColor: `${teamColorManual}`
+}));
+
+
+// Debug: log teamColorManual and widgetData to ensure it is defined.
+console.log("teamColorManual:", teamColorManual);
+console.log("widgetData.teamColor:", widgetData.value.teamColor);
+
+// Define a unique widget id to pass as currentId.
+// You can generate or set this value as needed.
+const currentId = "unique-widget-id";
+
 // The match data based on the selected level and number
 const currentMatch = $computed(() => {
+
   // Make sure matches are loaded
   if (!Array.isArray(matches)) return null;
 
@@ -101,6 +128,8 @@ const currentMatch = $computed(() => {
 
   matchList.sort((first: unknown, second: unknown) => diff(first, second, "match") || diff(first, second, "set"));
   return matchList[matchNumber - 1] ?? null;
+
+  
 });
 
 // The teams playing in the selected match
@@ -124,6 +153,8 @@ const teamsList = $computed(() => {
 
   return result;
 });
+
+
 
 // The exported team information
 const teamData = $computed(() => {
