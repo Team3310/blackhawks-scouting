@@ -21,7 +21,7 @@
         },
         {
           "name": "Starting postion:",
-          "type": "radio",
+          "type": "dropdown",
           "options": [
             "In front of T6",
             "In front of T5",

@@ -1,5 +1,8 @@
 <template>
-  <canvas ref="canvas" @click="click">No canvas support</canvas>
+  <div>
+    <canvas ref="canvas" @click="click">No canvas support</canvas>
+    <button @click="clearAll">Clear All</button>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -158,6 +161,18 @@ function setDimensions(a: DimensionName, b: DimensionName) {
   if (dims[a] > 0) canvas[a] = dims[a];
   else if (dims[b] > 0) canvas[a] = (image[a] * dims[b]) / image[b];
   else canvas[a] = image[a];
+}
+
+// Clears all selections and redraws the canvas.
+function clearAll() {
+  for (let i = 0; i < selections.length; i++) {
+    selections[i].filled = false;
+    // Optionally reset x, y and orient if needed:
+    selections[i].x = 0;
+    selections[i].y = 0;
+    selections[i].orient = "";
+  }
+  draw();
 }
 
 // Adds a new selection to the array.
