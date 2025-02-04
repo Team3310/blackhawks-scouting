@@ -126,10 +126,12 @@ function draw() {
   if (!ctx) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
   
+    let flipped = false;
+    if (flipVertical && !flipped) {
+      flipped = true;
 
-    if (flipVertical) {
+
     ctx.save();
     ctx.translate(0, canvas.height);
     ctx.scale(1, -1);
@@ -221,6 +223,7 @@ function click(event: MouseEvent) {
 let index = -1;
 let orient = "";
 let found = false;
+
 for (let row = 0; row < 6; row++){ //check if click is in one of the bounding boxes
   for (let col = 0; col < 6; col++) {
     if (isWithinBoundingBox(relativeX, relativeY, boundingBoxes[col][row])){
