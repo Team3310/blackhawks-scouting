@@ -16,7 +16,7 @@ interface Point {
   x: number;
   y: number;
   filled: boolean;
-  orient: String;
+  orient: number;
 }
 
 type DimensionName = "width" | "height";
@@ -28,7 +28,7 @@ const props = defineProps<{
 
 const selections = $ref(new Array<Point>(36));
 for (let count = 0; count<selections.length; count++){
-  selections[count]= {x: 0,y: 0,filled: false, orient: ""};
+  selections[count]= {x: 0,y: 0,filled: false, orient: 0};
 }
 const canvas = $ref<HTMLCanvasElement>();
 
@@ -62,52 +62,52 @@ for (let i = 0; i<filled.length; i++){
 
 const boundingBoxes = [ //x,y positions of each coral node
     [
-      {x1: 119, y1: 35, x2: 153, y2: 68, xplace: 130, yplace: 50}, //1
-      {x1: 181, y1: 4, x2: 210, y2: 35, xplace: 199, yplace: 16}, //2
-      {x1: 149, y1: 79, x2: 201, y2: 100, xplace: 174, yplace: 100}, //3
-      {x1: 198, y1: 51, x2: 225, y2: 76, xplace: 217, yplace: 75}, //4
-      {x1: 162, y1: 109, x2: 221, y2: 133, xplace: 195, yplace: 137}, //5
-      {x1: 221, y1: 83, x2: 252, y2: 106, xplace: 240, yplace: 115} //6
+      {x1: 119, y1: 35, x2: 153, y2: 68, xplace: 130, yplace: 50, orient: 31 * Math.PI / 90}, // 62 degrees //1
+      {x1: 181, y1: 4, x2: 210, y2: 35, xplace: 199, yplace: 16, orient: 31 * Math.PI / 90}, // 62 degrees //2
+      {x1: 149, y1: 79, x2: 201, y2: 100, xplace: 174, yplace: 100, orient: 0}, //3
+      {x1: 198, y1: 51, x2: 225, y2: 76, xplace: 217, yplace: 75, orient: 0}, //4
+      {x1: 162, y1: 109, x2: 221, y2: 133, xplace: 195, yplace: 137, orient: 0}, //5
+      {x1: 221, y1: 83, x2: 252, y2: 106, xplace: 240, yplace: 115, orient: 0} //6
     ],
     [
-      {x1: 33, y1: 213, x2: 80, y2: 233, xplace: 54, yplace: 264}, //7
-      {x1: 33, y1: 154, x2: 80, y2: 165, xplace: 54, yplace: 190}, //8
-      {x1: 101, y1: 202, x2: 127, y2: 223, xplace: 118, yplace: 253}, //9
-      {x1: 97, y1: 154, x2: 134, y2: 184, xplace: 114, yplace: 200}, //10
-      {x1: 143, y1: 203, x2: 172, y2: 226, xplace: 157, yplace: 254}, //11
-      {x1: 144, y1: 157, x2: 175, y2: 183, xplace: 156, yplace: 201} //12
+      {x1: 33, y1: 213, x2: 80, y2: 233, xplace: 54, yplace: 264, orient: 0}, //7
+      {x1: 33, y1: 154, x2: 80, y2: 165, xplace: 54, yplace: 190, orient: 0}, //8
+      {x1: 101, y1: 202, x2: 127, y2: 223, xplace: 118, yplace: 253, orient: 31 * Math.PI / 90}, // 62 degrees //9
+      {x1: 97, y1: 154, x2: 134, y2: 184, xplace: 114, yplace: 200, orient: 0}, //10
+      {x1: 143, y1: 203, x2: 172, y2: 226, xplace: 157, yplace: 254, orient: 31 * Math.PI / 90}, // 62 degrees //11
+      {x1: 144, y1: 157, x2: 175, y2: 183, xplace: 156, yplace: 201, orient: 0} //12
     ],
     [
-      {x1: 181, y1: 345, x2: 213, y2: 380, xplace: 197, yplace: 435}, //13
-      {x1: 116, y1: 311, x2: 156, y2: 351, xplace: 133, yplace: 400}, //14
-      {x1: 210, y1: 291, x2: 222, y2: 338, xplace: 218, yplace: 375}, //15
-      {x1: 148, y1: 283, x2: 189, y2: 308, xplace: 173, yplace: 350}, //16
-      {x1: 227, y1: 271, x2: 254, y2: 306, xplace: 239, yplace: 338}, //17
-      {x1: 169, y1: 251, x2: 210, y2: 278, xplace: 194, yplace: 318}, //18
+      {x1: 181, y1: 345, x2: 213, y2: 380, xplace: 197, yplace: 435, orient: 0}, //13
+      {x1: 116, y1: 311, x2: 156, y2: 351, xplace: 133, yplace: 400, orient: 0}, //14
+      {x1: 210, y1: 291, x2: 222, y2: 338, xplace: 218, yplace: 375, orient: 0}, //15
+      {x1: 148, y1: 283, x2: 189, y2: 308, xplace: 173, yplace: 350, orient: 0}, //16
+      {x1: 227, y1: 271, x2: 254, y2: 306, xplace: 239, yplace: 338, orient: 0}, //17
+      {x1: 169, y1: 251, x2: 210, y2: 278, xplace: 194, yplace: 318, orient: 0}, //18
     ],
     [
-      {x1: 381, y1: 322, x2: 441, y2: 345, xplace: 419, yplace: 405}, //19
-      {x1: 324, y1: 345, x2: 374, y2: 379, xplace: 353, yplace: 435}, //20
-      {x1: 354, y1: 285, x2: 397, y2: 308, xplace: 377, yplace: 350}, //21
-      {x1: 316, y1: 305, x2: 348, y2: 329, xplace: 333, yplace: 375}, //22
-      {x1: 334, y1: 257, x2: 373, y2: 278, xplace: 357, yplace: 318}, //23
-      {x1: 291, y1: 274, x2: 329, y2: 297, xplace: 314, yplace: 340}, //24
+      {x1: 381, y1: 322, x2: 441, y2: 345, xplace: 419, yplace: 405, orient: 0}, //19
+      {x1: 324, y1: 345, x2: 374, y2: 379, xplace: 353, yplace: 435, orient: 0}, //20
+      {x1: 354, y1: 285, x2: 397, y2: 308, xplace: 377, yplace: 350, orient: 0}, //21
+      {x1: 316, y1: 305, x2: 348, y2: 329, xplace: 333, yplace: 375, orient: 0}, //22
+      {x1: 334, y1: 257, x2: 373, y2: 278, xplace: 357, yplace: 318, orient: 0}, //23
+      {x1: 291, y1: 274, x2: 329, y2: 297, xplace: 314, yplace: 340, orient: 0}, //24
     ],
     [
-      {x1: 458, y1: 140, x2: 510, y2: 173, xplace: 497, yplace: 190}, //25
-      {x1: 466, y1: 204, x2: 514, y2: 232, xplace: 494, yplace: 270}, //26
-      {x1: 421, y1: 157, x2: 445, y2: 182, xplace: 433, yplace: 200}, //27
-      {x1: 421, y1: 202, x2: 449, y2: 226, xplace: 436, yplace: 260}, //28
-      {x1: 380, y1: 153, x2: 405, y2: 180, xplace: 395, yplace: 200}, //29
-      {x1: 377, y1: 199, x2: 410, y2: 226, xplace: 394, yplace: 260}, //30
+      {x1: 458, y1: 140, x2: 510, y2: 173, xplace: 497, yplace: 190, orient: 0}, //25
+      {x1: 466, y1: 204, x2: 514, y2: 232, xplace: 494, yplace: 270, orient: 0}, //26
+      {x1: 421, y1: 157, x2: 445, y2: 182, xplace: 433, yplace: 200, orient: 0}, //27
+      {x1: 421, y1: 202, x2: 449, y2: 226, xplace: 436, yplace: 260, orient: 0}, //28
+      {x1: 380, y1: 153, x2: 405, y2: 180, xplace: 395, yplace: 200, orient: 0}, //29
+      {x1: 377, y1: 199, x2: 410, y2: 226, xplace: 394, yplace: 260, orient: 0}, //30
     ],
     [
-      {x1: 337, y1: 0, x2: 369, y2: 36, xplace: 353, yplace: 14}, //31
-      {x1: 386, y1: 30, x2: 428, y2: 65, xplace: 418, yplace: 55}, //32
-      {x1: 317, y1: 47, x2: 346, y2: 78, xplace: 334, yplace: 78}, //33
-      {x1: 362, y1: 70, x2: 394, y2: 98, xplace: 377, yplace: 105}, //34
-      {x1: 297, y1: 76, x2: 325, y2: 107, xplace: 312, yplace: 107}, //35
-      {x1: 337, y1: 101, x2: 373, y2: 127, xplace: 359, yplace: 136}, //36
+      {x1: 337, y1: 0, x2: 369, y2: 36, xplace: 353, yplace: 14, orient: 0}, //31
+      {x1: 386, y1: 30, x2: 428, y2: 65, xplace: 418, yplace: 55, orient: 0}, //32
+      {x1: 317, y1: 47, x2: 346, y2: 78, xplace: 334, yplace: 78, orient: 0}, //33
+      {x1: 362, y1: 70, x2: 394, y2: 98, xplace: 377, yplace: 105, orient: 0}, //34
+      {x1: 297, y1: 76, x2: 325, y2: 107, xplace: 312, yplace: 107, orient: 0}, //35
+      {x1: 337, y1: 101, x2: 373, y2: 127, xplace: 359, yplace: 136, orient: 0}, //36
     ]
 ];
 
@@ -150,16 +150,15 @@ function draw() {
     const rectHeight = 10;
     let angle = 0;
     if (f){
-      if (selections[i].orient == "vertical"){
+      /*if (selections[i].orient == "vertical"){
         angle = Math.PI / 2; // 90 degrees
-
-        }
-        else if (selections[i].orient == "slight right") {
-    angle = 2*(Math.PI) / 3; // 45 degrees
-}
-    else if (selections[i].orient == "slight left") {
-    angle = 31 * Math.PI / 90; // 62 degrees
-}
+      }
+      else if (selections[i].orient == "slight right") {
+        angle = 2*(Math.PI) / 3; // 45 degrees
+      }
+      else if (selections[i].orient == "slight left") {
+        angle = 31 * Math.PI / 90; // 62 degrees
+      }*/
 
 
     ctx.save(); // Save the current context state
@@ -168,8 +167,8 @@ function draw() {
     ctx.fillStyle = "white";
     ctx.fillRect(-rectWidth / 2, -rectHeight / 2, rectWidth, rectHeight); // Draw the rectangle
     ctx.restore();
-  }
     }
+  }
 
 }
   
@@ -193,7 +192,7 @@ function clearAll() {
     // Optionally reset x, y and orient if needed:
     selections[i].x = 0;
     selections[i].y = 0;
-    selections[i].orient = "";
+    selections[i].orient = 0;
   }
   draw();
 }
@@ -221,7 +220,7 @@ function click(event: MouseEvent) {
 // vertical indexes: 1: 1,2,4,6 2: 3,4,5,6 3: 1,2,3,5 4: 1,2,4,6 5: 3,4,5,6 6: 1,2,3,5
 
 let index = -1;
-let orient = "";
+let orient = Math.PI / 2; // 90 degrees
 let found = false;
 
 for (let row = 0; row < 6; row++){ //check if click is in one of the bounding boxes
@@ -230,14 +229,15 @@ for (let row = 0; row < 6; row++){ //check if click is in one of the bounding bo
       found = true;
       index = (col*6)+(row);
       point = { x: (boundingBoxes[col][row]).xplace, y: boundingBoxes[col][row].yplace, f: true };
-      
-      
+      orient = (boundingBoxes[col][row]).orient;
+      break;
   }
+  if (found) break;
 }
 }
 if (found){
         console.log("Index: " + index);
-if (index <= 5){
+/*if (index <= 5){
         if (index == 2 || index == 4){
           orient = "horizontal";
         }
@@ -309,7 +309,7 @@ if (index <= 5){
       else{
         console.log("error1");
       }
-
+*/
 
 selections[index].orient = orient;
 console.log("Orient: " + orient);
