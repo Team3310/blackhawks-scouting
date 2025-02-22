@@ -33,7 +33,7 @@
         <input type="checkbox" v-model="excludeHeaders" id="exclude-headers" />
         <label for="exclude-headers">Include headers in code</label>
       </div>
-      <qrcode-vue :value="qrData" level="M" render-as="svg" :size="260" />
+      <qrcode-vue :value="qrData" level="M" render-as="svg" :size="300" />
     </div>
   </dialog>
 </template>
