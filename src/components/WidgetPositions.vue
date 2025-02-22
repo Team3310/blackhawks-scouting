@@ -225,10 +225,10 @@ function click(event: MouseEvent) {
   let found = false;
   let coolY = relativeY;
 
- //if(flipVertical){
-       //coolY = canvas.height - relativeY;
-        //relativeY = canvas.height/2 + (canvas.height/2 - relativeY);
-      //}
+  if(flipVertical){
+    coolY = canvas.height - relativeY;
+    //relativeY = canvas.height/2 + (canvas.height/2 - relativeY);
+      }
   for (let row = 0; row < 6; row++){ //check if click is in one of the bounding boxes
     for (let col = 0; col < 6; col++) {
       /*if(flipVertical){
@@ -346,9 +346,10 @@ function click(event: MouseEvent) {
   }
 }
 // Add after draw() function
-/*function drawDebugBoxes() {
-  if (!canvas || !ctx) return;
+function drawDebugBoxes() {
+  if (!canvas) return;
   const ctx = canvas.getContext("2d");
+  if (!ctx) return;
   
   ctx.strokeStyle = 'red';  // Debug color
   ctx.lineWidth = 2;
@@ -370,7 +371,10 @@ function click(event: MouseEvent) {
 }
 
 // Add to draw() function after drawing image
-if (flipVertical && !flipped) {
+/*if (flipVertical) {
+  if (!canvas) break;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
   // ...existing image flip code...
   drawDebugBoxes();
   ctx.restore();

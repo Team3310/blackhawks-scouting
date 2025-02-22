@@ -6,27 +6,28 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "Back of Reef (Facing Alliance)",
-          "type": "positions",
-          "file": "BlueReef.png",
-          "allowMultiple": true
-        },
-        
-        { 
-          "name": "Home Team Processor",
-          "type": "label"
+          "name": "Trough Coral Scored",
+          "type": "spinbox"
         },
         {
-          "type": "spacer",
-          "height": 20
+          "name": "L2 Coral Scored",
+          "type": "spinbox"
+        },
+        {
+          "name": "L3 Coral Scored",
+          "type": "spinbox"
+        },
+        {
+          "name": "L4 Coral Scored",
+          "type": "spinbox"
         },
         {
           "name": "Starting postion:",
           "type": "dropdown",
           "options": [
-            "In front of T6",
-            "In front of T5",
-            "In front of T4"
+            "LEFT",
+            "CENTER",
+            "RIGHT"
           ]
         },
         {
