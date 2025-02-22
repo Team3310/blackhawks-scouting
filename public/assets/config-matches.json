@@ -22,41 +22,8 @@
           "type": "spinbox"
         },
         {
-          "name": "Starting postion:",
-          "type": "dropdown",
-          "options": [
-            "LEFT",
-            "CENTER",
-            "RIGHT"
-          ]
-        },
-        {
           "name": "NO LEAVE",
           "type": "checkbox"
-        },
-        {
-          "name": "Trough 1 (T1) Coral",
-          "type": "spinbox"
-        },
-        {
-          "name": "Trough 2 (T2) Coral",
-          "type": "spinbox"
-        },
-        {
-          "name": "Trough 3 (T3) Coral",
-          "type": "spinbox"
-        },
-        {
-          "name": "Trough 4 (T4) Coral",
-          "type": "spinbox"
-        },
-        {
-          "name": "Trough 5 (T5) Coral",
-          "type": "spinbox"
-        },
-        {
-          "name": "Trough 6 (T6) Coral",
-          "type": "spinbox"
         },
         {
           "name": "Algae Processed",
