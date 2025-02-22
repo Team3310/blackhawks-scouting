@@ -124,7 +124,6 @@ function draw() {
     console.warn('Canvas element not found');
     return;
   }
-
   const ctx = canvas.getContext("2d");
   if (ctx === null) {
     console.warn('Failed to get 2D context - browser may not support canvas');
@@ -347,8 +346,9 @@ function click(event: MouseEvent) {
   }
 }
 // Add after draw() function
-function drawDebugBoxes() {
+/*function drawDebugBoxes() {
   if (!canvas || !ctx) return;
+  const ctx = canvas.getContext("2d");
   
   ctx.strokeStyle = 'red';  // Debug color
   ctx.lineWidth = 2;
@@ -377,5 +377,5 @@ if (flipVertical && !flipped) {
 } else {
   // ...existing normal draw code...
   drawDebugBoxes();
-}
+}*/
 </script>
