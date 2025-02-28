@@ -14,7 +14,7 @@
 import { useConfigStore, useWidgetsStore } from "@/common/stores";
 
 const props = defineProps<{
-  title: string
+  title: string //waco
 }>();
 
 const config = useConfigStore();

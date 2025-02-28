@@ -2,15 +2,15 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["wacocompt"]
     paths-ignore:
       - "docs/**"
   pull_request:
-    branches: ["main"]
+    branches: ["wacocompt"]
     paths-ignore:
       - "docs/**"
   workflow_dispatch:
-    branches: ["main"]
+    branches: ["wacocompt"]
 
 permissions:
   contents: read
