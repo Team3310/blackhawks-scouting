@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  errors: string[]
+  errors: string[] //main
 }>();
 
 const errorList = $ref<HTMLDialogElement>();
