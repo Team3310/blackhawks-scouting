@@ -6,7 +6,15 @@
       "name": "Autonomous",
       "widgets": [
         {
-          "name": "(L1) Trough Coral",
+          "name": "No Show",
+          "type": "checkbox"
+        },
+        {
+          "name": "No Leave",
+          "type": "checkbox"
+        },
+        {
+          "name": "L1 Coral",
           "type": "spinbox"
         },
         {
@@ -22,27 +30,23 @@
           "type": "spinbox"
         },
         {
-          "name": "NO LEAVE",
-          "type": "checkbox"
-        },
-        {
           "name": "Algae Processed",
           "type": "spinbox"
         },
         {
-          "name": "Algae made by player",
+          "name": "Algae Made in Net",
           "type": "spinbox"
         },
         {
-          "name": "Algae made by robot",
+          "name": "Commited a Foul",
+          "type": "checkbox"
+        },
+        {
+          "name": "Commited Minor Foul",
           "type": "spinbox"
         },
         {
-          "name": "Commited major foul",
-          "type": "spinbox"
-        },
-        {
-          "name": "Commited minor foul",
+          "name": "Commited Major Foul",
           "type": "spinbox"
         },
         {
@@ -55,19 +59,19 @@
       "name": "Teleop",
       "widgets": [
         {
-          "name": "(L1) Trough Coral",
+          "name": "L1 Coral",
           "type": "spinbox"
         },
         {
-          "name": "Coral L2",
+          "name": "L2 Coral",
           "type": "spinbox"
         },
         {
-          "name": "Coral L3",
+          "name": "L3 Coral",
           "type": "spinbox"
         },
         {
-          "name": "Coral L4",
+          "name": "L4 Coral",
           "type": "spinbox"
         },
         {
@@ -75,19 +79,11 @@
           "type": "spinbox"
         },
         {
-          "name": "Algae made by player",
+          "name": "Algae made in Net",
           "type": "spinbox"
         },
         {
-          "name": "Algae made by robot",
-          "type": "spinbox"
-        },
-        {
-          "type": "spacer",
-          "height": 20
-        },
-        {
-          "name": "PARK:",
+          "name": "Park:",
           "type": "radio",
           "options": [
             "Shallow Cage",
@@ -97,62 +93,28 @@
           ]
         },
         {
-          "type": "spacer",
-          "height": 20
+          "name": "Commited a Foul",
+          "type": "checkbox"
         },
         {
-          "name": "Commited major foul",
+          "name": "Commited Minor Foul",
           "type": "spinbox"
         },
         {
-          "name": "Commited minor foul",
+          "name": "Commited Major Foul",
           "type": "spinbox"
         },
         {
-          "name": "DEAD-BOT",
+          "name": "Dead-bot",
           "type": "checkbox"
         }, 
         {
-          "name": "CORAL STUCK",
+          "name": "Coral Stuck",
           "type": "checkbox"
         }, 
         {
           "name": "Other Comments",
           "type": "text"
-        }
-      ]
-    },
-    {
-      "name": "Score",
-      "widgets": [
-        {
-          "name": "Final Score",
-          "type": "number",
-          "validation": {
-            "comparison": "greater",
-            "value": -1
-          }
-        },
-        {
-          "name": "Penalty Points",
-          "type": "number",
-          "validation": {
-            "comparison": "greater",
-            "value": -1
-          }
-        },
-        {
-          "name": "Ranking Points",
-          "type": "number"
-          ,
-          "validation": {
-            "comparison": "inRange",
-            "value": [0, 6]
-          }
-        },
-        {
-          "name": "Coopertition Bonus?",
-          "type": "checkbox"
         }
       ]
     }

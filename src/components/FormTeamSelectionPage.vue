@@ -1,36 +1,12 @@
 <template>
   <FormPage title="Team Selection" ref="page">
-    <FormGroup :label-type="LabelType.LabelTag" id="select-type-input" name="Selection Type">
-      <select id="select-type-input" v-model.number="selectType">
-        <option value="0">Manual</option>
-        <option value="1">The Blue Alliance</option>
-      </select>
-    </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.LabelTag" id="event-key-input" name="Event Key">
       <input id="event-key-input" type="text" v-model="eventKey" @keyup.enter="loadTBAData" />
       <button @click="loadTBAData">Load</button>
     </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Teams Loaded">{{ teamsLoadStatus }}</FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Matches Loaded">{{ matchesLoadStatus }}</FormGroup>
-    <FormGroup :label-type="LabelType.LabelTag" id="match-level-input" name="Match Level">
-      <input 
-        type="radio" 
-        id="match-level-qualifications" 
-        value="0" 
-        v-model.number="matchLevel" 
-        :disabled="config.data.forceQualifiers" 
-      />
-      <label for="match-level-qualifications">Qualifications</label>
-      <input 
-        type="radio" 
-        id="match-level-preevent" 
-        value="1" 
-        v-model.number="matchLevel" 
-        :disabled="config.data.forceQualifiers" 
-      />
-      <label for="match-level-preevent">PreEvent</label>
-    </FormGroup>
-    <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
+        <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
       <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" />
     </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.LabelTag" id="team-input" name="Team">
@@ -50,7 +26,7 @@
         <option value="Blue">Blue</option>
       </select>
     </FormGroup>
-    <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="scout-name-input" name="Scout Name">
+    <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="scout-name-input" name="Scout's Name">
       <input type="text" v-model="scoutNameManual" />
     </FormGroup>
   </FormPage>
