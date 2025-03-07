@@ -6,19 +6,19 @@
     </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Teams Loaded">{{ teamsLoadStatus }}</FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Matches Loaded">{{ matchesLoadStatus }}</FormGroup>
-        <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
-      <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" />
+    <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
+      <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" class="custom-number-input-match" />
     </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.LabelTag" id="team-input" name="Team">
       <span v-if="currentMatch === null">&lt;No Data&gt;</span>
       <select v-else id="team-input" v-model="selectedTeam">
         <option v-for="[i, { color, index, number, name }] of teamsList.entries()" :key="i" :value="i">
-          {{ color }} {{ index }}: {{ number }} ({{ name }})
+          {{ color }} {{ index }}: {{ number }} ({{ name }} )
         </option>
       </select>
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="team-number-input" name="Team Number">
-      <input type="number" v-model="teamNumberManual" />
+      <input type="number" v-model="teamNumberManual" class="custom-number-input-team" />
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="team-color-input" name="Team Color">
       <select id="team-color-input" v-model="teamColorManual">
@@ -27,7 +27,7 @@
       </select>
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="scout-name-input" name="Scout's Name">
-      <input type="text" v-model="scoutNameManual" />
+      <input type="text" size="13" v-model="scoutNameManual" @input="saveScoutName" />
     </FormGroup>
   </FormPage>
 </template>
@@ -38,7 +38,7 @@ import FormPage from "./FormPage.vue";
 import { get, isEmpty } from "lodash";
 import { getError, getTeamName, isFailed, TBAData } from "@/common/tba";
 import { LabelType } from "@/common/shared";
-import { computed, Ref } from "vue";
+import { computed, Ref, ref, onMounted } from "vue";
 import { useConfigStore, useTBAStore, useWidgetsStore } from "@/common/stores";
 
 interface Team {
@@ -63,7 +63,7 @@ const selectedTeam = $ref(0);
 
 const teamNumberManual = $ref(0);
 const teamColorManual = $ref("Red");
-const scoutNameManual = $ref("");
+const scoutNameManual = ref(localStorage.getItem("scoutNameManual") || ""); // Use ref to make it reactive
 
 let teamsLoadStatus = $ref("");
 let matchesLoadStatus = $ref("");
@@ -78,7 +78,6 @@ const widgetData = computed(() => ({
   teamColor: `${teamColorManual}`
 }));
 
-
 // Debug: log teamColorManual and widgetData to ensure it is defined.
 console.log("teamColorManual:", teamColorManual);
 console.log("widgetData.teamColor:", widgetData.value.teamColor);
@@ -89,7 +88,6 @@ const currentId = "unique-widget-id";
 
 // The match data based on the selected level and number
 const currentMatch = $computed(() => {
-
   // Make sure matches are loaded
   if (!Array.isArray(matches)) return null;
 
@@ -104,8 +102,6 @@ const currentMatch = $computed(() => {
 
   matchList.sort((first: unknown, second: unknown) => diff(first, second, "match") || diff(first, second, "set"));
   return matchList[matchNumber - 1] ?? null;
-
-  
 });
 
 // The teams playing in the selected match
@@ -130,12 +126,10 @@ const teamsList = $computed(() => {
   return result;
 });
 
-
-
 // The exported team information
 const teamData = $computed(() => {
   if (isTBA) return teamsList[selectedTeam] ? Object.values(teamsList[selectedTeam]).join() : "";
-  else return `${teamColorManual},${teamNumberManual},${scoutNameManual}`;
+  else return `${teamColorManual},${teamNumberManual},${scoutNameManual.value}`;
 });
 
 // Add values to export
@@ -165,11 +159,30 @@ function loadTBAData() {
   matchesLoadStatus = "Loading...";
   tba.load(eventKey, "matches").then(value => updateStatus($$(matchesLoadStatus), $$(matches), value));
 }
+
+// Save the scout name to local storage whenever it changes
+function saveScoutName() {
+  localStorage.setItem("scoutNameManual", scoutNameManual.value);
+}
+
+onMounted(() => {
+  // Retrieve the scout name from local storage when the component is mounted
+  scoutNameManual.value = localStorage.getItem("scoutNameManual") || "";
+});
 </script>
 
 <style>
 #team-input {
   width: 250px;
   text-overflow: ellipsis;
+}
+
+.custom-number-input-match {
+  width: 40px; /* Set the desired width */
+  height: 20px; /* Set the desired height */
+}
+.custom-number-input-team {
+  width: 70px; /* Set the desired width */
+  height: 20px; /* Set the desired height */
 }
 </style>

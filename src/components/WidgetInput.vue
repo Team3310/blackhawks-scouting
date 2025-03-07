@@ -23,11 +23,3 @@ const value = $ref(defaultValues.get(props.data.type));
 defineExpose({ index: useWidgetsStore().addWidgetValue(props.data, $$(value)) });
 
 </script>
-
-<style scoped>
-.final-score-input {
-  width: 60px; /* Adjust the width as needed */
-  padding: 4px; /* Adjust the padding as needed */
-  font-size: 15px; /* Adjust the font size as needed */
-}
-</style>

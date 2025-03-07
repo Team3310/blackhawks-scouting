@@ -59,7 +59,7 @@
         },
         {
           "name": "Auto Comments",
-          "type": "text"
+          "type": "textarea"
         }
       ]
     },
@@ -138,7 +138,7 @@
         },
         {
           "name": "Other Comments",
-          "type": "text"
+          "type": "textarea"
         }
       ]
     }

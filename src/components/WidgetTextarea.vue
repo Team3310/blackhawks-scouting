@@ -1,5 +1,5 @@
 <template>
-  <textarea rows="5" cols="40" v-model="value" :id="currentId"></textarea>
+  <textarea rows="2" cols="10" v-model="value" :id="currentId" class="custom-textarea"></textarea>
 </template>
 
 <script setup lang="ts">
@@ -14,3 +14,11 @@ const props = defineProps<{
 const value = $ref("");
 defineExpose({ index: useWidgetsStore().addWidgetValue(props.data, $$(value)) });
 </script>
+
+<style>
+.custom-textarea {
+  font-family: sans-serif; /* Set the desired font family */
+  font-size: 15px; /* Set the desired font size */
+  font-weight: 1; /* Set the desired font weight */
+}
+</style>
