@@ -11,7 +11,11 @@ import { get } from "lodash";
 import { useWidgetsStore } from "@/common/stores";
 import { watch } from "vue";
 import { Widget, WidgetPositions } from "@/config";
-
+// I, Pavel, who did not write the majority of this file, believe
+// that this code was made to manage the postion of the widgets for the
+// selections boxes for deleted previous idea for how to manage which corals were
+// scored. But that is no longer implemented due to it being unnecessary.
+/*
 interface Point {
   x: number;
   y: number;

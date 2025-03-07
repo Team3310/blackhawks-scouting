@@ -14,6 +14,10 @@
           "type": "checkbox"
         },
         {
+          "type": "spacer",
+          "height": 5
+        },
+        {
           "name": "L1 Coral",
           "type": "spinbox"
         },
@@ -30,24 +34,28 @@
           "type": "spinbox"
         },
         {
-          "name": "Algae Processed",
+          "type": "spacer",
+          "height": 2
+        },
+        {
+          "name": "Robot Algae Processed",
           "type": "spinbox"
         },
         {
-          "name": "Algae Made in Net",
+          "name": "Robot Algea in Net",
           "type": "spinbox"
         },
         {
-          "name": "Commited a Foul",
-          "type": "checkbox"
+          "type": "spacer",
+          "height": 5
         },
         {
-          "name": "Commited Minor Foul",
+          "name": "Commited Foul",
           "type": "spinbox"
         },
         {
-          "name": "Commited Major Foul",
-          "type": "spinbox"
+          "type": "spacer",
+          "height": 5
         },
         {
           "name": "Auto Comments",
@@ -75,12 +83,28 @@
           "type": "spinbox"
         },
         {
-          "name": "Algae Processed",
+          "type": "spacer",
+          "height": 2
+        },
+        {
+          "name": "Robot Algae Processed",
           "type": "spinbox"
         },
         {
-          "name": "Algae made in Net",
+          "name": "Robot Algea in Net",
           "type": "spinbox"
+        },
+        {
+          "type": "spacer",
+          "height": 2
+        },
+        {
+          "name": "Played Defense",
+          "type": "checkbox"
+        }, 
+        {
+          "type": "spacer",
+          "height": 2
         },
         {
           "name": "Park:",
@@ -93,15 +117,11 @@
           ]
         },
         {
-          "name": "Commited a Foul",
-          "type": "checkbox"
+          "type": "spacer",
+          "height": 5
         },
         {
-          "name": "Commited Minor Foul",
-          "type": "spinbox"
-        },
-        {
-          "name": "Commited Major Foul",
+          "name": "Commited Foul",
           "type": "spinbox"
         },
         {
@@ -112,6 +132,10 @@
           "name": "Coral Stuck",
           "type": "checkbox"
         }, 
+        {
+          "type": "spacer",
+          "height": 5
+        },
         {
           "name": "Other Comments",
           "type": "text"

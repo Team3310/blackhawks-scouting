@@ -18,7 +18,7 @@
       </select>
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="team-number-input" name="Team Number">
-      <input type="number" v-model="teamNumberManual" :min="0" @input="handleTeamNumberInput" />
+      <input type="number" v-model="teamNumberManual" />
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="team-color-input" name="Team Color">
       <select id="team-color-input" v-model="teamColorManual">
@@ -86,15 +86,6 @@ console.log("widgetData.teamColor:", widgetData.value.teamColor);
 // Define a unique widget id to pass as currentId.
 // You can generate or set this value as needed.
 const currentId = "unique-widget-id";
-
-// Ensure the team number does not go below zero made by the ai, may be werid
-function handleTeamNumberInput(event: Event) {
-  const input = event.target as HTMLInputElement;
-  if (input.valueAsNumber < 0) {
-    input.value = '0';
-    teamNumberManual.value = 0;
-  }
-}
 
 // The match data based on the selected level and number
 const currentMatch = $computed(() => {
