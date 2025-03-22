@@ -7,7 +7,7 @@
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Teams Loaded">{{ teamsLoadStatus }}</FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Matches Loaded">{{ matchesLoadStatus }}</FormGroup>
     <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
-      <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" class="custom-number-input-match" />
+      <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" class="custom-number-input-match" @input ="saveMatchNumber" />
     </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.LabelTag" id="team-input" name="Team">
       <span v-if="currentMatch === null">&lt;No Data&gt;</span>
@@ -21,7 +21,7 @@
       <input type="number" v-model="teamNumberManual" class="custom-number-input-team" />
     </FormGroup>
     <FormGroup :show="!isTBA" :label-type="LabelType.LabelTag" id="team-color-input" name="Team Color">
-      <select id="team-color-input" v-model="teamColorManual">
+      <select id="team-color-input" v-model="teamColorManual" @change="saveTeamColor">
         <option value="Red" selected>Red</option>
         <option value="Blue">Blue</option>
       </select>
@@ -58,11 +58,11 @@ const widgets = useWidgetsStore();
 const selectType = $ref(0);
 let eventKey = $ref("");
 const matchLevel = $ref(0);
-const matchNumber = $ref(1);
+let matchNumber = $ref(Number(localStorage.getItem("matchNumber")) || 1);
 const selectedTeam = $ref(0);
 
 const teamNumberManual = $ref(0);
-const teamColorManual = $ref("Red");
+const teamColorManual = ref(localStorage.getItem("teamColorManual") || "Red");
 const scoutNameManual = ref(localStorage.getItem("scoutNameManual") || ""); // Use ref to make it reactive
 
 let teamsLoadStatus = $ref("");
@@ -129,7 +129,7 @@ const teamsList = $computed(() => {
 // The exported team information
 const teamData = $computed(() => {
   if (isTBA) return teamsList[selectedTeam] ? Object.values(teamsList[selectedTeam]).join() : "";
-  else return `${teamColorManual},${teamNumberManual},${scoutNameManual.value}`;
+  else return `${teamColorManual.value},${teamNumberManual},${scoutNameManual.value}`;
 });
 
 // Add values to export
@@ -164,10 +164,18 @@ function loadTBAData() {
 function saveScoutName() {
   localStorage.setItem("scoutNameManual", scoutNameManual.value);
 }
+function saveTeamColor() {
+  localStorage.setItem("teamColorManual", teamColorManual.value);
+}
+function saveMatchNumber() {
+
+  localStorage.setItem("matchNumber", (matchNumber).toString());
+}
 
 onMounted(() => {
   // Retrieve the scout name from local storage when the component is mounted
-  scoutNameManual.value = localStorage.getItem("scoutNameManual") || "";
+  //scoutNameManual.value = localStorage.getItem("scoutNameManual") || "";
+  //matchNumber = Number(localStorage.getItem("matchNumber")) || 1;
 });
 </script>
 
@@ -179,10 +187,10 @@ onMounted(() => {
 
 .custom-number-input-match {
   width: 40px; /* Set the desired width */
-  height: 20px; /* Set the desired height */
+  height: 23px; /* Set the desired height */
 }
 .custom-number-input-team {
   width: 70px; /* Set the desired width */
-  height: 20px; /* Set the desired height */
+  height: 23px; /* Set the desired height */
 }
 </style>

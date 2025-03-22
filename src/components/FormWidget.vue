@@ -62,7 +62,7 @@ const info = {
 }[props.data.type];
 
 // Props to pass from the widget data to the sub-components
-const mappedProps = pick(props.data, ["name", "align", "row", "col", "rowspan", "colspan", "labelColspan"]);
+const mappedProps = pick(props.data, ["name", "align", "row", "col", "rowspan", "colspan", "labelColspan", "color"]);
 
 // Validates the value of the widget.
 function validate() {
@@ -70,7 +70,7 @@ function validate() {
   if (desc?.index === undefined) return true;
 
   // Only some widget types can be validated
-  const canValidate = ["dropdown", "text", "number", "multicheckbox", "positions", "stopwatch", "textarea"];
+  const canValidate = ["radio","dropdown", "text", "number", "multicheckbox", "positions", "stopwatch", "textarea"];
   if (!canValidate.includes(props.data.type)) return true;
 
   // Skip validation if not specified

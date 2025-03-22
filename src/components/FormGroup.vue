@@ -1,5 +1,5 @@
 <template>
-  <div v-if="hasLabel" :style="{ gridArea: getGridArea(0) }" class="label" v-show="show">
+  <div v-if="hasLabel" :style="{ gridArea: getGridArea(0), '-webkit-text-fill-color': labelColor }" class="label" v-show="show">
     <span v-if="labelType === LabelType.PlainText">{{ name }}</span>
     <label v-else :for="id">{{ name }}</label>
   </div>
@@ -24,7 +24,8 @@ const props = withDefaults(defineProps<{
   rowspan?: number,
   colspan?: number,
   labelColspan?: number,
-  show?: boolean
+  show?: boolean,
+  color?: string
 }>(), {
   rowspan: 1,
   colspan: 1,
@@ -33,6 +34,7 @@ const props = withDefaults(defineProps<{
 });
 
 const hasLabel = $computed(() => props.labelType != LabelType.None);
+const labelColor = $computed(() => props.color != undefined ? props.color : "#f0f0f0");
 
 const widgets = useWidgetsStore();
 const rowData = calcGridPos("row");

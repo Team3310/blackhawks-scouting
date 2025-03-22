@@ -6,12 +6,25 @@
       "name": "Autonomous",
       "widgets": [
         {
+          "type": "picture",
+          "file": "autoIcon.png",
+          "align": "right",
+          "width": 85,
+          "col": 1
+        },
+        {
+          "type": "spacer",
+          "height": 5
+        },
+        {
           "name": "No Show",
-          "type": "checkbox"
+          "type": "checkbox",
+          "color": "#95d2fc"
         },
         {
           "name": "No Leave",
-          "type": "checkbox"
+          "type": "checkbox",
+          "color": "#95d2fc"
         },
         {
           "type": "spacer",
@@ -19,31 +32,72 @@
         },
         {
           "name": "L1 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "name": "L1 Coral Missed",
+          "type": "spinbox",
+          "color": "#619ac2",
+          "buttonColor": "#242424"
+        },
+        {
+          "name": "L1 Accidental Scored",
+          "type": "spinbox",
+          "color": "#61c292",
+          "buttonColor": "#242424"
         },
         {
           "name": "L2 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "name": "L2 Coral Missed",
+          "type": "spinbox",
+          "color": "#619ac2",
+          "buttonColor": "#242424"
         },
         {
           "name": "L3 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "name": "L3 Coral Missed",
+          "type": "spinbox",
+          "color": "#619ac2",
+          "buttonColor": "#242424"
         },
         {
           "name": "L4 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "name": "L4 Coral Missed",
+          "type": "spinbox",
+          "color": "#619ac2",
+          "buttonColor": "#242424"
         },
         {
           "type": "spacer",
-          "height": 2
+          "height":5
+        },
+        {
+          "name": "Robot Removed Algae",
+          "type": "spinbox",
+          "color": "#95d2fc"
         },
         {
           "name": "Robot Algae Processed",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#95d2fc"
         },
         {
-          "name": "Robot Algea in Net",
-          "type": "spinbox"
+          "name": "Robot Algae in Net",
+          "type": "spinbox",
+          "color": "#95d2fc"
         },
         {
           "type": "spacer",
@@ -51,7 +105,8 @@
         },
         {
           "name": "Commited Foul",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#95d2fc"
         },
         {
           "type": "spacer",
@@ -59,7 +114,15 @@
         },
         {
           "name": "Auto Comments",
-          "type": "textarea"
+          "type": "textarea",
+          "color": "#95d2fc"
+        },
+        {
+          "type": "picture",
+          "file": "autoIcon.png",
+          "align": "right",
+          "width": 85,
+          "col": 1
         }
       ]
     },
@@ -67,78 +130,168 @@
       "name": "Teleop",
       "widgets": [
         {
+          "type": "picture",
+          "file": "teleopIcon.png",
+          "align": "right",
+          "width": 85,
+          "col": 1
+        },
+        {
+          "type": "spacer",
+          "height":5
+        },
+        {
           "name": "L1 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "L1 Coral Missed",
+          "type": "spinbox",
+          "color": "#d45f74",
+          "buttonColor": "#242424"
+        },
+        {
+          "name": "L1 Accidental Scored",
+          "type": "spinbox",
+          "color": "#d47a5f",
+          "buttonColor": "#242424"
         },
         {
           "name": "L2 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "L2 Coral Missed",
+          "type": "spinbox",
+          "color": "#d45f74",
+          "buttonColor": "#242424"
         },
         {
           "name": "L3 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "L3 Coral Missed",
+          "type": "spinbox",
+          "color": "#d45f74",
+          "buttonColor": "#242424"
         },
         {
           "name": "L4 Coral Scored",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "L4 Coral Missed",
+          "type": "spinbox",
+          "color": "#d45f74",
+          "buttonColor": "#242424"
         },
         {
           "type": "spacer",
-          "height": 2
+          "height":5
+        },
+        {
+          "name": "Coral Intake Width:",
+          "type": "radio",
+          "color": "#fc97a9",
+          "options": [
+            "None",
+            "Floor Intake",
+            "Narrow",
+            "Medium",
+            "Wide"
+          ],
+          "validation": {
+            "comparison": "greater",
+            "value": 1
+         }
+        },
+        {
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "name": "Robot Removed Algae",
+          "type": "spinbox",
+          "color": "#fc97a9"
         },
         {
           "name": "Robot Algae Processed",
-          "type": "spinbox"
+          "type": "spinbox",
+          "color": "#fc97a9"
         },
         {
-          "name": "Robot Algea in Net",
-          "type": "spinbox"
+          "name": "Robot Algae in Net",
+          "type": "spinbox",
+          "color": "#fc97a9"
         },
         {
           "type": "spacer",
-          "height": 2
+          "height":5
         },
         {
           "name": "Played Defense",
-          "type": "checkbox"
+          "type": "checkbox",
+          "color": "#fc97a9"
         }, 
         {
           "type": "spacer",
-          "height": 2
+          "height":5
+        },
+        {
+          "name": "Commited Foul",
+          "type": "spinbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "Dead-bot",
+          "type": "checkbox",
+          "color": "#fc97a9"
+        }, 
+        {
+          "name": "Coral Stuck",
+          "type": "checkbox",
+          "color": "#fc97a9"
+        }, 
+        {
+          "type": "spacer",
+          "height":5
         },
         {
           "name": "Park:",
+          "color": "#fc97a9",
           "type": "radio",
           "options": [
             "Shallow Cage",
             "Deep Cage",
             "Parked",
             "No Park"
-          ]
+          ],
+          "validation": {
+            "comparison": "greater",
+            "value": 1
+         }
+          
         },
         {
           "type": "spacer",
-          "height": 5
+          "height":5
         },
         {
-          "name": "Commited Foul",
-          "type": "spinbox"
+          "name": "Teleop Comments",
+          "type": "textarea",
+          "color": "#fc97a9"
         },
         {
-          "name": "Dead-bot",
-          "type": "checkbox"
-        }, 
-        {
-          "name": "Coral Stuck",
-          "type": "checkbox"
-        }, 
-        {
-          "type": "spacer",
-          "height": 5
-        },
-        {
-          "name": "Other Comments",
-          "type": "textarea"
+          "type": "picture",
+          "file": "teleopIcon.png",
+          "align": "right",
+          "width": 85,
+          "col": 1
         }
       ]
     }
