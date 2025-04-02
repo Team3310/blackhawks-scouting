@@ -17,6 +17,14 @@
         {
           "name": "Coach Name",
           "type": "text"
+        },
+        {
+          "type": "spacer",
+          "height": 10
+        },
+        {
+          "name": "Scout Name (You)",
+          "type": "text"
         }
       ]
     },
@@ -86,50 +94,17 @@
           "type": "multicheckbox",
           "options": [
             "Ground",
-            "Source"
+            "Coral Station"
           ],
           "defaultOption": true
         },
         {
           "name": "Best Coral Pickup Location",
-          "type": "checkbox",
+          "type": "radio",
           "options": [
             "Ground",
             "Source",
             "Equal"
-          ],
-          "defaultOption": true
-        },
-        {
-          "name": "Able to Score Algae In:",
-          "type": "multicheckbox",
-          "options": [
-            "L1",
-            "L2",
-            "L3",
-            "L4"
-          ]
-        },
-        {
-          "type" : "spacer",
-          "height" : 15
-        },
-        {
-          "name": "Able to Coral Pickup Location",
-          "type": "multicheckbox",
-          "options": [
-            "Ground",
-            "Source"
-          ],
-          "defaultOption": true
-        },
-        {
-          "name": "Preferred Coral Pickup Location",
-          "type": "checkbox",
-          "options": [
-            "Ground",
-            "Source",
-            "No Preference"
           ],
           "defaultOption": true
         },
@@ -144,18 +119,52 @@
           ]
         },
         {
-          "name": "Can Climb?",
+          "type" : "spacer",
+          "height" : 15
+        },
+        {
+          "name": "Able to Algae Pickup Location",
           "type": "multicheckbox",
           "options": [
-            "No, Parks",
-            "Yes, Shallow",
-            "Yes, Deep"
+            "Ground",
+            "Reef (source)"
+          ],
+          "defaultOption": true
+        },
+        {
+          "name": "Best Alage Pickup Location",
+          "type": "radio",
+          "options": [
+            "Ground",
+            "Reef (source)",
+            "Equal"
+          ],
+          "defaultOption": true
+        },
+        {
+          "name": "Able to Score Coral In:",
+          "type": "multicheckbox",
+          "options": [
+            "Processer",
+            "Net (Barge)"
           ]
         },
         {
+          "name": "Best Reliable Climb",
+          "type": "radio",
+          "options": [
+            "Just Park",
+            "Shallow Climb (Higher Cage)",
+            "Deep Climb (Lower Cage)"
+          ]
+        },
+        {
+          "type" : "spacer",
+          "height" : 15
+        },
+        {
           "name": "Comments",
-          "type": "textarea",
-          "colspan": 3
+          "type": "textarea"
         }
       ]
     }
