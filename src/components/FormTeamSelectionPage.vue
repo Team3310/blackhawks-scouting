@@ -7,7 +7,7 @@
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Teams Loaded">{{ teamsLoadStatus }}</FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.PlainText" name="Matches Loaded">{{ matchesLoadStatus }}</FormGroup>
     <FormGroup :label-type="LabelType.LabelTag" id="match-input" name="Match Number">
-      <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" class="custom-number-input-match" @input ="saveMatchNumber" />
+      <input id="match-input" type="number" v-model.lazy="matchNumber" :min="1" class="custom-number-input-match" @change ="saveMatchNumber" />
     </FormGroup>
     <FormGroup :show="isTBA" :label-type="LabelType.LabelTag" id="team-input" name="Team">
       <span v-if="currentMatch === null">&lt;No Data&gt;</span>
@@ -58,7 +58,7 @@ const widgets = useWidgetsStore();
 const selectType = $ref(0);
 let eventKey = $ref("");
 const matchLevel = $ref(0);
-let matchNumber = $ref(Number(localStorage.getItem("matchNumber")) || 1);
+let matchNumber = $ref(Number(localStorage.getItem("matchNumber") || "0"));
 const selectedTeam = $ref(0);
 
 const teamNumberManual = $ref(0);
@@ -168,14 +168,13 @@ function saveTeamColor() {
   localStorage.setItem("teamColorManual", teamColorManual.value);
 }
 function saveMatchNumber() {
-
-  localStorage.setItem("matchNumber", (matchNumber).toString());
+  localStorage.setItem("matchNumber", matchNumber.toString());
 }
 
+// Increment match number on component mount
 onMounted(() => {
-  // Retrieve the scout name from local storage when the component is mounted
-  //scoutNameManual.value = localStorage.getItem("scoutNameManual") || "";
-  //matchNumber = Number(localStorage.getItem("matchNumber")) || 1;
+  matchNumber++; // Increment by 1 on component mount
+  saveMatchNumber(); // Save the incremented number
 });
 </script>
 

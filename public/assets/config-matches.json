@@ -28,7 +28,7 @@
         },
         {
           "type": "spacer",
-          "height": 5
+          "height":20
         },
         {
           "name": "L1 Coral Scored",
@@ -48,6 +48,10 @@
           "buttonColor": "#242424"
         },
         {
+          "type": "spacer",
+          "height":1
+        },
+        {
           "name": "L2 Coral Scored",
           "type": "spinbox",
           "color": "#95d2fc"
@@ -59,6 +63,10 @@
           "buttonColor": "#242424"
         },
         {
+          "type": "spacer",
+          "height":1
+        },
+        {
           "name": "L3 Coral Scored",
           "type": "spinbox",
           "color": "#95d2fc"
@@ -68,6 +76,10 @@
           "type": "spinbox",
           "color": "#619ac2",
           "buttonColor": "#242424"
+        },
+        {
+          "type": "spacer",
+          "height":1
         },
         {
           "name": "L4 Coral Scored",
@@ -82,7 +94,7 @@
         },
         {
           "type": "spacer",
-          "height":5
+          "height":20
         },
         {
           "name": "Robot Removed Algae",
@@ -158,6 +170,10 @@
           "buttonColor": "#242424"
         },
         {
+          "type": "spacer",
+          "height":1
+        },
+        {
           "name": "L2 Coral Scored",
           "type": "spinbox",
           "color": "#fc97a9"
@@ -169,6 +185,10 @@
           "buttonColor": "#242424"
         },
         {
+          "type": "spacer",
+          "height":1
+        },
+        {
           "name": "L3 Coral Scored",
           "type": "spinbox",
           "color": "#fc97a9"
@@ -178,6 +198,10 @@
           "type": "spinbox",
           "color": "#d45f74",
           "buttonColor": "#242424"
+        },
+        {
+          "type": "spacer",
+          "height":1
         },
         {
           "name": "L4 Coral Scored",
@@ -192,13 +216,14 @@
         },
         {
           "type": "spacer",
-          "height":5
+          "height":20
         },
         {
           "name": "Coral Intake Width:",
           "type": "radio",
           "color": "#fc97a9",
           "options": [
+            "Could Not Tell",
             "None",
             "Floor Intake",
             "Narrow",

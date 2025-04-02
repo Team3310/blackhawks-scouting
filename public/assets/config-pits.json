@@ -13,6 +13,10 @@
         {
           "name": "Team Number",
           "type": "number"
+        },
+        {
+          "name": "Coach Name",
+          "type": "text"
         }
       ]
     },
@@ -35,7 +39,7 @@
           ]
         },
         {
-          "name": "Swerve Motor Type",
+          "name": "Motor Type",
           "type": "dropdown",
           "options": [
             "Neo",
@@ -50,33 +54,56 @@
       "name": "Match Play",
       "widgets": [
         {
-          "name": "Reef Algae Pickup",
-          "type": "spinbox"
+          "name": "Number of Drivers/Operators",
+          "type": "number",
+          "validation": {
+            "comparison": "less",
+            "value": 4
+          }
         },
         {
-          "name": "Ground Algae Pickup",
-          "type": "spinbox"
+          "name": "Number of Human Players",
+          "type": "number",
+          "validation": {
+            "comparison": "less",
+            "value": 3
+          }
         },
         {
-          "name": "Ground Algae Pickup",
-          "type": "spinbox"
+          "name": "Best Human Player(s) Positions",
+          "type": "multicheckbox",
+          "options": [
+            "Coral Station",
+            "Algae Processer Station"
+          ]
         },
         {
-          "name": "Preferred Pickup Location",
+          "type" : "spacer",
+          "height" : 20
+        },
+        {
+          "name": "Able to Coral Pickup Location",
           "type": "multicheckbox",
           "options": [
             "Ground",
-            "Source",
-            "Reef"
+            "Source"
           ],
           "defaultOption": true
         },
         {
-          "name": "Can Score In:",
+          "name": "Best Coral Pickup Location",
+          "type": "checkbox",
+          "options": [
+            "Ground",
+            "Source",
+            "Equal"
+          ],
+          "defaultOption": true
+        },
+        {
+          "name": "Able to Score Algae In:",
           "type": "multicheckbox",
           "options": [
-            "Processor",
-            "Net",
             "L1",
             "L2",
             "L3",
@@ -84,24 +111,36 @@
           ]
         },
         {
-          "name": "Preferred Scoring Location",
+          "type" : "spacer",
+          "height" : 15
+        },
+        {
+          "name": "Able to Coral Pickup Location",
           "type": "multicheckbox",
           "options": [
-            "Processor",
-            "Net",
-            "L1",
-            "L2",
-            "L3",
-            "L4"
+            "Ground",
+            "Source"
           ],
           "defaultOption": true
         },
         {
-          "name": "Scoring Methods",
+          "name": "Preferred Coral Pickup Location",
+          "type": "checkbox",
+          "options": [
+            "Ground",
+            "Source",
+            "No Preference"
+          ],
+          "defaultOption": true
+        },
+        {
+          "name": "Able to Score Coral In:",
           "type": "multicheckbox",
           "options": [
-            "Manual",
-            "Auto"
+            "L1",
+            "L2",
+            "L3",
+            "L4"
           ]
         },
         {
@@ -113,8 +152,6 @@
             "Yes, Deep"
           ]
         },
-        
-
         {
           "name": "Comments",
           "type": "textarea",
