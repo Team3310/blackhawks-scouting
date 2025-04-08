@@ -1,5 +1,5 @@
 {
-  "heading": "Reefscape - 2025 - State Comp - v1.0",
+  "heading": "Reefscape - 2025 - World Comp - v1.0",
   "logo": "logo.png",
   "pages": [
     {
@@ -28,92 +28,87 @@
         },
         {
           "type": "spacer",
-          "height":20
-        },
-        {
-          "name": "L1 Coral Scored",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "L1 Coral Missed",
-          "type": "spinbox",
-          "color": "#619ac2",
-          "buttonColor": "#242424"
-        },
-        {
-          "name": "L1 Accidental Scored",
-          "type": "spinbox",
-          "color": "#61c292",
-          "buttonColor": "#242424"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "L2 Coral Scored",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "L2 Coral Missed",
-          "type": "spinbox",
-          "color": "#619ac2",
-          "buttonColor": "#242424"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "L3 Coral Scored",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "L3 Coral Missed",
-          "type": "spinbox",
-          "color": "#619ac2",
-          "buttonColor": "#242424"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "L4 Coral Scored",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "L4 Coral Missed",
-          "type": "spinbox",
-          "color": "#619ac2",
-          "buttonColor": "#242424"
-        },
-        {
-          "type": "spacer",
-          "height":20
-        },
-        {
-          "name": "Robot Removed Algae",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "Robot Algae Processed",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "Robot Algae in Net",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "type": "spacer",
           "height": 5
+        },
+        {
+          "name": "Coral Scored",
+          "type": "heading",
+          "align": "right"
+        },
+        {
+          "name": "Total Missed",
+          "type": "spinbox",
+          "color": "#619ac2",
+          "buttonColor": "#242424"
+        },
+        {
+          "type": "spacer",
+          "height":8
+        },
+        {
+          "name": "Total Level 1",
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "type": "spacer",
+          "height":1
+        },
+        {
+          "name": "Total Level 2",
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "type": "spacer",
+          "height":1
+        },
+        {
+          "name": "Total Level 3",
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "type": "spacer",
+          "height":1
+        },
+        {
+          "name": "Total Level 4",
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "name": "Alage Scored",
+          "type": "heading",
+          "align": "right"
+        },
+        {
+          "name": "Picked from Reef",
+          "type": "checkbox",
+          "color": "#95d2fc"
+        },
+        {
+          "name": "Picked from Ground",
+          "type": "checkbox",
+          "color": "#95d2fc"
+        },
+        {
+          "name": "In Processor",
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "name": "In Barge - Net",
+          "type": "spinbox",
+          "color": "#95d2fc"
+        },
+        {
+          "type": "spacer",
+          "height": 20
         },
         {
           "name": "Commited Foul",
@@ -125,7 +120,7 @@
           "height": 5
         },
         {
-          "name": "Auto Comments",
+          "name": "Auton Comments",
           "type": "textarea",
           "color": "#95d2fc"
         },
@@ -153,110 +148,84 @@
           "height":5
         },
         {
-          "name": "L1 Coral Scored",
-          "type": "spinbox",
-          "color": "#fc97a9"
+          "name": "Coral Scored",
+          "type": "heading",
+          "align": "right"
         },
         {
-          "name": "L1 Coral Missed",
+          "name": "Total Missed",
           "type": "spinbox",
           "color": "#d45f74",
           "buttonColor": "#242424"
         },
         {
-          "name": "L1 Accidental Scored",
+          "type": "spacer",
+          "height":8
+        },
+        {
+          "name": "Total Level 1",
           "type": "spinbox",
-          "color": "#d47a5f",
-          "buttonColor": "#242424"
+          "color": "#fc97a9"
         },
         {
           "type": "spacer",
           "height":1
         },
         {
-          "name": "L2 Coral Scored",
+          "name": "Total Level 2",
           "type": "spinbox",
           "color": "#fc97a9"
-        },
-        {
-          "name": "L2 Coral Missed",
-          "type": "spinbox",
-          "color": "#d45f74",
-          "buttonColor": "#242424"
         },
         {
           "type": "spacer",
           "height":1
         },
         {
-          "name": "L3 Coral Scored",
+          "name": "Total Level 3",
           "type": "spinbox",
           "color": "#fc97a9"
-        },
-        {
-          "name": "L3 Coral Missed",
-          "type": "spinbox",
-          "color": "#d45f74",
-          "buttonColor": "#242424"
         },
         {
           "type": "spacer",
           "height":1
         },
         {
-          "name": "L4 Coral Scored",
-          "type": "spinbox",
-          "color": "#fc97a9"
-        },
-        {
-          "name": "L4 Coral Missed",
-          "type": "spinbox",
-          "color": "#d45f74",
-          "buttonColor": "#242424"
-        },
-        {
-          "type": "spacer",
-          "height":20
-        },
-        {
-          "name": "Coral Intake Width:",
-          "type": "radio",
-          "color": "#fc97a9",
-          "options": [
-            "Could Not Tell",
-            "None",
-            "Floor Intake",
-            "Narrow",
-            "Medium",
-            "Wide"
-          ],
-          "validation": {
-            "comparison": "greater",
-            "value": 1
-         }
-        },
-        {
-          "type": "spacer",
-          "height":5
-        },
-        {
-          "name": "Robot Removed Algae",
-          "type": "spinbox",
-          "color": "#fc97a9"
-        },
-        {
-          "name": "Robot Algae Processed",
-          "type": "spinbox",
-          "color": "#fc97a9"
-        },
-        {
-          "name": "Robot Algae in Net",
+          "name": "Total Level 4",
           "type": "spinbox",
           "color": "#fc97a9"
         },
         {
           "type": "spacer",
-          "height":5
+          "height":10
+        },
+        {
+          "name": "Alage Scored",
+          "type": "heading",
+          "align": "right"
+        },
+        {
+          "name": "Picked from Reef",
+          "type": "checkbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "Picked from Ground",
+          "type": "checkbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "In Processor",
+          "type": "spinbox",
+          "color": "#fc97a9"
+        },
+        {
+          "name": "In Barge - Net",
+          "type": "spinbox",
+          "color": "#fc97a9"
+        },
+        {
+          "type": "spacer",
+          "height": 20
         },
         {
           "name": "Played Defense",
@@ -273,12 +242,12 @@
           "color": "#fc97a9"
         },
         {
-          "name": "Dead-bot",
+          "name": "Dead-Bot",
           "type": "checkbox",
           "color": "#fc97a9"
         }, 
         {
-          "name": "Coral Stuck",
+          "name": "Coral / Algae Stuck",
           "type": "checkbox",
           "color": "#fc97a9"
         }, 
