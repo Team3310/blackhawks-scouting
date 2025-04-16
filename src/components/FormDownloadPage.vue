@@ -1,5 +1,5 @@
 <template>
-  <FormPage title="Download Data" ref="page">
+  <FormPage title="💾 Download Data 💾" ref="page">
     <FormGroup :label-type="LabelType.None" :colspan="2" align="center">
       <button @click="qrContainer?.showModal()">Generate QR Code</button>
     </FormGroup>

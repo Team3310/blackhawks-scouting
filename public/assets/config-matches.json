@@ -1,9 +1,9 @@
 {
-  "heading": "Reefscape - 2025 - World Comp - v1.0",
+  "heading": "Reefscape - 2025 - World Comp - v1.2",
   "logo": "logo.png",
   "pages": [
     {
-      "name": "Autonomous",
+      "name": "🤖 Autonomous 🤖",
       "widgets": [
         {
           "type": "picture",
@@ -15,6 +15,16 @@
         {
           "type": "spacer",
           "height": 5
+        },
+        {
+          "name": "Starting Side:",
+          "color": "#95d2fc",
+          "type": "radio",
+          "options": [
+            "Processor",
+            "Center",
+            "Their Barge"
+          ]          
         },
         {
           "name": "No Show",
@@ -97,6 +107,20 @@
           "color": "#95d2fc"
         },
         {
+          "type": "spacer",
+          "height":1
+        },
+        {
+          "name": "Missed Anywhere",
+          "type": "spinbox",
+          "color": "#619ac2",
+          "buttonColor": "#242424"
+        },
+        {
+          "type": "spacer",
+          "height":1
+        },
+        {
           "name": "In Processor",
           "type": "spinbox",
           "color": "#95d2fc"
@@ -130,11 +154,16 @@
           "align": "right",
           "width": 85,
           "col": 1
+        },
+        {
+          "type":"label",
+          "name": "Make sure that you selected the robot's starting side!",
+          "colspan": 2
         }
       ]
     },
     {
-      "name": "Teleop",
+      "name": "🎮 Teleop 🎮",
       "widgets": [
         {
           "type": "picture",
@@ -214,6 +243,20 @@
           "color": "#fc97a9"
         },
         {
+          "type": "spacer",
+          "height":1
+        },
+        {
+          "name": "Missed Anywhere",
+          "type": "spinbox",
+          "color": "#d45f74",
+          "buttonColor": "#242424"
+        },
+        {
+          "type": "spacer",
+          "height":1
+        },
+        {
           "name": "In Processor",
           "type": "spinbox",
           "color": "#fc97a9"
@@ -225,7 +268,7 @@
         },
         {
           "type": "spacer",
-          "height": 20
+          "height": 25
         },
         {
           "name": "Played Defense",

@@ -1,5 +1,5 @@
 <template>
-  <FormPage title="Team Selection" ref="page">
+  <FormPage title="📝 Team Selection 📝" ref="page">
     <FormGroup :show="isTBA" :label-type="LabelType.LabelTag" id="event-key-input" name="Event Key">
       <input id="event-key-input" type="text" v-model="eventKey" @keyup.enter="loadTBAData" />
       <button @click="loadTBAData">Load</button>

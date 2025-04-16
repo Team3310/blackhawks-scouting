@@ -1,6 +1,6 @@
 {
   "name": "blackhawks-scouting",
-  "version": "2025.4.7-WorldComp",
+  "version": "2025.4.14-WorldComp",
   "private": true,
   "type": "module",
   "scripts": {
@@ -33,9 +33,9 @@
     "postcss": "^8.4.35",
     "postcss-preset-env": "^9.5.0",
     "typescript": "^5.4.2",
-    "vite": "^5.4.18",
+    "vite": "^6.2.6",
     "vite-plugin-live-reload": "^3.0.3",
-    "vite-plugin-pwa": "^0.19.2"
+    "vite-plugin-pwa": "^1.0.0"
   },
   "eslintConfig": {
     "root": true,

@@ -78,4 +78,15 @@ td, th {
     font-size: 120%;
   }
 }
+
+/* Global CSS */
+input[type="checkbox"] {
+  width: 20px; /* Adjust width */
+  height: 20px; /* Adjust height */
+  cursor: pointer; /* Optional: Add a pointer cursor */
+}
+
+input[type="checkbox"]:checked {
+  background-color: #d45f74; /* Optional: Add a custom color when checked */
+}
 </style>
