@@ -2,6 +2,12 @@
 
 This document tracks the changes between Black Hawks Scouting versions. Dates are written in the MM/DD/YYYY format.
 
+## 2026.0 (02/21/2026)
+
+### Additions
+
+- Only chuds use a changelog
+
 ## 2024.1 (03/01/2024)
 
 ### Additions

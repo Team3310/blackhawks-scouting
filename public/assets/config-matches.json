@@ -1,5 +1,5 @@
 {
-  "heading": "Reefscape - 2025 - World Comp - v1.2",
+  "heading": "Rebuilt — 2026 — Minor Comps — v0.1",
   "logo": "logo.png",
   "pages": [
     {
@@ -21,9 +21,9 @@
           "color": "#95d2fc",
           "type": "radio",
           "options": [
-            "Processor",
+            "Outpost",
             "Center",
-            "Their Barge"
+            "Depot"
           ]          
         },
         {
@@ -41,7 +41,7 @@
           "height": 5
         },
         {
-          "name": "Coral Scored",
+          "name": "Fuel Shots",
           "type": "heading",
           "align": "right"
         },
@@ -56,7 +56,7 @@
           "height":8
         },
         {
-          "name": "Total Level 1",
+          "name": "Total Scored",
           "type": "spinbox",
           "color": "#95d2fc"
         },
@@ -65,68 +65,7 @@
           "height":1
         },
         {
-          "name": "Total Level 2",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "Total Level 3",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "Total Level 4",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "type": "spacer",
-          "height":5
-        },
-        {
-          "name": "Alage Scored",
-          "type": "heading",
-          "align": "right"
-        },
-        {
-          "name": "Picked from Reef",
-          "type": "checkbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "Picked from Ground",
-          "type": "checkbox",
-          "color": "#95d2fc"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "Missed Anywhere",
-          "type": "spinbox",
-          "color": "#619ac2",
-          "buttonColor": "#242424"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "In Processor",
-          "type": "spinbox",
-          "color": "#95d2fc"
-        },
-        {
-          "name": "In Barge - Net",
+          "name": "Total Passed",
           "type": "spinbox",
           "color": "#95d2fc"
         },
@@ -138,6 +77,23 @@
           "name": "Commited Foul",
           "type": "spinbox",
           "color": "#95d2fc"
+        },
+        {
+          "type": "spacer",
+          "height": 5
+        },
+        {
+          "name": "Climb:",
+          "color": "#95d2fc",
+          "type": "radio",
+          "options": [
+            "Climbed",
+            "No Climb"
+          ],
+          "validation": {
+            "comparison": "greater",
+            "value": 1
+         }
         },
         {
           "type": "spacer",
@@ -177,7 +133,7 @@
           "height":5
         },
         {
-          "name": "Coral Scored",
+          "name": "Fuel Shots",
           "type": "heading",
           "align": "right"
         },
@@ -192,7 +148,7 @@
           "height":8
         },
         {
-          "name": "Total Level 1",
+          "name": "Total Scored",
           "type": "spinbox",
           "color": "#fc97a9"
         },
@@ -201,74 +157,13 @@
           "height":1
         },
         {
-          "name": "Total Level 2",
+          "name": "Total Passed",
           "type": "spinbox",
           "color": "#fc97a9"
         },
         {
           "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "Total Level 3",
-          "type": "spinbox",
-          "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "Total Level 4",
-          "type": "spinbox",
-          "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height":10
-        },
-        {
-          "name": "Alage Scored",
-          "type": "heading",
-          "align": "right"
-        },
-        {
-          "name": "Picked from Reef",
-          "type": "checkbox",
-          "color": "#fc97a9"
-        },
-        {
-          "name": "Picked from Ground",
-          "type": "checkbox",
-          "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "Missed Anywhere",
-          "type": "spinbox",
-          "color": "#d45f74",
-          "buttonColor": "#242424"
-        },
-        {
-          "type": "spacer",
-          "height":1
-        },
-        {
-          "name": "In Processor",
-          "type": "spinbox",
-          "color": "#fc97a9"
-        },
-        {
-          "name": "In Barge - Net",
-          "type": "spinbox",
-          "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height": 25
+          "height": 20
         },
         {
           "name": "Played Defense",
@@ -290,29 +185,61 @@
           "color": "#fc97a9"
         }, 
         {
-          "name": "Coral / Algae Stuck",
-          "type": "checkbox",
+          "name": "Total Time Stuck",
+          "type": "number",
           "color": "#fc97a9"
         }, 
+        {
+          "name": "Stopwatch",
+          "type": "stopwatch"
+        },
         {
           "type": "spacer",
           "height":5
         },
         {
-          "name": "Park:",
+          "name": "Climb:",
           "color": "#fc97a9",
           "type": "radio",
           "options": [
-            "Shallow Cage",
-            "Deep Cage",
-            "Parked",
-            "No Park"
+            "Level 3",
+            "Level 2",
+            "Level 1",
+            "No Climb"
           ],
           "validation": {
             "comparison": "greater",
             "value": 1
          }
-          
+        },
+        {
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "name": "General Bot Info",
+          "type": "heading",
+          "align": "right"
+        },
+        {
+          "name": "Can go under trench",
+          "type": "checkbox",
+          "color": "#fc97a9"
+        },
+        {
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "name": "Shooting Type:",
+          "color": "#fc97a9",
+          "type": "radio",
+          "options": [
+            "Turret with hood",
+            "Just turret",
+            "Non-roating shooter",
+            "No shooter"
+          ]
         },
         {
           "type": "spacer",

@@ -1,6 +1,6 @@
 {
   "name": "blackhawks-scouting",
-  "version": "2025.4.14-WorldComp",
+  "version": "2026.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -21,15 +21,15 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
+    "@typescript-eslint/parser": "^8.56.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue-macros/reactivity-transform": "^0.4.3",
-    "@vue/eslint-config-typescript": "^12.0.0",
+    "@vue/eslint-config-typescript": "^14.7.0",
     "autoprefixer": "^10.4.18",
-    "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.22.0",
-    "json-schema-to-typescript": "^13.1.2",
+    "eslint": "^10.0.1",
+    "eslint-plugin-vue": "^10.8.0",
+    "json-schema-to-typescript": "^15.0.4",
     "postcss": "^8.4.35",
     "postcss-preset-env": "^9.5.0",
     "typescript": "^5.4.2",
