@@ -51,7 +51,7 @@
         "min": 0,
         "max": 100,
         "allowKeyboardInput": true,
-        "buttonSize": "8ch"
+        "buttonSize": "15ch"
         },
         {
           "type": "spacer",
@@ -63,7 +63,7 @@
         "min": 0,
         "max": 100,
         "allowKeyboardInput": true,
-        "buttonSize": "8ch"
+        "buttonSize": "15ch"
         },
         {
           "type": "spacer",
@@ -75,7 +75,7 @@
         "min": 0,
         "max": 100,
         "allowKeyboardInput": true,
-        "buttonSize": "8ch"
+        "buttonSize": "15ch"
         },
         {
           "type": "spacer",
