@@ -1,0 +1,28 @@
+{
+  "heading": "Button Counter Widget Example",
+  "pages": [
+    {
+      "name": "Example Page",
+      "widgets": [
+        {
+          "type": "buttoncounter",
+          "name": "Score",
+          "min": 0,
+          "max": 50,
+          "allowKeyboardInput": true,
+          "minusButtonColor": "#f44336",
+          "plusButtonColor": "#4CAF50",
+          "buttonSize": "2.8ch"
+        },
+        {
+          "type": "buttoncounter",
+          "name": "Points",
+          "min": 0,
+          "max": 100,
+          "allowKeyboardInput": false,
+          "buttonColor": "#2196F3"
+        }
+      ]
+    }
+  ]
+}

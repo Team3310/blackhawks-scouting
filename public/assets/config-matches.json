@@ -46,28 +46,36 @@
           "align": "right"
         },
         {
-          "name": "Total Missed",
-          "type": "spinbox",
-          "color": "#619ac2",
-          "buttonColor": "#242424"
+        "type": "buttoncounter",
+        "name": "Total Missed",
+        "min": 0,
+        "max": 100,
+        "allowKeyboardInput": true,
+        "buttonSize": "8ch"
         },
         {
           "type": "spacer",
           "height":8
         },
         {
-          "name": "Total Scored",
-          "type": "spinbox",
-          "color": "#95d2fc"
+        "type": "buttoncounter",
+        "name": "Total Scored",
+        "min": 0,
+        "max": 100,
+        "allowKeyboardInput": true,
+        "buttonSize": "8ch"
         },
         {
           "type": "spacer",
           "height":1
         },
         {
-          "name": "Total Passed",
-          "type": "spinbox",
-          "color": "#95d2fc"
+        "type": "buttoncounter",
+        "name": "Total Passed",
+        "min": 0,
+        "max": 100,
+        "allowKeyboardInput": true,
+        "buttonSize": "8ch"
         },
         {
           "type": "spacer",
@@ -166,10 +174,14 @@
           "height": 20
         },
         {
-          "name": "Played Defense",
-          "type": "checkbox",
+          "name": "Total Time Playing Defense",
+          "type": "number",
           "color": "#fc97a9"
         }, 
+        {
+          "name": "Stopwatch",
+          "type": "stopwatch"
+        },
         {
           "type": "spacer",
           "height":5
@@ -180,9 +192,24 @@
           "color": "#fc97a9"
         },
         {
-          "name": "Dead-Bot",
-          "type": "checkbox",
-          "color": "#fc97a9"
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "type": "timeinput",
+          "name": "Robot Break Time"
+        },
+        {
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "type": "timeinput",
+          "name": "Robot Dead Time"
+        },
+        {
+          "type": "spacer",
+          "height":5
         }, 
         {
           "name": "Total Time Stuck",
@@ -213,10 +240,6 @@
          }
         },
         {
-          "type": "spacer",
-          "height":5
-        },
-        {
           "name": "General Bot Info",
           "type": "heading",
           "align": "right"
@@ -240,6 +263,15 @@
             "Non-roating shooter",
             "No shooter"
           ]
+        },
+        {
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "name": "Went over Bump",
+          "type": "checkbox",
+          "color": "#fc97a9"
         },
         {
           "type": "spacer",

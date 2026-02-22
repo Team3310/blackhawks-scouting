@@ -164,6 +164,20 @@
         "height": { "type": "integer" }
       }
     },
+    "widgetButtonCounter": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "buttoncounter" },
+        "min": { "type": "integer" },
+        "max": { "type": "integer" },
+        "allowKeyboardInput": { "type": "boolean" },
+        "buttonColor": { "type": "string" },
+        "minusButtonColor": { "type": "string" },
+        "plusButtonColor": { "type": "string" },
+        "buttonSize": { "type": "string" }
+      },
+      "required": ["name"]
+    },
     "widgetSpinbox": {
       "type": "object",
       "properties": {
@@ -193,6 +207,13 @@
       },
       "required": ["name"]
     },
+    "widgetTimeInput": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "timeinput" }
+      },
+      "required": ["name"]
+    },
     "widgetToggleGrid": {
       "type": "object",
       "properties": {
@@ -219,7 +240,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["dropdown", "heading", "label", "text", "number", "checkbox", "multicheckbox", "picture", "positions", "radio", "spacer", "spinbox", "stopwatch", "textarea", "togglegrid"]
+          "enum": ["dropdown", "heading", "label", "text", "number", "checkbox", "multicheckbox", "picture", "positions", "radio", "spacer", "buttoncounter", "spinbox", "stopwatch", "textarea", "timeinput", "togglegrid"]
         },
         "prefix": { "type": "string" },
         "name": { "type": "string" },
@@ -248,9 +269,11 @@
         { "$ref": "#/$defs/widgetPositions" },
         { "$ref": "#/$defs/widgetRadio" },
         { "$ref": "#/$defs/widgetSpacer" },
+        { "$ref": "#/$defs/widgetButtonCounter" },
         { "$ref": "#/$defs/widgetSpinbox" },
         { "$ref": "#/$defs/widgetStopwatch" },
         { "$ref": "#/$defs/widgetTextarea" },
+        { "$ref": "#/$defs/widgetTimeInput" },
         { "$ref": "#/$defs/widgetToggleGrid" }
       ]
     }

@@ -18,9 +18,11 @@ export type Widget = {
     | "positions"
     | "radio"
     | "spacer"
+    | "buttoncounter"
     | "spinbox"
     | "stopwatch"
     | "textarea"
+    | "timeinput"
     | "togglegrid";
   prefix?: string;
   name?: string;
@@ -51,9 +53,11 @@ export type Widget1 =
   | WidgetPositions
   | WidgetRadio
   | WidgetSpacer
+  | WidgetButtonCounter
   | WidgetSpinbox
   | WidgetStopwatch
   | WidgetTextarea
+  | WidgetTimeInput
   | WidgetToggleGrid;
 
 export interface ConfigSchema {
@@ -139,6 +143,17 @@ export interface WidgetSpacer {
   height?: number;
   [k: string]: unknown;
 }
+export interface WidgetButtonCounter {
+  type?: "buttoncounter";
+  min?: number;
+  max?: number;
+  allowKeyboardInput?: boolean;
+  buttonColor?: string;
+  minusButtonColor?: string;
+  plusButtonColor?: string;
+  buttonSize?: string;
+  [k: string]: unknown;
+}
 export interface WidgetSpinbox {
   type?: "spinbox";
   min?: number;
@@ -157,6 +172,10 @@ export interface WidgetStopwatch {
 }
 export interface WidgetTextarea {
   type?: "textarea";
+  [k: string]: unknown;
+}
+export interface WidgetTimeInput {
+  type?: "timeinput";
   [k: string]: unknown;
 }
 export interface WidgetToggleGrid {

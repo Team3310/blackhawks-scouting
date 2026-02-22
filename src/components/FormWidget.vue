@@ -21,9 +21,11 @@ import WidgetPicture from "@/components/WidgetPicture.vue";
 import WidgetPositions from "@/components/WidgetPositions.vue";
 import WidgetRadio from "@/components/WidgetRadio.vue";
 import WidgetSpacer from "@/components/WidgetSpacer.vue";
+import WidgetButtonCounter from "@/components/WidgetButtonCounter.vue";
 import WidgetSpinbox from "@/components/WidgetSpinbox.vue";
 import WidgetStopwatch from "@/components/WidgetStopwatch.vue";
 import WidgetTextarea from "@/components/WidgetTextarea.vue";
+import WidgetTimeInput from "@/components/WidgetTimeInput.vue";
 import WidgetToggleGrid from "@/components/WidgetToggleGrid.vue";
 
 const props = defineProps<{
@@ -55,9 +57,11 @@ const info = {
   positions:     { class: WidgetPositions,     label: LabelType.PlainText },
   radio:         { class: WidgetRadio,         label: LabelType.PlainText },
   spacer:        { class: WidgetSpacer,        label: LabelType.None      },
+  buttoncounter: { class: WidgetButtonCounter, label: LabelType.LabelTag  },
   spinbox:       { class: WidgetSpinbox,       label: LabelType.LabelTag  },
   stopwatch:     { class: WidgetStopwatch,     label: LabelType.PlainText },
   textarea:      { class: WidgetTextarea,      label: LabelType.LabelTag  },
+  timeinput:     { class: WidgetTimeInput,     label: LabelType.LabelTag  },
   togglegrid:    { class: WidgetToggleGrid,    label: LabelType.PlainText }
 }[props.data.type];
 
