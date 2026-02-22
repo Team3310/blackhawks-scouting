@@ -1,5 +1,5 @@
 {
-  "heading": "Rebuilt — 2026 — Minor Comps — v0.1",
+  "heading": "Rebuilt — 2026 — Minor Comps — v1.2",
   "logo": "logo.png",
   "pages": [
     {
@@ -51,7 +51,7 @@
         "min": 0,
         "max": 100,
         "allowKeyboardInput": true,
-        "buttonSize": "15ch"
+        "buttonSize": "13ch"
         },
         {
           "type": "spacer",
@@ -63,7 +63,7 @@
         "min": 0,
         "max": 100,
         "allowKeyboardInput": true,
-        "buttonSize": "15ch"
+        "buttonSize": "13ch"
         },
         {
           "type": "spacer",
@@ -75,7 +75,7 @@
         "min": 0,
         "max": 100,
         "allowKeyboardInput": true,
-        "buttonSize": "15ch"
+        "buttonSize": "13ch"
         },
         {
           "type": "spacer",
@@ -101,7 +101,8 @@
           "validation": {
             "comparison": "greater",
             "value": 1
-         }
+         },
+          "validationMessage": "Please select the robot's climb status!"
         },
         {
           "type": "spacer",
@@ -146,19 +147,36 @@
           "align": "right"
         },
         {
-          "name": "Total Missed",
-          "type": "spinbox",
-          "color": "#d45f74",
-          "buttonColor": "#242424"
+        "type": "buttoncounter",
+        "name": "Total Missed",
+        "min": 0,
+        "max": 100,
+        "allowKeyboardInput": true,
+        "buttonSize": "13ch"
         },
         {
           "type": "spacer",
           "height":8
         },
         {
-          "name": "Total Scored",
-          "type": "spinbox",
-          "color": "#fc97a9"
+        "type": "buttoncounter",
+        "name": "Total Scored",
+        "min": 0,
+        "max": 100,
+        "allowKeyboardInput": true,
+        "buttonSize": "13ch"
+        },
+        {
+          "type": "spacer",
+          "height":1
+        },
+        {
+        "type": "buttoncounter",
+        "name": "Total Passed",
+        "min": 0,
+        "max": 100,
+        "allowKeyboardInput": true,
+        "buttonSize": "13ch"
         },
         {
           "type": "spacer",
@@ -237,7 +255,8 @@
           "validation": {
             "comparison": "greater",
             "value": 1
-         }
+         },
+          "validationMessage": "Please select the robot's climb level!"
         },
         {
           "name": "General Bot Info",

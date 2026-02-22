@@ -254,7 +254,8 @@
         "rowspan": { "type": "integer" },
         "colspan": { "type": "integer" },
         "labelColspan": { "type": "integer" },
-        "validation": { "$ref": "#/$defs/validation" }
+        "validation": { "$ref": "#/$defs/validation" },
+        "validationMessage": { "type": "string" }
       },
       "required": ["type"],
       "oneOf": [

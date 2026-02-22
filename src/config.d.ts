@@ -34,6 +34,7 @@ export type Widget = {
   colspan?: number;
   labelColspan?: number;
   validation?: Validation;
+  validationMessage?: string;
   [k: string]: unknown;
 } & Widget1;
 export type Validation = {

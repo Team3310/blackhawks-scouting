@@ -117,8 +117,9 @@ export const useWidgetsStore = defineStore("widgets", () => {
 export const useValidationStore = defineStore("validation", () => {
   const triggerPages = $ref(new Array<number>()); // Array of pages to validate
   const failedPage = $ref(-1); // Index of page that failed validation (-1 indicates success)
+  const errors = $ref(new Array<string>()); // Array of validation error messages
 
-  return $$({ triggerPages, failedPage });
+  return $$({ triggerPages, failedPage, errors });
 });
 
 // Store to contain data fetched from The Blue Alliance
