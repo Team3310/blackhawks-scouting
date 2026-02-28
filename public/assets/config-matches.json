@@ -271,15 +271,6 @@
           "align": "right"
         },
         {
-          "name": "Can go under trench",
-          "type": "checkbox",
-          "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height":5
-        },
-        {
           "name": "Went over Bump",
           "type": "checkbox",
           "color": "#fc97a9"
@@ -287,17 +278,6 @@
         {
           "type": "spacer",
           "height":5
-        },
-        {
-          "name": "Shooting Type:",
-          "color": "#fc97a9",
-          "type": "radio",
-          "options": [
-            "Turret with hood",
-            "Just turret",
-            "Non-roating shooter",
-            "No shooter"
-          ]
         },
         {
           "type": "spacer",
