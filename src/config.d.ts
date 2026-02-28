@@ -153,6 +153,30 @@ export interface WidgetButtonCounter {
   minusButtonColor?: string;
   plusButtonColor?: string;
   buttonSize?: string;
+  /**
+   * When true the component will record timestamps whenever the value
+   * increases and compute two rates: current shots/sec for the ongoing
+   * cycle and an average over all previous cycles.  A cycle ends when a
+   * gap longer than `cycleThreshold` milliseconds occurs between shots.
+   */
+  showCycleRate?: boolean;
+  /**
+   * Number of milliseconds of inactivity that signify the end of a
+   * shooting cycle.  Defaults to 3000 (3 seconds).
+   */
+  cycleThreshold?: number;
+  /**
+   * If provided, the average cycle rate (shots/sec) will be exported as a
+   * separate CSV column with this name. Useful for tracking separate rates
+   * for autonomous vs teleop phases.
+   */
+  cycleRateExportName?: string;
+  /**
+   * Optional grouping key. Counters with the same `cycleGroup` will be
+   * aggregated together for cycle-time calculations (useful to combine
+   * missed/scored/passed into a single robot cycle rate).
+   */
+  cycleGroup?: string;
   [k: string]: unknown;
 }
 export interface WidgetSpinbox {

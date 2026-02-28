@@ -174,7 +174,11 @@
         "buttonColor": { "type": "string" },
         "minusButtonColor": { "type": "string" },
         "plusButtonColor": { "type": "string" },
-        "buttonSize": { "type": "string" }
+        "buttonSize": { "type": "string" },
+        "showCycleRate": { "type": "boolean", "description": "Calculate and display shots/sec for each cycle and as an average." },
+        "cycleThreshold": { "type": "integer", "description": "Inactivity milliseconds before a cycle ends (default 3000)." },
+         "cycleRateExportName": { "type": "string", "description": "If provided, export the average cycle rate as a CSV column with this name." },
+        "cycleGroup": { "type": "string", "description": "Optional group name to aggregate multiple counters into a single cycle statistic." }
       },
       "required": ["name"]
     },

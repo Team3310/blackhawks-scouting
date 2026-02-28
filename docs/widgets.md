@@ -36,11 +36,38 @@ A numeric input, similar to Number. Includes increment and decrement buttons to 
 
 **Exports:** The value entered.
 
-### Text
+### Button Counter
 
-A textbox input. Any value may be entered.
+A simple counter controlled by four buttons (`-5`, `-1`, `+1`, `+5`). The number may also be typed if `allowKeyboardInput` is `true`.
 
-**Type String:** `text`
+**Type String:** `buttoncounter`
+
+**Exports:** The value currently displayed.
+
+In addition to the basic counter behaviour, the widget can optionally calculate a shooting **cycle rate**. If the configuration object contains
+
+```json
+{
+  "showCycleRate": true,
+  "cycleThreshold": 3000   // optional, milliseconds before a burst is considered finished
+}
+```
+
+then the component will record the timestamps of increments; when a gap longer than `cycleThreshold` occurs, a new cycle begins. Two rates are
+computed during use:
+
+- **current rate:** shots per second for the ongoing cycle (updated live)
+- **average rate:** historic shots per second averaged over all completed cycles
+
+If several counters share the same `cycleGroup` value they will all feed into
+one tracker and display the same pair of rates.  This is useful for combining
+missed / scored / passed buttons into a single robot cycle time; just give
+each widget `"cycleGroup": "mygroup"`.  The `showCycleRate` flag on the
+individual widgets is ignored when they are grouped – the group rate will
+always be shown; you only need to set `cycleRateExportName` on **one** widget
+(perhaps the last one) in order to create a CSV column for the shared average.
+Individual counters no longer maintain independent rates when belonging to a
+group.
 
 **Exports:** The text entered.
 

@@ -45,6 +45,113 @@ export const useWidgetsStore = defineStore("widgets", () => {
     return (data === undefined) ? null : makeDownloadLink(data);
   });
 
+  // Cycle groups: shared cycle/timing tracker for multiple counters
+  const cycleGroups = $ref(new Map<string, any>());
+
+  function ensureCycleGroup(name: string) {
+    if (!cycleGroups.has(name)) {
+      const cycleStart = $ref<number | null>(null);
+      const lastShot = $ref<number | null>(null);
+      const shotCount = $ref(0);
+      const totalShots = $ref(0);
+      const totalShotSec = $ref(0);
+      const inactivityTimer = $ref<number | null>(null);
+      const cycleThreshold = $ref(3000);
+
+      const state = {
+        cycleStart,
+        lastShot,
+        shotCount,
+        totalShots,
+        totalShotSec,
+        inactivityTimer,
+        cycleThreshold
+      } as any;
+
+      cycleGroups.set(name, state);
+    }
+    return cycleGroups.get(name);
+  }
+
+  // Ensure an export column exists for a cycle group. Returns the computed ref.
+  function ensureCycleGroupExport(groupName: string, exportName?: string) {
+    const g = ensureCycleGroup(groupName);
+    if (!exportName) return null;
+    if (!g.exportComputed) {
+      const exportComputed = $computed(() => {
+        const s = g;
+        const denom = s.totalShotSec ?? 0;
+        return (denom > 0) ? (s.totalShots / denom).toFixed(2) : "0.00";
+      });
+      g.exportComputed = exportComputed;
+      addWidgetValue(exportName, $$(exportComputed));
+    }
+    return g.exportComputed;
+  }
+
+  // Add shots to a shared cycle group. delta can be >1 for +5 presses.
+  function addShotToCycleGroup(groupName: string, delta: number, threshold?: number) {
+    const now = Date.now();
+    const g = ensureCycleGroup(groupName);
+    if (threshold !== undefined) g.cycleThreshold = threshold;
+    const cycleThresholdVal = g.cycleThreshold ?? 3000;
+
+    if (!g.cycleStart || (g.lastShot !== null && now - g.lastShot > cycleThresholdVal)) {
+      // finish previous burst
+      if (g.cycleStart && g.shotCount > 1 && g.lastShot !== null) {
+        const dur = (g.lastShot - g.cycleStart) / 1000;
+        g.totalShotSec += dur;
+        g.totalShots += g.shotCount;
+      }
+      g.cycleStart = now;
+      g.shotCount = delta;
+    } else {
+      g.shotCount += delta;
+    }
+    g.lastShot = now;
+
+    // schedule inactivity close
+    if (g.inactivityTimer !== null) window.clearTimeout(g.inactivityTimer);
+    g.inactivityTimer = window.setTimeout(() => {
+      if (g.cycleStart && g.shotCount > 1 && g.lastShot !== null) {
+        const dur = (g.lastShot - g.cycleStart) / 1000;
+        g.totalShotSec += dur;
+        g.totalShots += g.shotCount;
+      }
+      g.cycleStart = g.lastShot = null;
+      g.shotCount = 0;
+      g.inactivityTimer = null;
+    }, cycleThresholdVal);
+  }
+
+  // Return current shots/sec for a group (0 if insufficient data)
+  function getCycleGroupCurrentRate(groupName: string): number {
+    const g = cycleGroups.get(groupName);
+    if (!g || !g.cycleStart || g.shotCount < 2) return 0;
+    return g.shotCount / ((g.lastShot - g.cycleStart) / 1000);
+  }
+
+  // Return average shots/sec for a group (across completed bursts)
+  function getCycleGroupAverageRate(groupName: string): number {
+    const g = cycleGroups.get(groupName);
+    if (!g || g.totalShotSec === 0) return 0;
+    return g.totalShots / g.totalShotSec;
+  }
+
+  // Provide CSV entries for each group export name
+  function getCycleGroupExportEntries() {
+    const entries: Array<{ name: string; value: string }> = [];
+    cycleGroups.forEach((g, name) => {
+      if (g.exportComputed) {
+        entries.push({ name: g.exportComputed.name ?? name, value: g.exportComputed.value });
+      } else if (g.exportName) {
+        const val = getCycleGroupAverageRate(name).toFixed(2);
+        entries.push({ name: g.exportName, value: val });
+      }
+    });
+    return entries;
+  }
+
   // Returns the current form's widget data.
   function getWidgetsAsCSV(): SavedData {
     // Turns a value into a string. Arrays are space-delimited to minimize collision with the CSV format.
@@ -108,9 +215,25 @@ export const useWidgetsStore = defineStore("widgets", () => {
     }
   }
 
-  return $$({
-    values, savedData, lastWidgetRowEnd, downloadLink, getWidgetsAsCSV, toCSVString, makeDownloadLink, addWidgetValue, save
-  });
+  return $$(
+    {
+      values,
+      savedData,
+      lastWidgetRowEnd,
+      downloadLink,
+      getWidgetsAsCSV,
+      toCSVString,
+      makeDownloadLink,
+      addWidgetValue,
+      save,
+      cycleGroups,
+      ensureCycleGroupExport,
+      addShotToCycleGroup,
+      getCycleGroupCurrentRate,
+      getCycleGroupAverageRate,
+      getCycleGroupExportEntries
+    }
+  );
 });
 
 // Store to contain widget validation status flags
