@@ -43,33 +43,17 @@
         },
         {
         "type": "buttoncounter",
-        "name": "Total Missed",
-        "min": 0,
-        "max": 800,
-        "allowKeyboardInput": true,
-        "buttonSize": "13ch",
-        "cycleGroup": "auton",
-        "cycleRateExportName": "Auton-Cycle-Rate",
-        "color": "#95d2fc"
-        },
-        {
-          "type": "spacer",
-          "height":8
-        },
-        {
-        "type": "buttoncounter",
         "name": "Total Scored",
         "min": 0,
         "max": 800,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
         "cycleGroup": "auton",
-        "cycleRateExportName": "Auton-Cycle-Rate",
         "color": "#95d2fc"
         },
         {
           "type": "spacer",
-          "height":1
+          "height":8
         },
         {
         "type": "buttoncounter",
@@ -79,8 +63,22 @@
         "allowKeyboardInput": true,
         "cycleGroup": "auton",
         "buttonSize": "13ch",
-        "cycleGroupPrimary": true,
+        "color": "#95d2fc"
+        },
+        {
+          "type": "spacer",
+          "height":1
+        },
+        {
+        "type": "buttoncounter",
+        "name": "Total Missed",
+        "min": 0,
+        "max": 800,
+        "allowKeyboardInput": true,
+        "buttonSize": "13ch",
+        "cycleGroup": "auton",
         "cycleRateExportName": "Auton-Cycle-Rate",
+        "cycleGroupPrimary": true,
         "color": "#95d2fc"
         },
         {
@@ -103,12 +101,7 @@
           "options": [
             "Climbed",
             "No Climb"
-          ],
-          "validation": {
-            "comparison": "greater",
-            "value": 1
-         },
-          "validationMessage": "Please select the robot's climb status!"
+          ]
         },
         {
           "type": "spacer",
@@ -154,7 +147,7 @@
         },
         {
         "type": "buttoncounter",
-        "name": "Total Missed",
+        "name": "Total Scored",
         "min": 0,
         "max": 800,
         "allowKeyboardInput": true,
@@ -168,12 +161,12 @@
         },
         {
         "type": "buttoncounter",
-        "name": "Total Scored",
+        "name": "Total Passed",
         "min": 0,
         "max": 800,
         "allowKeyboardInput": true,
-        "buttonSize": "13ch",
         "cycleGroup": "teleop",
+        "buttonSize": "13ch",
         "color": "#fc97a9"
         },
         {
@@ -182,15 +175,15 @@
         },
         {
         "type": "buttoncounter",
-        "name": "Total Passed",
+        "name": "Total Missed",
         "min": 0,
         "max": 800,
         "allowKeyboardInput": true,
-        "cycleGroup": "teleop",
         "buttonSize": "13ch",
+        "cycleGroup": "teleop",
+        "color": "#fc97a9",
         "cycleGroupPrimary": true,
-        "cycleRateExportName": "Teleop-Cycle-Rate",
-        "color": "#fc97a9"
+        "cycleRateExportName": "Teleop-Cycle-Rate"
         },
         {
           "type": "spacer",

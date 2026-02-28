@@ -181,7 +181,7 @@ const setValue = (newValue: number) => {
 
 .counter-display {
   text-align: center;
-  width: 2em;
+  width: 3em;
   appearance: textfield;
 
   &::-webkit-outer-spin-button,
