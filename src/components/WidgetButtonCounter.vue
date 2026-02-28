@@ -55,8 +55,8 @@ let inactivityTimer = $ref<number | null>(null); // timeout handle for detecting
 const cycleThreshold = props.data.cycleThreshold ?? 3000;
 const showCycle = $computed(() => {
   if (props.data.cycleGroup) {
-    // when part of a group, always show the group rate on every member
-    return true;
+    // only the designated primary widget displays the shared rate
+    return !!props.data.cycleGroupPrimary;
   }
   return props.data.showCycleRate === true;
 });

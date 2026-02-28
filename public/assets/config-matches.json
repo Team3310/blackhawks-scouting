@@ -48,9 +48,9 @@
         "max": 800,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
-        "showCycleRate": true,
         "cycleGroup": "auton",
-        "cycleRateExportName": "Auton-Cycle-Rate"
+        "cycleRateExportName": "Auton-Cycle-Rate",
+        "color": "#95d2fc"
         },
         {
           "type": "spacer",
@@ -63,9 +63,9 @@
         "max": 800,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
-        "showCycleRate": true,
         "cycleGroup": "auton",
-        "cycleRateExportName": "Auton-Cycle-Rate"
+        "cycleRateExportName": "Auton-Cycle-Rate",
+        "color": "#95d2fc"
         },
         {
           "type": "spacer",
@@ -78,7 +78,10 @@
         "max": 800,
         "allowKeyboardInput": true,
         "cycleGroup": "auton",
-        "buttonSize": "13ch"
+        "buttonSize": "13ch",
+        "cycleGroupPrimary": true,
+        "cycleRateExportName": "Auton-Cycle-Rate",
+        "color": "#95d2fc"
         },
         {
           "type": "spacer",
@@ -156,9 +159,8 @@
         "max": 800,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
-        "showCycleRate": true,
         "cycleGroup": "teleop",
-        "cycleRateExportName": "Teleop-Cycle-Rate"
+        "color": "#fc97a9"
         },
         {
           "type": "spacer",
@@ -171,9 +173,8 @@
         "max": 800,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
-        "showCycleRate": true,
         "cycleGroup": "teleop",
-        "cycleRateExportName": "Teleop-Cycle-Rate"
+        "color": "#fc97a9"
         },
         {
           "type": "spacer",
@@ -186,7 +187,10 @@
         "max": 800,
         "allowKeyboardInput": true,
         "cycleGroup": "teleop",
-        "buttonSize": "13ch"
+        "buttonSize": "13ch",
+        "cycleGroupPrimary": true,
+        "cycleRateExportName": "Teleop-Cycle-Rate",
+        "color": "#fc97a9"
         },
         {
           "type": "spacer",
@@ -194,7 +198,7 @@
         },
         {
           "name": "Total Time Playing Defense",
-          "type": "number",
+          "type": "timeinput",
           "color": "#fc97a9"
         }, 
         {
@@ -207,7 +211,7 @@
         },
         {
           "name": "Total Time Stuck",
-          "type": "number",
+          "type": "timeinput",
           "color": "#fc97a9"
         }, 
         {
@@ -229,7 +233,8 @@
         },
         {
           "type": "timeinput",
-          "name": "Robot Break Time"
+          "name": "Robot Break Time",
+          "color": "#fc97a9"
         },
         {
           "type": "spacer",
@@ -237,7 +242,8 @@
         },
         {
           "type": "timeinput",
-          "name": "Robot Dead Time"
+          "name": "Robot Dead Time",
+          "color": "#fc97a9"
         },
         {
           "type": "spacer",
@@ -298,9 +304,22 @@
           "height":5
         },
         {
+          "name": "Average Cycle Rate",
+          "type": "number",
+          "color": "#fc97a9"
+        },
+        {
+          "type": "spacer",
+          "height": 5
+        },
+        {
           "name": "Robot Break type:",
           "type": "text",
           "color": "#fc97a9"
+        },
+        {
+          "type": "spacer",
+          "height": 5
         },
         {
           "name": "Teleop Comments",
