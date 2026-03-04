@@ -52,7 +52,7 @@ let totalShots = $ref(0);                       // total shots counted in finish
 let totalShotSec = $ref(0);                     // sum of durations of finished bursts (seconds)
 let inactivityTimer = $ref<number | null>(null); // timeout handle for detecting end-of-cycle
 
-const cycleThreshold = props.data.cycleThreshold ?? 3000;
+const cycleThreshold = props.data.cycleThreshold ?? 2000;
 const showCycle = $computed(() => {
   if (props.data.cycleGroup) {
     // only the designated primary widget displays the shared rate
