@@ -1,5 +1,5 @@
 {
-  "heading": "Rebuilt — 2026 — Minor Comps — v1.3",
+  "heading": "Rebuilt — 2026 — Minor Comps — v1.6",
   "logo": "logo.png",
   "pages": [
     {
@@ -187,29 +187,51 @@
         },
         {
           "type": "spacer",
-          "height": 20
+          "height": 5
         },
         {
-          "name": "Total Time Playing Defense",
-          "type": "timeinput",
-          "color": "#fc97a9"
+          "name": "Time Spent Defending:",
+          "color": "#fc97a9",
+          "type": "radio",
+          "options": [
+            "100%",
+            "75%",
+            "50%",
+            "25%",
+            "0%"
+          ]          
         }, 
         {
-          "name": "Stopwatch",
-          "type": "stopwatch"
+          "type": "spacer",
+          "height":5
+        },
+        {
+          "name": "Time Spent Stuck:",
+          "color": "#fc97a9",
+          "type": "radio",
+          "options": [
+            "100%",
+            "75%",
+            "50%",
+            "25%",
+            "0%"
+          ]          
         },
         {
           "type": "spacer",
           "height":5
         },
         {
-          "name": "Total Time Stuck",
-          "type": "timeinput",
-          "color": "#fc97a9"
-        }, 
-        {
-          "name": "Stopwatch",
-          "type": "stopwatch"
+          "name": "Time Spent Broke:",
+          "color": "#fc97a9",
+          "type": "radio",
+          "options": [
+            "100%",
+            "75%",
+            "50%",
+            "25%",
+            "0%"
+          ]          
         },
         {
           "type": "spacer",
@@ -221,22 +243,9 @@
           "color": "#fc97a9"
         },
         {
-          "type": "spacer",
-          "height":5
-        },
-        {
-          "type": "timeinput",
-          "name": "Robot Break Time",
-          "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height":5
-        },
-        {
-          "type": "timeinput",
-          "name": "Robot Dead Time",
-          "color": "#fc97a9"
+          "type": "checkbox",
+          "name": "Dead Bot",   
+          "color": "#fc97a9"       
         },
         {
           "type": "spacer",
@@ -269,8 +278,9 @@
           "color": "#fc97a9"
         },
         {
-          "type": "spacer",
-          "height":5
+          "name": "Went under trench",
+          "type": "checkbox",
+          "color": "#fc97a9"
         },
         {
           "type": "spacer",
