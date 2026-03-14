@@ -23,7 +23,12 @@ export default defineConfig({
     ReactivityTransform(),
     vue(),
     VitePWA({
+      registerType: "autoUpdate",
       includeAssets: ["assets/*", "icons/*"],
+      workbox: {
+        skipWaiting: true,
+        clientsClaim: true
+      },
       manifest: {
         name: "Black Hawks Scouting",
         short_name: "Scouting",
