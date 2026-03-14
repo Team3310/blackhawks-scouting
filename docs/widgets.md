@@ -36,6 +36,16 @@ A numeric input, similar to Number. Includes increment and decrement buttons to 
 
 **Exports:** The value entered.
 
+### Percent Slider
+
+A horizontal slider input for percentage-style values.
+
+**Type String:** `percentslider`
+
+**Exports:** The selected numeric value.
+
+Use `min`, `max`, `step`, and `default` to control the range and increments. By default it is `0` to `100` and displays the current value as a percent.
+
 ### Button Counter
 
 A simple counter controlled by four buttons (`-5`, `-1`, `+1`, `+5`). The number may also be typed if `allowKeyboardInput` is `true`.

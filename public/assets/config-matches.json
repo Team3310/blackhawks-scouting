@@ -1,6 +1,7 @@
 {
   "heading": "Rebuilt — 2026 — Minor Comps — v1.6",
   "logo": "logo.png",
+  "googleSheetsUrl": "https://script.google.com/macros/s/AKfycbxh2HCxFC7sGuUYVL31O5YLG3avhvbKWUgwDXvGNpDKRvAcgGQuRVJ9k1CpGyyitXPW/exec",
   "pages": [
     {
       "name": "🤖 Autonomous 🤖",
@@ -192,14 +193,11 @@
         {
           "name": "Time Spent Defending:",
           "color": "#fc97a9",
-          "type": "radio",
-          "options": [
-            "100%",
-            "75%",
-            "50%",
-            "25%",
-            "0%"
-          ]          
+          "type": "percentslider",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 0
         }, 
         {
           "type": "spacer",
@@ -208,14 +206,11 @@
         {
           "name": "Time Spent Stuck:",
           "color": "#fc97a9",
-          "type": "radio",
-          "options": [
-            "100%",
-            "75%",
-            "50%",
-            "25%",
-            "0%"
-          ]          
+          "type": "percentslider",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 0
         },
         {
           "type": "spacer",
@@ -224,14 +219,11 @@
         {
           "name": "Time Spent Broke:",
           "color": "#fc97a9",
-          "type": "radio",
-          "options": [
-            "100%",
-            "75%",
-            "50%",
-            "25%",
-            "0%"
-          ]          
+          "type": "percentslider",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 0
         },
         {
           "type": "spacer",

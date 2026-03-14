@@ -27,6 +27,7 @@ import WidgetStopwatch from "@/components/WidgetStopwatch.vue";
 import WidgetTextarea from "@/components/WidgetTextarea.vue";
 import WidgetTimeInput from "@/components/WidgetTimeInput.vue";
 import WidgetToggleGrid from "@/components/WidgetToggleGrid.vue";
+import WidgetPercentSlider from "@/components/WidgetPercentSlider.vue";
 
 const props = defineProps<{
   id: string,
@@ -62,7 +63,8 @@ const info = {
   stopwatch:     { class: WidgetStopwatch,     label: LabelType.PlainText },
   textarea:      { class: WidgetTextarea,      label: LabelType.LabelTag  },
   timeinput:     { class: WidgetTimeInput,     label: LabelType.LabelTag  },
-  togglegrid:    { class: WidgetToggleGrid,    label: LabelType.PlainText }
+  togglegrid:    { class: WidgetToggleGrid,    label: LabelType.PlainText },
+  percentslider: { class: WidgetPercentSlider, label: LabelType.LabelTag  }
 }[props.data.type];
 
 // Props to pass from the widget data to the sub-components
@@ -74,7 +76,7 @@ function validate() {
   if (desc?.index === undefined) return true;
 
   // Only some widget types can be validated
-  const canValidate = ["radio","dropdown", "text", "number", "multicheckbox", "positions", "stopwatch", "textarea"];
+  const canValidate = ["radio","dropdown", "text", "number", "multicheckbox", "positions", "stopwatch", "textarea", "percentslider"];
   if (!canValidate.includes(props.data.type)) return true;
 
   // Skip validation if not specified

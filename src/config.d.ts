@@ -23,7 +23,8 @@ export type Widget = {
     | "stopwatch"
     | "textarea"
     | "timeinput"
-    | "togglegrid";
+    | "togglegrid"
+    | "percentslider";
   prefix?: string;
   name?: string;
   align?: "left" | "center" | "right";
@@ -59,7 +60,8 @@ export type Widget1 =
   | WidgetStopwatch
   | WidgetTextarea
   | WidgetTimeInput
-  | WidgetToggleGrid;
+  | WidgetToggleGrid
+  | WidgetPercentSlider;
 
 export interface ConfigSchema {
   heading?: string;
@@ -154,27 +156,19 @@ export interface WidgetButtonCounter {
   plusButtonColor?: string;
   buttonSize?: string;
   /**
-   * When true the component will record timestamps whenever the value
-   * increases and compute two rates: current shots/sec for the ongoing
-   * cycle and an average over all previous cycles.  A cycle ends when a
-   * gap longer than `cycleThreshold` milliseconds occurs between shots.
+   * Calculate and display shots/sec for each cycle and as an average.
    */
   showCycleRate?: boolean;
   /**
-   * Number of milliseconds of inactivity that signify the end of a
-   * shooting cycle.  Defaults to 3000 (3 seconds).
+   * Inactivity milliseconds before a cycle ends (default 3000).
    */
   cycleThreshold?: number;
   /**
-   * If provided, the average cycle rate (shots/sec) will be exported as a
-   * separate CSV column with this name. Useful for tracking separate rates
-   * for autonomous vs teleop phases.
+   * If provided, export the average cycle rate as a CSV column with this name.
    */
   cycleRateExportName?: string;
   /**
-   * Optional grouping key. Counters with the same `cycleGroup` will be
-   * aggregated together for cycle-time calculations (useful to combine
-   * missed/scored/passed into a single robot cycle rate).
+   * Optional group name to aggregate multiple counters into a single cycle statistic.
    */
   cycleGroup?: string;
   [k: string]: unknown;
@@ -210,5 +204,14 @@ export interface WidgetToggleGrid {
   colors: string[];
   rowColors?: string[];
   colColors?: string[];
+  [k: string]: unknown;
+}
+export interface WidgetPercentSlider {
+  type?: "percentslider";
+  min?: number;
+  max?: number;
+  step?: number;
+  default?: number;
+  showValue?: boolean;
   [k: string]: unknown;
 }

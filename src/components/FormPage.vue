@@ -20,7 +20,12 @@ const props = defineProps<{
 const config = useConfigStore();
 const widgets = useWidgetsStore();
 
-const teamDesc = $computed(() => widgets.values.find(i => i.name == "Team")?.value.replaceAll(",", ", "));
+const teamDesc = $computed(() => {
+  const allianceColor = widgets.values.find(i => i.name == "AllianceColor")?.value;
+  const teamNumber = widgets.values.find(i => i.name == "TeamNumber")?.value;
+  if (allianceColor === undefined || teamNumber === undefined) return "";
+  return `${allianceColor} ${teamNumber}`;
+});
 const matchNum = $computed(() => widgets.values.find(i => i.name == "MatchNumber")?.value);
 
 // Get the full path to the logo image

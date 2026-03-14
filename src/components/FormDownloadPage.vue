@@ -1,7 +1,17 @@
 <template>
   <FormPage title="💾 Download Data 💾" ref="page">
     <FormGroup :label-type="LabelType.None" :colspan="2" align="center">
-      <button @click="qrContainer?.showModal()">Generate QR Code</button>
+      <button @click="openQRDialog">Generate QR Code</button>
+    </FormGroup>
+    <FormGroup v-if="config.data.googleSheetsUrl" :label-type="LabelType.None" :colspan="2" align="center">
+      <button :disabled="sheetStatus === 'sending'" @click="sendToGoogleSheets">
+        {{ sheetStatus === "sending" ? "Sending..." : "Send to Google Sheets" }}
+      </button>
+    </FormGroup>
+    <FormGroup v-if="config.data.googleSheetsUrl && sheetStatus !== 'idle'" :label-type="LabelType.None" :colspan="2" align="center">
+      <span class="sheet-status" v-if="sheetStatus === 'sending'">📤 Sending {{ pendingSendSummary }}...</span>
+      <span class="sheet-status" v-else-if="sheetStatus === 'sent'">✅ Sent {{ lastSentSummary }} to Google Sheets.</span>
+      <span class="sheet-status" v-else-if="sheetStatus === 'error'">❌ Failed to send {{ pendingSendSummary }}.</span>
     </FormGroup>
     <FormGroup :label-type="LabelType.None">
       <div style="height: 20px;"></div>
@@ -45,6 +55,7 @@ import { LabelType } from "@/common/shared";
 import { computed } from "vue";
 import QrcodeVue from "qrcode.vue";
 import { useConfigStore, useWidgetsStore } from "@/common/stores";
+import { submitToGoogleSheets } from "@/common/googleSheets";
 import { useRouter } from "vue-router";
 
 const config = useConfigStore();
@@ -56,6 +67,34 @@ const page = $ref<InstanceType<typeof FormPage>>();
 const qrContainer = $ref<HTMLDialogElement>();
 const qrData = $computed(() => widgets.toCSVString(widgets.getWidgetsAsCSV(), !excludeHeaders));
 const excludeHeaders = $ref(false);
+let sheetStatus = $ref<'idle' | 'sending' | 'sent' | 'error'>('idle');
+let pendingSendSummary = $ref("");
+let lastSentSummary = $ref("");
+
+function openQRDialog() {
+  qrContainer?.showModal();
+}
+
+async function sendToGoogleSheets() {
+  const url = config.data.googleSheetsUrl;
+  if (!url) return;
+
+  const csv = widgets.getWidgetsAsCSV();
+  const getValue = (name: string) => {
+    const idx = csv.header.indexOf(name);
+    return (idx >= 0) ? csv.values[0][idx] : "";
+  };
+
+  const matchNumber = getValue("MatchNumber");
+  const teamNumber = getValue("TeamNumber");
+  const scoutName = getValue("ScoutName");
+  pendingSendSummary = `Match ${matchNumber || "?"} / Team ${teamNumber || "?"}${scoutName ? ` / ${scoutName}` : ""}`;
+
+  sheetStatus = 'sending';
+  const ok = await submitToGoogleSheets(url, csv);
+  sheetStatus = ok ? 'sent' : 'error';
+  if (ok) lastSentSummary = pendingSendSummary;
+}
 
 function clearForm() {
   widgets.save();
@@ -79,5 +118,10 @@ defineExpose({ title: computed(() => page?.title), setShown: computed(() => page
   label {
     color: black;
   }
+}
+
+.sheet-status {
+  font-size: 0.9em;
+  margin-top: 2px;
 }
 </style>

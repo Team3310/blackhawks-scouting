@@ -57,24 +57,15 @@ async function downloadTPSData() {
       if (widgetName === undefined || widgetValue === undefined) continue;
 
       // Process metadata
-      if (widgetName === "EventKey") {
-        newData["metadata"]["event"] = widgetValue;
-      } else if (widgetName === "MatchLevel") {
-        (newData["metadata"]["match"] as Record<string, unknown>)["level"] = ["qm", "sf", "f"][parseInt(widgetValue)];
-      } else if (widgetName === "MatchNumber") {
-        // Match level is guaranteed to be processed before match number
-        const isPlayoffs = (newData["metadata"]["match"] as Record<string, unknown>)["level"] === "sf";
+      if (widgetName === "MatchNumber") {
         const matchNumber = parseInt(widgetValue);
-
-        // For playoff matches: [TBA match number] = 1, [TBA set number] = [app match number]
-        // For other matches: [TBA match number] = [app match number], [TBA set number] = 1
-        (newData["metadata"]["match"] as Record<string, unknown>)["number"] = isPlayoffs ? 1 : matchNumber;
-        (newData["metadata"]["match"] as Record<string, unknown>)["set"] = isPlayoffs ? matchNumber : 1;
-      } else if (widgetName === "Team") {
-        newData["metadata"]["bot"] = parseInt(widgetValue.split(",")[2]);
+        (newData["metadata"]["match"] as Record<string, unknown>)["number"] = matchNumber;
+        (newData["metadata"]["match"] as Record<string, unknown>)["set"] = 1;
+      } else if (widgetName === "TeamNumber") {
+        newData["metadata"]["bot"] = parseInt(widgetValue);
       } else if (widgetName === "ScoutedTime") {
         newData["metadata"]["timestamp"] = Date.parse(widgetValue)
-      } else if (widgetName === "ScouterName") {
+      } else if (widgetName === "ScoutName") {
         newData["metadata"]["scouter"] = { name: widgetValue, team: teamNumber, app: "bhs" }
       }
 

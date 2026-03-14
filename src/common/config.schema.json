@@ -239,12 +239,24 @@
       },
       "required": ["name", "width", "height", "colors"]
     },
+    "widgetPercentSlider": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "percentslider" },
+        "min": { "type": "integer" },
+        "max": { "type": "integer" },
+        "step": { "type": "integer" },
+        "default": { "type": "integer" },
+        "showValue": { "type": "boolean" }
+      },
+      "required": ["name"]
+    },
     "widget": {
       "type": "object",
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["dropdown", "heading", "label", "text", "number", "checkbox", "multicheckbox", "picture", "positions", "radio", "spacer", "buttoncounter", "spinbox", "stopwatch", "textarea", "timeinput", "togglegrid"]
+          "enum": ["dropdown", "heading", "label", "text", "number", "checkbox", "multicheckbox", "picture", "positions", "radio", "spacer", "buttoncounter", "spinbox", "stopwatch", "textarea", "timeinput", "togglegrid", "percentslider"]
         },
         "prefix": { "type": "string" },
         "name": { "type": "string" },
@@ -279,7 +291,8 @@
         { "$ref": "#/$defs/widgetStopwatch" },
         { "$ref": "#/$defs/widgetTextarea" },
         { "$ref": "#/$defs/widgetTimeInput" },
-        { "$ref": "#/$defs/widgetToggleGrid" }
+        { "$ref": "#/$defs/widgetToggleGrid" },
+        { "$ref": "#/$defs/widgetPercentSlider" }
       ]
     }
   }

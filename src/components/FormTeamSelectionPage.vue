@@ -78,14 +78,6 @@ const widgetData = computed(() => ({
   teamColor: `${teamColorManual}`
 }));
 
-// Debug: log teamColorManual and widgetData to ensure it is defined.
-console.log("teamColorManual:", teamColorManual);
-console.log("widgetData.teamColor:", widgetData.value.teamColor);
-
-// Define a unique widget id to pass as currentId.
-// You can generate or set this value as needed.
-const currentId = "unique-widget-id";
-
 // The match data based on the selected level and number
 const currentMatch = $computed(() => {
   // Make sure matches are loaded
@@ -126,17 +118,26 @@ const teamsList = $computed(() => {
   return result;
 });
 
-// The exported team information
-const teamData = $computed(() => {
-  if (isTBA) return teamsList[selectedTeam] ? Object.values(teamsList[selectedTeam]).join() : "";
-  else return `${teamColorManual.value},${teamNumberManual},${scoutNameManual.value}`;
+const allianceColor = $computed(() => {
+  if (isTBA) return teamsList[selectedTeam]?.color ?? "";
+  return teamColorManual.value;
+});
+
+const teamNumber = $computed(() => {
+  if (isTBA) return teamsList[selectedTeam]?.number ?? 0;
+  return teamNumberManual;
+});
+
+const scoutName = $computed(() => {
+  if (isTBA) return teamsList[selectedTeam]?.name ?? "";
+  return scoutNameManual.value;
 });
 
 // Add values to export
-widgets.addWidgetValue("EventKey", $$(eventKey));
-widgets.addWidgetValue("MatchLevel", $$(matchLevel));
 widgets.addWidgetValue("MatchNumber", $$(matchNumber));
-widgets.addWidgetValue("Team", $$(teamData));
+widgets.addWidgetValue("AllianceColor", $$(allianceColor));
+widgets.addWidgetValue("TeamNumber", $$(teamNumber));
+widgets.addWidgetValue("ScoutName", $$(scoutName));
 
 // Updates the loaded status message for a variable.
 // This function takes Ref objects to get a behavior similar to pass-by-reference in C++.
