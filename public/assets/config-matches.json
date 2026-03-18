@@ -18,22 +18,32 @@
           "height": 5
         },
         {
-          "name": "Starting Side:",
-          "color": "#95d2fc",
-          "type": "radio",
-          "options": [
-            "Outpost",
-            "Center",
-            "Depot"
-          ]          
-        },
-        {
           "name": "No Show",
           "type": "checkbox",
           "color": "#95d2fc"
         },
         {
-          "name": "No Leave",
+          "type": "spacer",
+          "height": 5
+        },
+        {
+          "name": "Starting Side:",
+          "color": "#95d2fc",
+          "type": "radio",
+          "options": [
+            "Outpost Trench",
+            "Outpost Bump",
+            "Center",
+            "Depot Bump",
+            "Depot Trench"
+          ]          
+        },
+        {
+          "type": "spacer",
+          "height": 5
+        },
+        {
+          "name": "Does Not Move",
           "type": "checkbox",
           "color": "#95d2fc"
         },
@@ -46,7 +56,7 @@
         "type": "buttoncounter",
         "name": "Total Scored",
         "min": 0,
-        "max": 800,
+        "max": 1000,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
         "cycleGroup": "auton",
@@ -54,37 +64,21 @@
         },
         {
           "type": "spacer",
-          "height":8
-        },
-        {
-        "type": "buttoncounter",
-        "name": "Total Passed",
-        "min": 0,
-        "max": 800,
-        "allowKeyboardInput": true,
-        "cycleGroup": "auton",
-        "buttonSize": "13ch",
-        "color": "#95d2fc"
-        },
-        {
-          "type": "spacer",
-          "height":1
+          "height": 8
         },
         {
         "type": "buttoncounter",
         "name": "Total Missed",
         "min": 0,
-        "max": 800,
+        "max": 1000,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
         "cycleGroup": "auton",
-        "cycleRateExportName": "Auton-Cycle-Rate",
-        "cycleGroupPrimary": true,
         "color": "#95d2fc"
         },
         {
           "type": "spacer",
-          "height": 20
+          "height": 5
         },
         {
           "name": "Commited Foul",
@@ -96,13 +90,18 @@
           "height": 5
         },
         {
-          "name": "Climb:",
+          "name": "Passed?",
           "color": "#95d2fc",
-          "type": "radio",
-          "options": [
-            "Climbed",
-            "No Climb"
-          ]
+          "type": "checkbox"
+        },
+        {
+          "type": "spacer",
+          "height": 5
+        },
+        {
+          "name": "Climbed?",
+          "color": "#95d2fc",
+          "type": "checkbox"
         },
         {
           "type": "spacer",
@@ -139,7 +138,7 @@
         },
         {
           "type": "spacer",
-          "height":5
+          "height": 5
         },
         {
           "name": "Fuel Shots",
@@ -150,7 +149,7 @@
         "type": "buttoncounter",
         "name": "Total Scored",
         "min": 0,
-        "max": 800,
+        "max": 1000,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
         "cycleGroup": "teleop",
@@ -158,76 +157,45 @@
         },
         {
           "type": "spacer",
-          "height":8
-        },
-        {
-        "type": "buttoncounter",
-        "name": "Total Passed",
-        "min": 0,
-        "max": 800,
-        "allowKeyboardInput": true,
-        "cycleGroup": "teleop",
-        "buttonSize": "13ch",
-        "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height":1
+          "height": 8
         },
         {
         "type": "buttoncounter",
         "name": "Total Missed",
         "min": 0,
-        "max": 800,
+        "max": 1000,
         "allowKeyboardInput": true,
         "buttonSize": "13ch",
         "cycleGroup": "teleop",
-        "color": "#fc97a9",
-        "cycleGroupPrimary": true,
-        "cycleRateExportName": "Teleop-Cycle-Rate"
+        "color": "#fc97a9"
         },
         {
           "type": "spacer",
           "height": 5
         },
         {
-          "name": "Time Spent Defending:",
+          "name": "Passed?",
           "color": "#fc97a9",
-          "type": "percentslider",
-          "min": 0,
-          "max": 100,
-          "step": 5,
-          "default": 0
-        }, 
-        {
-          "type": "spacer",
-          "height":5
+          "type": "checkbox"
         },
         {
-          "name": "Time Spent Stuck:",
+          "name": "Defense?",
           "color": "#fc97a9",
-          "type": "percentslider",
-          "min": 0,
-          "max": 100,
-          "step": 5,
-          "default": 0
+          "type": "checkbox"
+        },
+        {
+          "name": "Stuck?",
+          "color": "#fc97a9",
+          "type": "checkbox"
+        },
+        {
+          "name": "Broke?",
+          "color": "#fc97a9",
+          "type": "checkbox"
         },
         {
           "type": "spacer",
-          "height":5
-        },
-        {
-          "name": "Time Spent Broke:",
-          "color": "#fc97a9",
-          "type": "percentslider",
-          "min": 0,
-          "max": 100,
-          "step": 5,
-          "default": 0
-        },
-        {
-          "type": "spacer",
-          "height":5
+          "height": 5
         },
         {
           "name": "Commited Foul",
@@ -235,13 +203,8 @@
           "color": "#fc97a9"
         },
         {
-          "type": "checkbox",
-          "name": "Dead Bot",   
-          "color": "#fc97a9"       
-        },
-        {
           "type": "spacer",
-          "height":5
+          "height": 5
         },
         {
           "name": "Climb:",
@@ -260,27 +223,8 @@
           "validationMessage": "Please select the robot's climb level!"
         },
         {
-          "name": "General Bot Info",
-          "type": "heading",
-          "align": "right"
-        },
-        {
           "name": "Went over Bump",
           "type": "checkbox",
-          "color": "#fc97a9"
-        },
-        {
-          "name": "Went under trench",
-          "type": "checkbox",
-          "color": "#fc97a9"
-        },
-        {
-          "type": "spacer",
-          "height":5
-        },
-        {
-          "name": "Average Cycle Rate",
-          "type": "number",
           "color": "#fc97a9"
         },
         {
@@ -288,9 +232,35 @@
           "height": 5
         },
         {
-          "name": "Robot Break type:",
-          "type": "text",
+          "name": "Went under trench",
+          "type": "checkbox",
           "color": "#fc97a9"
+        },
+        {
+          "name": "Shooter Speed:",
+          "color": "#fc97a9",
+          "type": "radio",
+          "options": [
+            "Tier 1 — >20 b/s",
+            "Tier 2 — 15 b/s",
+            "Tier 3 — 10 b/s",
+            "Tier 4 — 5 b/s",
+            "Tier 5 — 1 b/s",
+            "Tier 6 — <.5 b/s"
+          ],
+          "optionColors": [
+            "#4cff4c",
+            "#a8e64c",
+            "#e6e64c",
+            "#e6e64c",
+            "#e6a84c",
+            "#ff4c4c"
+          ],
+          "validation": {
+            "comparison": "greater",
+            "value": 1
+         },
+          "validationMessage": "Please select the robot's shooter speed!"
         },
         {
           "type": "spacer",

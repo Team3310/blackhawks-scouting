@@ -1,5 +1,5 @@
 <template>
-  <FormGroup v-if="info" :id="id" :label-type="data.noLabel ? LabelType.None : info.label" v-bind="mappedProps">
+  <FormGroup v-if="info" :id="id" :label-type="data.noLabel ? LabelType.None : info.label" v-bind="mappedProps" :disabled="isDisabledByNoShow || isDisabledByDoesNotMove">
     <div :style="{ width: 'max-content', border: border }">
       <component :is="info.class" :data="data" :current-id="id" ref="desc" />
     </div>
@@ -43,6 +43,14 @@ interface WidgetDesc {
 const widgets = useWidgetsStore();
 const desc = $ref<WidgetDesc>();
 
+const isNoShowWidget = props.data.name === "No Show";
+const isDisabledByNoShow = $computed(() => widgets.noShow && !isNoShowWidget);
+
+const pageIndex = props.id.split("-")[0];
+const isAutoPage = pageIndex === "0";
+const exemptFromDoesNotMove = ["No Show", "Starting Side:", "Does Not Move"].includes(props.data.name ?? "");
+const isDisabledByDoesNotMove = $computed(() => isAutoPage && widgets.doesNotMove && !exemptFromDoesNotMove);
+
 let border = $ref("none");
 
 // Table containing metadata for each widget type
@@ -72,6 +80,9 @@ const mappedProps = pick(props.data, ["name", "align", "row", "col", "rowspan", 
 
 // Validates the value of the widget.
 function validate() {
+  // Skip validation when the widget is disabled
+  if (isDisabledByNoShow || isDisabledByDoesNotMove) return true;
+
   // Some widgets don't export values (and thus don't have entries in the array)
   if (desc?.index === undefined) return true;
 

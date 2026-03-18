@@ -215,12 +215,24 @@ export const useWidgetsStore = defineStore("widgets", () => {
     }
   }
 
+  const noShow = $computed(() => {
+    const v = values.find(i => i.name === "NoShow");
+    return v ? Boolean(v.value) : false;
+  });
+
+  const doesNotMove = $computed(() => {
+    const v = values.find(i => i.name === "DoesNotMove");
+    return v ? Boolean(v.value) : false;
+  });
+
   return $$(
     {
       values,
       savedData,
       lastWidgetRowEnd,
       downloadLink,
+      noShow,
+      doesNotMove,
       getWidgetsAsCSV,
       toCSVString,
       makeDownloadLink,

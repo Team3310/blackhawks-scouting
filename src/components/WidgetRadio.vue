@@ -1,5 +1,5 @@
 <template>
-  <label v-for="[i, name] in data.options.entries()" :key="i">
+  <label v-for="[i, name] in data.options.entries()" :key="i" :style="data.optionColors?.[i] ? { color: data.optionColors[i] } : {}">
     <input type="radio" class="custom-radio" v-model="value" :name="currentId" :value="name" />{{ name }}<br />
   </label>
 </template>

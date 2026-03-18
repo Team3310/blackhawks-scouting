@@ -40,6 +40,7 @@ img {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 118%;
   background-color: var(--bg-color);
   margin: 0;
 }

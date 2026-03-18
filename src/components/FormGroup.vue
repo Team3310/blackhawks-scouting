@@ -1,9 +1,9 @@
 <template>
-  <div v-if="hasLabel" :style="{ gridArea: getGridArea(0), '-webkit-text-fill-color': labelColor }" class="label" v-show="show">
+  <div v-if="hasLabel" :style="{ gridArea: getGridArea(0), '-webkit-text-fill-color': labelColor }" :class="['label', { 'disabled-widget': disabled }]" v-show="show">
     <span v-if="labelType === LabelType.PlainText">{{ name }}</span>
     <label v-else :for="id">{{ name }}</label>
   </div>
-  <div :style="{ gridArea: getGridArea(hasLabel ? 1 : 0), justifySelf: align }" class="widget" v-show="show">
+  <div :style="{ gridArea: getGridArea(hasLabel ? 1 : 0), justifySelf: align }" :class="['widget', { 'disabled-widget': disabled }]" v-show="show">
     <slot></slot>
   </div>
 </template>
@@ -25,12 +25,14 @@ const props = withDefaults(defineProps<{
   colspan?: number,
   labelColspan?: number,
   show?: boolean,
-  color?: string
+  color?: string,
+  disabled?: boolean
 }>(), {
   rowspan: 1,
   colspan: 1,
   labelColspan: 1,
-  show: true
+  show: true,
+  disabled: false
 });
 
 const hasLabel = $computed(() => props.labelType != LabelType.None);
@@ -82,6 +84,11 @@ function calcGridPos(name: PosName): number[][] {
 
 .widget {
   white-space: nowrap;
+}
+
+.disabled-widget {
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 @media (pointer:none),
