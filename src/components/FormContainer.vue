@@ -1,7 +1,7 @@
 <template>
   <ErrorList :errors="validation.errors" />
   <FormTeamSelectionPage ref="pageList" :ref_for="true" v-if="!config.data.skipTeamSelection" />
-  <FormPage ref="pageList" v-for="[i, page] of config.data.pages.entries()" :key="i" :title="page.name">
+  <FormPage ref="pageList" v-for="[i, page] of config.data.pages.entries()" :key="i" :title="page.name" :bg-color="page.bgColor">
     <FormWidget v-for="[j, widget] of page.widgets.entries()" :key="j" :id="`${i}-${j}`" :data="widget" ref="widgetList" />
   </FormPage>
   <FormDownloadPage ref="pageList" :ref_for="true" />

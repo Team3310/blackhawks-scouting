@@ -138,6 +138,7 @@ export interface WidgetRadio {
   type?: "radio";
   options: string[];
   optionColors?: string[];
+  exportValues?: string[];
   default?: number;
   [k: string]: unknown;
 }

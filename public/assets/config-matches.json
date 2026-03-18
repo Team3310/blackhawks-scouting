@@ -1,10 +1,11 @@
 {
-  "heading": "Rebuilt — 2026 — Fort Worth — v2.0",
-  "logo": "logo.png",
+  "heading": "Rebuilt — 2026 — Fort Worth — v2.1",
+  "logo": "logoTransparent.png",
   "googleSheetsUrl": "https://script.google.com/macros/s/AKfycbwkF_Q-8uMLAoFZCzo8f5Rkx0LzR0B4cn9vMdb6Z8iiXDVFG_PS_qs1q7YgrfIIvN9WDA/exec",
   "pages": [
     {
       "name": "🤖 Autonomous 🤖",
+      "bgColor": "#2a2f3a",
       "widgets": [
         {
           "type": "picture",
@@ -128,6 +129,7 @@
     },
     {
       "name": "🎮 Teleop 🎮",
+      "bgColor": "#3a2a2a",
       "widgets": [
         {
           "type": "picture",
@@ -247,6 +249,14 @@
             "Tier 4 — 5 b/s",
             "Tier 5 — 1 b/s",
             "Tier 6 — <.5 b/s"
+          ],
+          "exportValues": [
+            "Tier 1",
+            "Tier 2",
+            "Tier 3",
+            "Tier 4",
+            "Tier 5",
+            "Tier 6"
           ],
           "optionColors": [
             "#4cff4c",

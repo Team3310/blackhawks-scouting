@@ -1,5 +1,5 @@
 <template>
-  <div v-show="show">
+  <div v-show="show" :style="bgColor ? { backgroundColor: bgColor, padding: '12px', borderRadius: '8px' } : {}">
     <h1 class="page-heading">{{ config.data.heading ?? "Scouting" }}</h1>
     <h3 v-if="teamDesc?.length > 0" class="page-heading">Match {{ matchNum }} — Team: {{ teamDesc }}</h3>
     <img v-if="config.data.logo" :src="absoluteLogoPath" alt="Cannot load logo file" class="center" />
@@ -14,7 +14,8 @@
 import { useConfigStore, useWidgetsStore } from "@/common/stores";
 
 const props = defineProps<{
-  title: string
+  title: string,
+  bgColor?: string
 }>();
 
 const config = useConfigStore();

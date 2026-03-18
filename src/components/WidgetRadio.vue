@@ -14,7 +14,15 @@ const props = defineProps<{
 }>();
 
 const value = $ref(props.data.default ?? 0);
-defineExpose({ index: useWidgetsStore().addWidgetValue(props.data, $$(value)) });
+
+// If exportValues is provided, map the selected option to its export value
+const exportValue = $computed(() => {
+  if (!props.data.exportValues || typeof value !== "string") return value;
+  const idx = props.data.options.indexOf(value);
+  return idx >= 0 && idx < props.data.exportValues.length ? props.data.exportValues[idx] : value;
+});
+
+defineExpose({ index: useWidgetsStore().addWidgetValue(props.data, $$(exportValue)) });
 </script>
 
 <style scoped>
