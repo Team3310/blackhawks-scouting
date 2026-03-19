@@ -1,6 +1,7 @@
 <template>
   <ErrorList :errors="validation.errors" />
   <FormTeamSelectionPage ref="pageList" :ref_for="true" v-if="!config.data.skipTeamSelection" />
+  <FormPitSelectionPage ref="pageList" :ref_for="true" v-if="config.data.pitSelection" />
   <FormPage ref="pageList" v-for="[i, page] of config.data.pages.entries()" :key="i" :title="page.name" :bg-color="page.bgColor">
     <FormWidget v-for="[j, widget] of page.widgets.entries()" :key="j" :id="`${i}-${j}`" :data="widget" ref="widgetList" />
   </FormPage>
@@ -13,6 +14,7 @@ import ErrorList from "./ErrorList.vue";
 import FormDownloadPage from "./FormDownloadPage.vue";
 import FormNavMenu from "./FormNavMenu.vue";
 import FormPage from "./FormPage.vue";
+import FormPitSelectionPage from "./FormPitSelectionPage.vue";
 import FormTeamSelectionPage from "./FormTeamSelectionPage.vue";
 import FormWidget from "./FormWidget.vue";
 import { useConfigStore, useWidgetsStore, useValidationStore } from "@/common/stores";

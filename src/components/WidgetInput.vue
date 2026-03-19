@@ -1,5 +1,5 @@
 <template>
-  <input :id="currentId" :type="data.type" v-model="value" />
+  <input :id="currentId" :type="data.type" v-model="value" :style="data.width ? { width: data.width + 'px' } : {}" />
 </template>
 
 <script setup lang="ts">

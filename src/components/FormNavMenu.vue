@@ -8,6 +8,9 @@
       @click="switchPage(i)">
       {{ unref(page).title }}
     </div>
+    <div id="home-button-container">
+      <RouterLink to="/">🏠 Home</RouterLink>
+    </div>
   </nav>
 </template>
 
@@ -16,6 +19,7 @@ import FormPage from "./FormPage.vue";
 import { range } from "lodash";
 import { unref, watchEffect } from "vue";
 import { useValidationStore } from "@/common/stores";
+import { RouterLink } from "vue-router";
 
 const props = defineProps<{
   pages: InstanceType<typeof FormPage>[]
@@ -91,5 +95,23 @@ button:disabled {
 
 .link:not(.active):hover {
   background-color: #3d3d3d;
+}
+
+#home-button-container {
+  display: flex;
+  justify-content: center;
+  padding: 6px 4px;
+  border-top: 1px solid #444;
+  margin-top: 4px;
+
+  a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 90%;
+
+    &:hover {
+      color: white;
+    }
+  }
 }
 </style>
