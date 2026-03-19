@@ -31,6 +31,7 @@ onErrorCaptured(obj => {
 * {
   color: var(--text-color);
   box-sizing: border-box;
+  touch-action: manipulation;
 }
 
 img {
