@@ -155,7 +155,8 @@ export const useWidgetsStore = defineStore("widgets", () => {
   // Returns the current form's widget data.
   function getWidgetsAsCSV(): SavedData {
     // Turns a value into a string. Arrays are space-delimited to minimize collision with the CSV format.
-    const stringify = (value: unknown) => Array.isArray(value) ? value.join(" ") : String(value);
+    // Booleans are exported as 1/0 instead of true/false.
+    const stringify = (value: unknown) => Array.isArray(value) ? value.join(" ") : typeof value === "boolean" ? (value ? "1" : "0") : String(value);
 
     // Get header and record from the data (`name` is already a string so it does not need stringification)
     // Then add the current timestamp as the last field in the record
