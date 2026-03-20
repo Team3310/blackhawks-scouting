@@ -17,6 +17,7 @@
       "type": "object",
       "properties": {
         "name": { "type": "string" },
+        "bgColor": { "type": "string" },
         "widgets": {
           "type": "array",
           "items": { "$ref": "#/$defs/widget" }

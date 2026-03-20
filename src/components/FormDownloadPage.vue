@@ -38,7 +38,7 @@
   </FormPage>
   <dialog ref="qrContainer">
     <div id="qr-dialog-contents">
-      <button id="qr-dialog-close" @click="qrContainer?.close">Close</button>
+      <button id="qr-dialog-close" @click="() => qrContainer?.close()">Close</button>
       <div>
         <input type="checkbox" v-model="excludeHeaders" id="exclude-headers" />
         <label for="exclude-headers">Include headers in code</label>
@@ -76,7 +76,7 @@ function openQRDialog() {
 }
 
 async function sendToGoogleSheets() {
-  const url = config.data.googleSheetsUrl;
+  const url = config.data.googleSheetsUrl ? String(config.data.googleSheetsUrl) : undefined;
   if (!url) return;
 
   const csv = widgets.getWidgetsAsCSV();

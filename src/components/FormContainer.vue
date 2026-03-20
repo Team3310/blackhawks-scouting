@@ -2,7 +2,7 @@
   <ErrorList :errors="validation.errors" />
   <FormTeamSelectionPage ref="pageList" :ref_for="true" v-if="!config.data.skipTeamSelection" />
   <FormPitSelectionPage ref="pageList" :ref_for="true" v-if="config.data.pitSelection" />
-  <FormPage ref="pageList" v-for="[i, page] of config.data.pages.entries()" :key="i" :title="page.name" :bg-color="page.bgColor">
+  <FormPage ref="pageList" v-for="[i, page] of config.data.pages.entries()" :key="i" :title="page.name" :bg-color="page.bgColor ? String(page.bgColor) : undefined">
     <FormWidget v-for="[j, widget] of page.widgets.entries()" :key="j" :id="`${i}-${j}`" :data="widget" ref="widgetList" />
   </FormPage>
   <FormDownloadPage ref="pageList" :ref_for="true" />

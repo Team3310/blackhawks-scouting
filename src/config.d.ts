@@ -66,6 +66,7 @@ export type Widget1 =
 export interface ConfigSchema {
   heading?: string;
   logo?: string;
+  googleSheetsUrl?: string;
   skipTeamSelection?: boolean;
   forceQualifiers?: boolean;
   pages: Page[];
@@ -73,6 +74,7 @@ export interface ConfigSchema {
 }
 export interface Page {
   name: string;
+  bgColor?: string;
   widgets: Widget[];
   [k: string]: unknown;
 }
