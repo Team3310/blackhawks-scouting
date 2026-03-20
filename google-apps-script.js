@@ -13,7 +13,10 @@ const DATA_START_ROW = 4;
 const RAW_COL = 1; // A
 
 function doPost(e) {
+  const lock = LockService.getScriptLock();
   try {
+    lock.waitLock(10000); // wait up to 10s for other writes to finish
+
     const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = spreadsheet.getSheetByName(SHEET_NAME);
     if (!sheet) {
@@ -40,6 +43,7 @@ function doPost(e) {
     }
 
     sheet.getRange(writeRow, RAW_COL).setValue(rawString);
+    SpreadsheetApp.flush(); // ensure the write is committed before releasing the lock
 
     return ContentService
       .createTextOutput(JSON.stringify({ status: "ok", row: writeRow }))
@@ -48,5 +52,7 @@ function doPost(e) {
     return ContentService
       .createTextOutput(JSON.stringify({ status: "error", message: String(error) }))
       .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
   }
 }
