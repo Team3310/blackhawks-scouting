@@ -1,5 +1,5 @@
 <template>
-  <span class="custom-label">{{ data.name }}</span>
+  <p class="custom-label">{{ data.name }}</p>
 </template>
 
 <script setup lang="ts">
@@ -13,8 +13,8 @@ defineProps<{
 
 <style scoped>
 .custom-label {
-  font-size: 1.1em; /* Increase font size */
-  /*font-weight: bold;  Optional: Make the text bold */
-  /*color: #333; Optional: Change text color */
+  font-size: .9em;
+  white-space: normal;
+  margin: 0;
 }
 </style>

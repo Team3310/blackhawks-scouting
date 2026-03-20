@@ -76,7 +76,12 @@ const info = {
 }[props.data.type];
 
 // Props to pass from the widget data to the sub-components
-const mappedProps = pick(props.data, ["name", "align", "row", "col", "rowspan", "colspan", "labelColspan", "color"]);
+// Label widgets default to colspan 2 so they span both grid columns
+// without widening just the label column and shifting inputs right.
+const mappedProps = {
+  ...pick(props.data, ["name", "align", "row", "col", "rowspan", "colspan", "labelColspan", "color"]),
+  ...(props.data.type === "label" && props.data.colspan === undefined ? { colspan: 2 } : {})
+};
 
 // Validates the value of the widget.
 function validate() {

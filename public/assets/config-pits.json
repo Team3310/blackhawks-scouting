@@ -1,5 +1,5 @@
 {
-  "heading": "Rebuilt — Pit — Fort Worth — v2.5",
+  "heading": "Rebuilt — Pit — Fort Worth — v2.6",
   "logo": "logoTransparent.png",
   "googleSheetsUrl": "https://script.google.com/macros/s/AKfycbwkF_Q-8uMLAoFZCzo8f5Rkx0LzR0B4cn9vMdb6Z8iiXDVFG_PS_qs1q7YgrfIIvN9WDA/exec",
   "skipTeamSelection": true,
@@ -45,8 +45,20 @@
           "width": 60
         },
         {
+          "type": "spacer",
+          "height": 10
+        },
+        {
+          "name": "Take 2 photos of the robot; one from the an angle to the front",
+          "type": "label"
+        },
+        {
+          "name": "and one from the top. You will share these photos later.",
+          "type": "label"
+        },
+        {
           "name": "Comments",
-          "type": "textarea"
+          "type": "textarea" 
         }
       ]
     }
