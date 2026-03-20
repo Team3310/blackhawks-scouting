@@ -1,18 +1,13 @@
-import { SavedData } from "./stores";
-
 /**
- * Sends the current form data to a Google Sheet via a deployed Google Apps Script web app.
+ * Sends the raw QR/CSV string to a Google Sheet via a deployed Google Apps Script web app.
  * The script URL should be the deployed web app URL from Google Apps Script.
  */
 export async function submitToGoogleSheets(
   scriptUrl: string,
-  data: SavedData
+  rawString: string
 ): Promise<boolean> {
   try {
-    const payload = {
-      header: data.header,
-      values: data.values[0] // Send the single current record
-    };
+    const payload = { raw: rawString };
 
     const resp = await fetch(scriptUrl, {
       method: "POST",

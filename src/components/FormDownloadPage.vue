@@ -91,7 +91,8 @@ async function sendToGoogleSheets() {
   pendingSendSummary = `Match ${matchNumber || "?"} / Team ${teamNumber || "?"}${scoutName ? ` / ${scoutName}` : ""}`;
 
   sheetStatus = 'sending';
-  const ok = await submitToGoogleSheets(url, csv);
+  const rawString = widgets.toCSVString(csv, true);
+  const ok = await submitToGoogleSheets(url, rawString);
   sheetStatus = ok ? 'sent' : 'error';
   if (ok) lastSentSummary = pendingSendSummary;
 }

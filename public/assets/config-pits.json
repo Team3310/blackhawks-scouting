@@ -1,5 +1,5 @@
 {
-  "heading": "Rebuilt — Pit — Fort Worth — v2.6",
+  "heading": "Rebuilt — Pit — Fort Worth — v2.7",
   "logo": "logoTransparent.png",
   "googleSheetsUrl": "https://script.google.com/macros/s/AKfycbwkF_Q-8uMLAoFZCzo8f5Rkx0LzR0B4cn9vMdb6Z8iiXDVFG_PS_qs1q7YgrfIIvN9WDA/exec",
   "skipTeamSelection": true,
@@ -21,7 +21,7 @@
         {
           "name": "Battery Count",
           "type": "number",
-          "width": 38
+          "width": 60
         },
         {
           "name": "Robot Archetype",
@@ -37,7 +37,7 @@
         {
           "name": "Human Player Count",
           "type": "number",
-          "width": 38
+          "width": 60
         },
         {
           "name": "Hopper Capacity",
@@ -49,12 +49,19 @@
           "height": 10
         },
         {
-          "name": "Take 2 photos of the robot; one from the an angle to the front",
-          "type": "label"
+          "name": "Take a picture of the robot",
+          "type": "label",
+          "align": "center"
         },
         {
-          "name": "and one from the top. You will share these photos later.",
-          "type": "label"
+          "name": "from the front at an angle.",
+          "type": "label",
+          "align": "center"
+        },
+        {
+          "name": "You will share these photos later",
+          "type": "label",
+          "align": "center"
         },
         {
           "name": "Comments",
